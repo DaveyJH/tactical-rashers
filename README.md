@@ -26,7 +26,7 @@
       - [Returning User](#returning-user)
     - [Initial Concept](#initial-concept)
       - [Wireframes](#wireframes)
-      - [Colour Scheme](#colour-scheme)
+      - [Color Scheme](#color-scheme)
       - [Typography](#typography)
       - [Imagery](#imagery)
   - [Features](#features)
@@ -136,13 +136,19 @@ game board due to time constraints, so the game will be played via the means of
 descriptive moves being posted by each player.
 
 #### Wireframes
-<!-- wireframes here -->
-<!-- *See [here](./readme-content/wireframes.md#tablet) for other device types* -->
+
+Wireframes have been created as an initial visual concept using
+[Balsamiq](https://balsamiq.com/). Please see
+[`./docs/wireframes.md`](./docs/wireframes.md) for more pages and extra device
+sizes. The `.bmpr` file is available for editing from within this repository.
+
+![mobile wireframe example](./docs/assets/images/mobile-example.png)
+
 ***
 
-#### Colour Scheme
+#### Color Scheme
 
-<!-- colour scheme, remember to contrast check!!! -->
+<!-- color scheme, remember to contrast check!!! -->
 ***
 
 #### Typography
@@ -152,7 +158,10 @@ descriptive moves being posted by each player.
 
 #### Imagery
 
-<!-- imagery -->
+The style of images for logos and default games are intended to provide a clean
+style with little distraction from the purpose of the site. Credits for the
+images can be found in the [Media](#media) section at the bottom of this doc.
+
 ***
 
 ## Features
