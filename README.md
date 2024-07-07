@@ -88,6 +88,8 @@ seamlessly with a DRF back end.
 Some example user stories that will affect the design. Please consult the
 [GitHub project board](https://github.com/users/DaveyJH/projects/8/views/4) for
 a full list of user concerns written in the form of GitHub issues.
+Alternatively, a
+[status graph can be viewed here](https://github.com/users/DaveyJH/projects/8/insights/6).
 
 Below is a non-exhaustive list of some of the user stories. Some of these are
 key user stories that must be achieved for an MVP to be considered complete:
