@@ -1,9 +1,14 @@
 # Name of project
 <!-- ![Multiple Device Demo](./readme-content/images/multi-device.png) -->
 ## Live Site
-<!-- [nameOfSite](siteURL)) -->
+
+<!-- TODO add live URL -->
+[Tactical Rashers](#)
+
 ## Repository
-<!-- [repoLocation](repoLocation) -->
+
+[tactical-rashers](https://github.com/DaveyJH/tactical-rashers)
+
 ***
 
 ## Table of Contents
@@ -14,9 +19,11 @@
   - [Table of Contents](#table-of-contents)
   - [Objective](#objective)
   - [Brief](#brief)
-    - [nameOfSite](#nameofsite)
-  - [UX &#8722; User Experience Design](#ux--user-experience-design)
+    - [Tactical Rashers](#tactical-rashers)
+  - [UX − User Experience Design](#ux--user-experience-design)
     - [User Requirements](#user-requirements)
+      - [First Time User](#first-time-user)
+      - [Returning User](#returning-user)
     - [Initial Concept](#initial-concept)
       - [Wireframes](#wireframes)
       - [Colour Scheme](#colour-scheme)
@@ -42,30 +49,90 @@
 
 ## Objective
 
-Some text here
-<!-- objective description here -->
-***The needs within this project are not genuine and are made purely for the purpose of completing my Code Institute project***
+This site is to represent capabilities with React. It will connect with a DRF
+back end, allowing full CRUD functionality with well handled user interactions.
+
+The assessment checklist is available to view in the
+[`docs/` directory](https://github.com/DaveyJH/tactical-rashers/tree/main/docs)
+of the project repository.
+
+***The needs within this project are not genuine and are made purely for the
+purpose of completing my Code Institute project***
 
 ***
 
 ## Brief
 
-### nameOfSite
-<!-- brief description of goals and requirements -->
+### Tactical Rashers
+
+Tactical Rashers : a backgammon players' site.  
+
+The site should allow users to play backgammon in a manner similar to
+["Chess by post"](https://en.wikipedia.org/wiki/Correspondence_chess). Users
+will be able to play private games, with dice rolls handled via the app, and
+comment with their intended moves. They should be able to update the main image
+of the game to the latest state of a board and should be able to declare a
+winner.
+
+Full CRUD functionality should be available to allow users to interact
+appropriately with the various aspects of the finished application. This repo
+intends to provide a well-presented front-end React application that interfaces
+seamlessly with a DRF back end.
+
 ***
 
 ## UX &#8722; User Experience Design
 
 ### User Requirements
 
-Some example user stories which will affect the design
+Some example user stories that will affect the design. Please consult the
+[GitHub project board](https://github.com/users/DaveyJH/projects/8/views/4) for
+a full list of user concerns written in the form of GitHub issues.
 
-<!-- user stories here -->
+Below is a non-exhaustive list of some of the user stories. Some of these are
+key user stories that must be achieved for an MVP to be considered complete:
+
+#### First Time User
+
+> *"As a **potential player**, I would like to be able to **read the rules of
+> the game** so that I **know how to play**"*
+>
+> *"As a **potential user**, I would like to be **able to create a profile** so
+> that I **am able to play**"*
+
+#### Returning User
+
+> *"As a **returning user**, I would like to **quickly determine whether I am
+> logged in** so that I can **log in / out as needed**"*
+>
+> *"As a **returning user**, I would like to **log in to my account** so that I
+> can **interact with the features of the site**"*
+>
+> *"As a **returning user**, I would like to **view my currently active games**
+> so that I can **track the progress of, and make new moves on, my games in
+> play**"*
+>
+> *"As a **returning user**, I would like **to play a game with another
+> player** so that I can **enjoy the game of backgammon**"*
+>
+> *"As a **returning user**, I would like **to comment on completed games** so
+> that I can **interact with other users of the site**"*
+
 ***
 
 ### Initial Concept
 
-<!-- concept here -->
+The front-end application should provide a good UI/UX for users of the site. It
+should implement the functionality of the DRF back end in a user-friendly and
+error-free manner.
+
+As a lover of board games, the application may, in time, develop into a much
+broader database and front end that could allow for various types of social
+games to be played remotely. For this iteration, a proof of concept and MVP is
+to implement a playable backgammon application. There will be no interactive
+game board due to time constraints, so the game will be played via the means of
+descriptive moves being posted by each player.
+
 #### Wireframes
 <!-- wireframes here -->
 <!-- *See [here](./readme-content/wireframes.md#tablet) for other device types* -->
