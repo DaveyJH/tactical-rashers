@@ -282,7 +282,7 @@ The site is now live and operational -->
 <!-- - the a comes from b -->
 <!-- - the c comes from d -->
 ### Media
-<!-- - the a comes from b -->
+<!-- - the favicon comes from https://www.flaticon.com/free-icon/backgammon_7399635?related_id=7399513&origin=search -->
 <!-- - the c comes from d -->
 ### Acknowledgements
 <!-- - acknowledge a, found at [b](bURL), for c -->
