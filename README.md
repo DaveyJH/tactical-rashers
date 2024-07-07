@@ -28,6 +28,8 @@
       - [Wireframes](#wireframes)
       - [Color Scheme](#color-scheme)
       - [Typography](#typography)
+        - [Title](#title)
+        - [Main](#main)
       - [Imagery](#imagery)
   - [Features](#features)
     - [Existing Features](#existing-features)
@@ -148,17 +150,42 @@ sizes. The `.bmpr` file is available for editing from within this repository.
 
 #### Color Scheme
 
-<!-- color scheme, remember to contrast check!!! -->
+A color scheme derived from a fairly classic set of backgammon board colors has been chosen for the site.
+
+![color scheme](./docs/assets/images/color-scheme.png)
+
+The contrast of each color has been compared using
+[my own contrast checker site](https://daveyjh.github.io/Color-Contrast-Checker/). The results are shown below.
+
+![color contrast table](./docs/assets/images/color-contrasts.png)
+
 ***
 
 #### Typography
 
-<!-- typography -->
+As a key aspect of the app will be written move descriptions, the font chosen is
+intended to be clear and reduce cognitive overload.
+[Google Fonts](https://fonts.google.com/)' monospace `Inconsolata` has been used
+throughout the application, with the only variation being the title in the
+header. The font used there is a little more striking as it has been deemed that
+site users will not be distracted by this. The font used for the title is
+`Archivo Black`.
+
+##### Title
+
+![archivo black font](./docs/assets/images/archivo-black.png)
+Archivo Black
+
+##### Main
+
+![inconsolata](./docs/assets/images/inconsolata.png)
+Inconsolata
+
 ***
 
 #### Imagery
 
-The style of images for logos and default games are intended to provide a clean
+The style of images for logos and default games is intended to provide a clean
 style with little distraction from the purpose of the site. Credits for the
 images can be found in the [Media](#media) section at the bottom of this doc.
 
