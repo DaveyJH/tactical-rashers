@@ -2,7 +2,6 @@
 <!-- ![Multiple Device Demo](./readme-content/images/multi-device.png) -->
 ## Live Site
 
-<!-- TODO add live URL -->
 [Tactical Rashers](https://tactical-rashers-a603b7e7b041.herokuapp.com/)
 
 ## Repository
@@ -44,7 +43,7 @@
   - [Credits](#credits)
     - [Content](#content)
     - [Media](#media)
-    - [Acknowledgements](#acknowledgements)
+    - [Acknowledgments](#acknowledgments)
     - [Personal Development](#personal-development)
 
 ***
@@ -263,9 +262,13 @@ look at daisy's testing documentation and [webinar](https://us02web.zoom.us/rec/
 ### Resolved
 
 <!-- resolved bugs -->
-<!-- 1. bugOne
+<!-- 1. overriding bootstrap styles
 
-![bugOneImg](bugOneImgURL)
+install sass and create override.scss file linked in index.js
+
+https://create-react-app.dev/docs/adding-bootstrap/#using-a-custom-theme
+
+![bootstrap styling](./docs/assets/images/bootstrap-style.png)
 
 *Commit - **[sha](commit link with highlighted lines)** - explanation of fix* -->
 ***
@@ -320,7 +323,7 @@ The site is now live and operational -->
 ### Media
 <!-- - the favicon comes from https://www.flaticon.com/free-icon/backgammon_7399635?related_id=7399513&origin=search -->
 <!-- - the c comes from d -->
-### Acknowledgements
+### Acknowledgments
 <!-- - acknowledge a, found at [b](bURL), for c -->
 <!-- - acknowledge d, found at [e](eURL), for f -->
 ***
