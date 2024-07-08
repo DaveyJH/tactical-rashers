@@ -1,0 +1,48 @@
+/* bootstrap overrides */
+
+
+$white: #fafafa;
+$black: #1b1b1b;
+$grey: #4a4a4f;
+$brown-grey: #4b4237;
+$brown: #63442d;
+$brown-50: #63442d80;
+$brown-25: #63442d40;
+$dusty-brown: #a89683;
+$cream: #ede7d9;
+$off-white: #edebe9;
+$highlight-1: #e85c66;
+$highlight-2: #cb4f59;
+$main-font: "Inconsolata", sans-serif;
+$alternate-font: "Archivo Black", sans-serif;
+
+$primary: $brown;
+$secondary: $off-white;
+$gray-dark: $grey;
+$dark: $black;
+
+$body-color: $black;
+$link-color: $brown-grey;
+
+// navbar
+$navbar-light-brand-color: $black;
+$navbar-light-color: $brown-grey;
+$navbar-light-hover-color: $black;
+$navbar-light-active-color: $brown-grey;
+$navbar-light-toggler-border-color: $brown-25;
+
+// dropdown
+$dropdown-color: $brown-grey;
+$dropdown-link-color: $brown-grey;
+$dropdown-divider-bg: $brown-25;
+$dropdown-bg: $off-white;
+$dropdown-border-color: $brown-25;
+$dropdown-link-active-color: $black;
+$dropdown-link-active-bg: $cream;
+$dropdown-link-hover-color: $black;
+$dropdown-link-hover-bg: $cream;
+$dropdown-min-width: 5rem;
+$dropdown-item-padding-x: .7rem;
+
+
+@import "~bootstrap/scss/bootstrap";
