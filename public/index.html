@@ -4,11 +4,8 @@
     <meta charset="utf-8" />
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <meta
-      name="description"
-      content="Web site created using create-react-app"
-    />
+    <meta name="theme-color" content="#edebe9" />
+    <meta name="description" content="A place to play backgammon with other players around the world!" />
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
     <!--
       manifest.json provides metadata used when your web app is installed on a
@@ -24,10 +21,39 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-    <title>React App</title>
+    <link
+      href="https://fonts.googleapis.com/?family=Archivo+Black&family=Inconsolata:wght@200..900&display=swap'"
+      rel="stylesheet" />
+    <script src="https://kit.fontawesome.com/c65630dc42.js" crossorigin="anonymous"></script>
+    <title>Tactical Rashers</title>
+    <style>
+      noscript p {
+        font-family: "Inconsolata", 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        margin: 1.5rem auto;
+        max-width: 30rem;
+        font-size: 2.2rem;
+        font-weight: bold;
+        color: #3e363f;
+        text-align: center;
+      }
+      noscript img {
+        height: 80vw;
+        max-height: 20rem;
+        position: relative;
+        left: 50vw;
+        transform: translateX(-50%);
+      }
+    </style>
   </head>
   <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <noscript>
+      <p>
+        Oh dear! JavaScript is required for this site...
+        <br />
+        and yours isn't enabled!
+      </p>
+      <img src="./js-sad.webp" alt="a sad face" />
+    </noscript>
     <div id="root"></div>
     <!--
       This HTML file is a template.
