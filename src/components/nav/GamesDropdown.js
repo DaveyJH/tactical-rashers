@@ -1,8 +1,9 @@
 import React from "react";
+
 import { NavLink } from "react-router-dom/cjs/react-router-dom.min";
 import NavDropdown from "react-bootstrap/NavDropdown";
 
-import styles from "../assets/css/NavBarLink.module.css";
+import styles from "../../assets/css/nav/NavBarLink.module.css";
 
 const GamesDropdown = () => {
   return (

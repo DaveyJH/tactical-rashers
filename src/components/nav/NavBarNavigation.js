@@ -1,6 +1,6 @@
 import React from "react";
 
-import { useCurrentUser } from "../contexts/CurrentUserContext";
+import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
 import Container from "react-bootstrap/Container";
 import Navbar from "react-bootstrap/Navbar";
@@ -11,7 +11,7 @@ import Row from "react-bootstrap/Row";
 import GamesDropdown from "./GamesDropdown";
 import NavBarLink from "./NavBarLink";
 
-import styles from "../assets/css/NavBar.module.css";
+import styles from "../../assets/css/nav/NavBar.module.css";
 
 const NavBarNavigation = () => {
   const currentUser = useCurrentUser();

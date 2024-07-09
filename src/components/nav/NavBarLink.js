@@ -2,10 +2,10 @@ import axios from "axios";
 import React from "react";
 import { NavLink } from "react-router-dom/cjs/react-router-dom.min";
 
-import { useSetCurrentUser } from "../contexts/CurrentUserContext";
-import { removeTokenTimestamp } from "../utils/utils";
+import { useSetCurrentUser } from "../../contexts/CurrentUserContext";
+import { removeTokenTimestamp } from "../../utils/utils";
 
-import styles from "../assets/css/NavBarLink.module.css";
+import styles from "../../assets/css/nav/NavBarLink.module.css";
 
 const NavBarLink = ({ to, exact, border, textContent, active, signOut }) => {
   const setCurrentUser = useSetCurrentUser();

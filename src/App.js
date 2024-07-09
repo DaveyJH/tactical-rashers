@@ -1,7 +1,7 @@
 import { Route, Switch } from "react-router-dom/cjs/react-router-dom.min";
 
 import Container from "react-bootstrap/Container";
-import NavBar from "./components/NavBar";
+import NavBar from "./components/nav/NavBar";
 
 import "./api/axiosDefaults";
 

@@ -1,12 +1,13 @@
 import React from "react";
 
 import Navbar from "react-bootstrap/Navbar";
+import { NavLink } from "react-router-dom/cjs/react-router-dom.min";
 
-import styles from "../assets/css/NavBarLogo.module.css";
-import Logo from "../assets/images/logo512.png";
+import styles from "../../assets/css/nav/NavBarLogo.module.css";
+import Logo from "../../assets/images/logo512.png";
 
 const NavBarLogo = () => (
-  <Navbar.Brand to="/" className={styles.Title}>
+  <Navbar.Brand as={NavLink} to="/" className={styles.Title}>
     <img src={Logo} alt="logo" height="45" className={styles.Logo} />
     <div className={styles.SplitLevel}>
       <span>TACTICAL</span>

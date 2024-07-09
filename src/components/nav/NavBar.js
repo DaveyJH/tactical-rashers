@@ -6,7 +6,7 @@ import Navbar from "react-bootstrap/Navbar";
 import NavBarLogo from "./NavBarLogo";
 import NavBarNavigation from "./NavBarNavigation";
 
-import styles from "../assets/css/NavBar.module.css";
+import styles from "../../assets/css/nav/NavBar.module.css";
 
 const NavBar = () => {
 
