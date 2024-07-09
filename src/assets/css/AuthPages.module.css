@@ -1,0 +1,31 @@
+button.Button {
+  width: 20ch;
+  border-radius: 1em;
+}
+
+.Row {
+  min-height: 80vh;
+}
+
+.Header {
+  background-color: #63442d;
+  color: #edebe9;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  border-radius: 0.25rem;
+}
+
+.Link {
+  text-decoration: none;
+  text-align: center;
+  display: block;
+  margin: auto;
+}
+
+.Link span {
+  color: #63442d;
+}
+
+.Container {
+  padding: 30px 10px;
+}

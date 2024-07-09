@@ -3,8 +3,11 @@ import { Route, Switch } from "react-router-dom/cjs/react-router-dom.min";
 import Container from "react-bootstrap/Container";
 import NavBar from "./components/NavBar";
 
+import "./api/axiosDefaults";
+
 import Logo from "./assets/images/logo512.png";
 import styles from "./assets/css/App.module.css";
+import SignUp from "./pages/auth/SignUp";
 
 function App() {
   return (
@@ -33,7 +36,7 @@ function App() {
           <Route path="/games/:id" render={() => <h1>Game details</h1>} />
           <Route path="/profiles/:id" render={() => <h1>Player details</h1>} />
           <Route path="/sign-in" render={() => <h1>Login</h1>} />
-          <Route path="/sign-up" render={() => <h1>Login</h1>} />
+          <Route path="/sign-up" render={() => <SignUp />} />
           <Route render={() => <h1>404: page not found</h1>} />
         </Switch>
       </Container>

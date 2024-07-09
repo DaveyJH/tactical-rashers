@@ -70,10 +70,10 @@ const NavBar = () => {
                   <NavLink to="/rules" className={`${styles.NavLink} font-weight-bold`} activeClassName={styles.Active}>
                     Rules
                   </NavLink>
-                  <NavLink to="/sign-out" className={`${styles.NavLink} font-weight-bold`}>
+                  {/* <NavLink to="/sign-out" className={`${styles.NavLink} font-weight-bold`}>
                     Sign out
-                  </NavLink>
-                  {/* <NavLink
+                  </NavLink> */}
+                  <NavLink
                     to="/sign-in"
                     className={`${styles.NavLink} font-weight-bold`}
                     activeClassName={styles.Active}>
@@ -84,7 +84,7 @@ const NavBar = () => {
                     className={`${styles.NavLink} font-weight-bold`}
                     activeClassName={styles.Active}>
                     Sign up
-                  </NavLink> */}
+                  </NavLink>
                 </Nav>
               </Navbar.Collapse>
             </Col>
