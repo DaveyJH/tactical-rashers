@@ -1,3 +1,4 @@
+import axios from "axios";
 import React from "react";
 import { NavLink } from "react-router-dom/cjs/react-router-dom.min";
 
@@ -5,13 +6,28 @@ import Container from "react-bootstrap/Container";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import NavDropdown from "react-bootstrap/NavDropdown";
-
-import { Col, Row } from "react-bootstrap";
+import Col from "react-bootstrap/Col";
+import Row from "react-bootstrap/Row";
 
 import Logo from "../assets/images/logo512.png";
 import styles from "../assets/css/NavBar.module.css";
+import { useCurrentUser, useSetCurrentUser } from "../contexts/CurrentUserContext";
+import { removeTokenTimestamp } from "../utils/utils";
 
 const NavBar = () => {
+  const currentUser = useCurrentUser();
+  const setCurrentUser = useSetCurrentUser();
+
+  const handleSignOut = async () => {
+    try {
+      await axios.post("/dj-rest-auth/logout/");
+      setCurrentUser(null);
+      removeTokenTimestamp();
+    } catch (err) {
+      // console.log(err);
+    }
+  };
+
   return (
     <Navbar expand="md" fixed="top" bg="secondary" className={styles.NavBar}>
       <Container>
@@ -73,9 +89,12 @@ const NavBar = () => {
                     activeClassName={styles.Active}>
                     Rules
                   </NavLink>
-                  {/* <NavLink to="/sign-out" className={`${styles.NavLink} ${styles.NavBorder} font-weight-bold text-md-center`}>
+                  <NavLink
+                    to="/"
+                    className={`${styles.NavLink} ${styles.NavBorder} font-weight-bold text-md-center`}
+                    onClick={handleSignOut}>
                     Sign out
-                  </NavLink> */}
+                  </NavLink>
                   <NavLink
                     to="/sign-in"
                     className={`${styles.NavLink} ${styles.NavBorder} font-weight-bold text-md-center`}
