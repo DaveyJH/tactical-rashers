@@ -50,3 +50,9 @@
 .Toggle {
   max-height: 2.5rem;
 }
+
+@media screen and (min-width: 768px) {
+  .NavBorder {
+    border-right: solid 1px #63442d40;
+  }
+}

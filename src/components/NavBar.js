@@ -29,15 +29,15 @@ const NavBar = () => {
           <Row>
             <Col>
               <Navbar.Collapse id="basic-navbar-nav" className="text-right">
-                <Nav className="me-auto">
+                <Nav className="me-auto align-items-md-center">
                   <NavLink
                     exact
                     to="/"
-                    className={`${styles.NavLink} font-weight-bold`}
+                    className={`${styles.NavLink} ${styles.NavBorder} font-weight-bold text-md-center`}
                     activeClassName={styles.Active}>
                     Game feed
                   </NavLink>
-                  <NavDropdown title="Games" id="games-nav-dropdown" className="font-weight-bold">
+                  <NavDropdown title="Games" id="games-nav-dropdown" className={`align-middle font-weight-bold ${styles.NavBorder}`}>
                     <NavDropdown.Item
                       as={NavLink}
                       to="/games/create"
@@ -63,25 +63,28 @@ const NavBar = () => {
                   </NavDropdown>
                   <NavLink
                     to="/profile"
-                    className={`${styles.NavLink} font-weight-bold`}
+                    className={`${styles.NavLink} ${styles.NavBorder} font-weight-bold text-md-center`}
                     activeClassName={styles.Active}>
                     Profile
                   </NavLink>
-                  <NavLink to="/rules" className={`${styles.NavLink} font-weight-bold`} activeClassName={styles.Active}>
+                  <NavLink
+                    to="/rules"
+                    className={`${styles.NavLink} ${styles.NavBorder} font-weight-bold text-md-center`}
+                    activeClassName={styles.Active}>
                     Rules
                   </NavLink>
-                  {/* <NavLink to="/sign-out" className={`${styles.NavLink} font-weight-bold`}>
+                  {/* <NavLink to="/sign-out" className={`${styles.NavLink} ${styles.NavBorder} font-weight-bold text-md-center`}>
                     Sign out
                   </NavLink> */}
                   <NavLink
                     to="/sign-in"
-                    className={`${styles.NavLink} font-weight-bold`}
+                    className={`${styles.NavLink} ${styles.NavBorder} font-weight-bold text-md-center`}
                     activeClassName={styles.Active}>
                     Sign in
                   </NavLink>
                   <NavLink
                     to="/sign-up"
-                    className={`${styles.NavLink} font-weight-bold`}
+                    className={`${styles.NavLink} font-weight-bold text-md-center`}
                     activeClassName={styles.Active}>
                     Sign up
                   </NavLink>

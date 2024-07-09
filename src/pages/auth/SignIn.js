@@ -3,6 +3,9 @@ import axios from "axios";
 import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
+import { useSetCurrentUser } from "../../contexts/CurrentUserContext";
+import { setTokenTimestamp } from "../../utils/utils";
+
 import styles from "../../assets/css/AuthPages.module.css";
 
 import Form from "react-bootstrap/Form";
@@ -14,30 +17,32 @@ import Container from "react-bootstrap/Container";
 
 import BackgammonImage from "../../components/BackgammonImage";
 
-const SignUp = () => {
+const SignIn = () => {
   // todo add redirect for logged in users
+  const setCurrentUser = useSetCurrentUser();
+
   const [errors, setErrors] = useState({});
-  const [signUpData, setSignUpData] = useState({
+  const [signInData, setSignInData] = useState({
     username: "",
-    password1: "",
-    password2: "",
+    password: "",
   });
-  const { username, password1, password2 } = signUpData;
+  const { username, password } = signInData;
   const history = useHistory();
 
   const handleChange = (e) => {
-    setSignUpData({
-      ...signUpData,
+    setSignInData({
+      ...signInData,
       [e.target.name]: e.target.value,
     });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(signUpData)
     try {
-      await axios.post("/dj-rest-auth/registration/", signUpData);
-      history.push("/sign-in");
+      const { data } = await axios.post("/dj-rest-auth/login/", signInData);
+      setCurrentUser(data.user);
+      setTokenTimestamp(data);
+      history.goBack();
     } catch (err) {
       setErrors(err.response?.data);
     }
@@ -47,7 +52,7 @@ const SignUp = () => {
     <Row className={`${styles.Row} align-items-center`}>
       <Col className="my-auto py-2 p-md-2" md={6}>
         <Container className="px-4 pt-4 py-1">
-          <h1 className={`${styles.Header} py-3`}>Sign up</h1>
+          <h1 className={`${styles.Header} py-3`}>Sign in</h1>
           <Form onSubmit={handleSubmit}>
             <Form.Group controlId="username">
               <Form.Label>Username</Form.Label>
@@ -58,28 +63,17 @@ const SignUp = () => {
                 {message}
               </Alert>
             ))}
-            <Form.Group controlId="password1">
+            <Form.Group controlId="password">
               <Form.Label>Password</Form.Label>
-              <Form.Control type="password" name="password1" value={password1} onChange={handleChange} />
+              <Form.Control type="password" name="password" value={password} onChange={handleChange} />
             </Form.Group>
             {errors.password1?.map((message, i) => (
               <Alert variant="warning" key={i}>
                 {message}
               </Alert>
             ))}
-            <Form.Group controlId="password2">
-              <Form.Label>Confirm password</Form.Label>
-              <Form.Control type="password" name="password2" value={password2} onChange={handleChange} />
-            </Form.Group>
-            {errors.password2?.map((message, i) => (
-              <Alert variant="warning" key={i}>
-                {message}
-              </Alert>
-            ))}
-            <Button
-              className={styles.Button}
-              type="submit">
-              Sign Up
+            <Button className={styles.Button} type="submit">
+              Sign In
             </Button>
             {errors.non_field_errors?.map((message, i) => (
               <Alert variant="warning" key={i} className="mt-3">
@@ -89,8 +83,8 @@ const SignUp = () => {
           </Form>
         </Container>
         <Container>
-          <Link className={styles.Link} to="/sign-in">
-            Already have an account? <span>Sign in</span>
+          <Link className={styles.Link} to="/sign-up">
+            Don't have an account? <span>Sign up now!</span>
           </Link>
         </Container>
       </Col>
@@ -101,4 +95,4 @@ const SignUp = () => {
   );
 };
 
-export default SignUp;
+export default SignIn;
