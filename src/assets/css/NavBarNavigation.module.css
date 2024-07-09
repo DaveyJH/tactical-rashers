@@ -1,0 +1,8 @@
+
+.ToggleContainer {
+  flex-grow: 1;
+}
+
+.Toggle {
+  max-height: 2.5rem;
+}

@@ -1,0 +1,13 @@
+.NavLink {
+  padding: .5em;
+}
+.Active {
+  color: #1b1b1b;
+  text-shadow: 0 3px 10px #cb4f59;
+}
+
+@media screen and (min-width: 768px) {
+  .NavBorder {
+    border-right: solid 1px #63442d40;
+  }
+}

@@ -1,0 +1,27 @@
+.Logo {
+  rotate: 45deg;
+  margin: auto;
+}
+
+.Title {
+  font-family: "Archivo Black", sans-serif;
+  font-weight: 900;
+  width: 18ch;
+  display: flex;
+}
+
+.SplitLevel {
+  width: 12ch;
+  display: inline-flex;
+  flex-wrap: wrap;
+  margin-left: 1rem;
+}
+
+.SplitLevel > span {
+  width: 100%;
+}
+
+.SplitLevel > span:last-of-type {
+  text-align: right;
+  margin-top: -.5ch;
+}
