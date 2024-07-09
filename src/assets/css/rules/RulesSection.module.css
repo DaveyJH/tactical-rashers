@@ -1,0 +1,23 @@
+@media screen and (max-width: 767.9px) {
+  .MobileHide {
+    display: none;
+  }
+}
+
+.RulesSection h2 {
+  font-size: 1.2rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  border-radius: 2rem;
+  text-shadow: 3px 3px 7px #63442d,  -3px 3px 7px #ede7d9;
+}
+
+.RulesSection:nth-of-type(2n-1) h2 {
+  background-color: #edebe9;
+  color: #63442d;
+}
+
+.RulesSection:nth-of-type(2n) h2 {
+  background-color: #63442d;
+  color: #edebe9;
+}

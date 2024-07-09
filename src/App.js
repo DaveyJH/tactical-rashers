@@ -9,6 +9,7 @@ import Logo from "./assets/images/logo512.png";
 import styles from "./assets/css/App.module.css";
 import SignUp from "./pages/auth/SignUp";
 import SignIn from "./pages/auth/SignIn";
+import Rules from "./pages/rules/Rules";
 
 function App() {
   return (
@@ -36,6 +37,7 @@ function App() {
           <Route path="/games/completed" render={() => <h1>Completed games</h1>} />
           <Route path="/games/:id" render={() => <h1>Game details</h1>} />
           <Route path="/profiles/:id" render={() => <h1>Player details</h1>} />
+          <Route path="/rules" render={() => <Rules />} />
           <Route path="/sign-in" render={() => <SignIn />} />
           <Route path="/sign-up" render={() => <SignUp />} />
           <Route render={() => <h1>404: page not found</h1>} />

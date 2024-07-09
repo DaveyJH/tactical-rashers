@@ -10,9 +10,9 @@ button.Button {
 .Header {
   background-color: #63442d;
   color: #edebe9;
-  letter-spacing: 0.2em;
+  letter-spacing: .2em;
   text-transform: uppercase;
-  border-radius: 0.25rem;
+  border-radius: .25rem;
 }
 
 .Link {
@@ -24,8 +24,4 @@ button.Button {
 
 .Link span {
   color: #63442d;
-}
-
-.Container {
-  padding: 30px 10px;
 }

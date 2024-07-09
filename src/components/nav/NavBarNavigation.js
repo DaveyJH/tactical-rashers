@@ -11,7 +11,7 @@ import Row from "react-bootstrap/Row";
 import GamesDropdown from "./GamesDropdown";
 import NavBarLink from "./NavBarLink";
 
-import styles from "../../assets/css/nav/NavBar.module.css";
+import styles from "../../assets/css/nav/NavBarNavigation.module.css";
 
 const NavBarNavigation = () => {
   const currentUser = useCurrentUser();

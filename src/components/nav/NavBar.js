@@ -6,12 +6,10 @@ import Navbar from "react-bootstrap/Navbar";
 import NavBarLogo from "./NavBarLogo";
 import NavBarNavigation from "./NavBarNavigation";
 
-import styles from "../../assets/css/nav/NavBar.module.css";
-
 const NavBar = () => {
 
   return (
-    <Navbar expand="md" fixed="top" bg="secondary" className={styles.NavBar}>
+    <Navbar expand="md" fixed="top" bg="secondary">
       <Container>
         <NavBarLogo />
         <NavBarNavigation />

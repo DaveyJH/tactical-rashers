@@ -1,0 +1,21 @@
+@counter-style checkers {
+  system: cyclic;
+  symbols: "\0274D";
+  suffix: " ";
+}
+
+.List li::marker {
+  color: #63442d;
+}
+
+.List li {
+  padding-left: .5rem;
+}
+
+.ShortList{
+  width: fit-content;
+}
+
+.UnorderedList {
+  list-style-type: checkers;
+}
