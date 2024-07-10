@@ -9,12 +9,15 @@ import { CurrentUserProvider } from "./contexts/CurrentUserContext";
 import "./assets/css/index.css";
 // bootstrap with custom styles
 import "./assets/scss/overrides.scss";
+import { ProfileDataProvider } from "./contexts/ProfileDataContext";
 
 ReactDOM.render(
   <React.StrictMode>
     <Router>
       <CurrentUserProvider>
-        <App />
+        <ProfileDataProvider>
+          <App />
+        </ProfileDataProvider>
       </CurrentUserProvider>
     </Router>
   </React.StrictMode>,

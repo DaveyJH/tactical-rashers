@@ -10,8 +10,10 @@ import styles from "./assets/css/App.module.css";
 import SignUp from "./pages/auth/SignUp";
 import SignIn from "./pages/auth/SignIn";
 import Rules from "./pages/rules/Rules";
+import { useProfileData } from "./contexts/ProfileDataContext";
 
 function App() {
+  console.log(useProfileData())
   return (
     <div className="App">
       <NavBar />
