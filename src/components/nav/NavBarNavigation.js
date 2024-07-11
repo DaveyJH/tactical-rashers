@@ -28,7 +28,7 @@ const NavBarNavigation = () => {
               <Nav className="me-auto align-items-md-center">
                 <NavBarLink exact to="/" textContent="Game feed" active border />
                 {currentUser && <GamesDropdown />}
-                {currentUser && <NavBarLink to="/profile" textContent="Profile" active border />}
+                {currentUser && <NavBarLink to={`/profiles/${currentUser.profile_id}`} textContent="Profile" active border />}
                 <NavBarLink to="/rules" textContent="Rules" active border />
                 {currentUser ? (
                   <NavBarLink to="/" textContent="Sign out" border signOut />

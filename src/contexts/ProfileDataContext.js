@@ -4,8 +4,8 @@ import { axiosReq } from "../api/axiosDefaults";
 const ProfileDataContext = createContext();
 const SetProfileDataContext = createContext();
 
-export const useProfileData = () => useContext(ProfileDataContext);
-export const useSetProfileData = () => useContext(SetProfileDataContext);
+export const useAllProfileData = () => useContext(ProfileDataContext);
+export const useSetAllProfileData = () => useContext(SetProfileDataContext);
 
 export const ProfileDataProvider = ({ children }) => {
   const [profileData, setProfileData] = useState({});
