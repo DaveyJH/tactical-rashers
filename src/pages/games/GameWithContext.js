@@ -38,7 +38,7 @@ const reducer = (state, action) => {
 const GameWithContext = () => {
   const allProfileData = useAllProfileData();
   const currentUser = useCurrentUser();
-  const moves = useMoves();
+  const { moves } = useMoves();
   const game = useCurrentGameData();
 
   const [state, dispatch] = useReducer(reducer, { game: {}, player1: {}, player2: {}, hasLoaded: false });

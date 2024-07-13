@@ -14,6 +14,7 @@ export const useSetMoves = () => useContext(SetMovesContext);
 export const MovesProvider = ({ children }) => {
   const currentUser = useCurrentUser();
   const [moves, setMoves] = useState({});
+  const [error, setError] = useState(null);
   const setCurrentGameData = useSetCurrentGameData();
   const currentGameData = useCurrentGameData();
   const { id: gameId } = useParams();
@@ -31,8 +32,36 @@ export const MovesProvider = ({ children }) => {
         all_moves: [data, ...currentGameData.all_moves],
         latest_move_id: data.id,
       }));
+      setError(null);
     } catch (err) {
-      console.log("Moves context: handleNewMove", err);
+      console.error(err);
+    }
+  };
+
+  const handleDeleteMove = async (moveId) => {
+    try {
+      if (
+        currentGameData.latest_move_id !== moveId ||
+        currentGameData.dice_rolls.length > moves.length ||
+        !currentGameData.active
+      ) {
+        throw new Error("Cannot delete move, please refresh to see the latest game state.");
+      }
+      await axiosReq.delete(`/moves/${moveId}`);
+      setMoves((prevState) => ({
+        ...prevState,
+        count: prevState.count - 1,
+        results: prevState.results.filter((move) => move.id !== moveId),
+      }));
+      setCurrentGameData((prevState) => ({
+        ...prevState,
+        all_moves: prevState.all_moves.filter((move) => move.id !== moveId),
+        latest_move_id: prevState.all_moves[1].id,
+      }));
+      setError(null);
+    } catch (err) {
+      setError(err);
+      console.error(err);
     }
   };
 
@@ -53,8 +82,10 @@ export const MovesProvider = ({ children }) => {
   }, [gameId]);
 
   return (
-    <MovesContext.Provider value={moves}>
-      <SetMovesContext.Provider value={{ setMoves, handleNewMove }}>{children}</SetMovesContext.Provider>
+    <MovesContext.Provider value={{ moves, error }}>
+      <SetMovesContext.Provider value={{ setMoves, handleNewMove, handleDeleteMove }}>
+        {children}
+      </SetMovesContext.Provider>
     </MovesContext.Provider>
   );
 };
