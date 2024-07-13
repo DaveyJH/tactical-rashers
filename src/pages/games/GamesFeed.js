@@ -4,7 +4,7 @@ import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
 import { axiosReq } from "../../api/axiosDefaults";
 
 import Spinner from "react-bootstrap/Spinner";
-import GameBrief from "./GameBrief";
+import GameBrief from "../../components/games/GameBrief";
 
 const GamesFeed = () => {
   const [games, setGames] = useState({ results: [] });
