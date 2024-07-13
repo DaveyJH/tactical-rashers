@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 
 import { axiosReq, axiosRes } from "../api/axiosDefaults";
 import { useCurrentUser } from "./CurrentUserContext";
+import { useCurrentGameData, useSetCurrentGameData } from "./CurrentGameDataContext";
 
 const DiceContext = createContext();
 const SetDiceContext = createContext();
@@ -13,7 +14,9 @@ export const useSetDice = () => useContext(SetDiceContext);
 export const DiceProvider = ({ children }) => {
   const currentUser = useCurrentUser();
   const [dice, setDice] = useState({});
-  const gameId = useParams().id;
+  const setCurrentGameData = useSetCurrentGameData();
+  const currentGameData = useCurrentGameData();
+  const { id: gameId } = useParams();
 
   const handleNewDiceRoll = async () => {
     try {
@@ -22,6 +25,10 @@ export const DiceProvider = ({ children }) => {
         ...prevState,
         count: prevState.count + 1,
         results: [data, ...prevState.results],
+      }));
+      setCurrentGameData((prevState) => ({
+        ...prevState,
+        dice_rolls: [data.id, ...currentGameData.dice_rolls],
       }));
     } catch (err) {
       console.log("Dice context: handleNewDiceRoll", err);

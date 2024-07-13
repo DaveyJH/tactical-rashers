@@ -2,8 +2,6 @@ import React, { useState } from "react";
 
 import { Form, InputGroup, Button, Container } from "react-bootstrap";
 
-import MoveCounter from "./MoveCounter";
-
 import { useSetMoves } from "../../contexts/MovesContext";
 
 const CreateMove = () => {
@@ -26,7 +24,6 @@ const CreateMove = () => {
 
   return (
     <Container>
-      <MoveCounter />
       <Form className="mt-2" onSubmit={handleSubmit}>
         <Form.Group>
           <InputGroup>

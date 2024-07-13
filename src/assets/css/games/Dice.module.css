@@ -1,12 +1,12 @@
 .Dice {
-  font-size: 3em;
+  font-size: 2.7em;
   color: #63442d;
 }
 
 .Dice div i {
   background-color: #ede7d9;
   padding: .5rem;
-  border-radius: .25rem;
+  border-radius: .5rem;
 }
 
 .Dice div:last-of-type i {

@@ -7,7 +7,7 @@ import App from "./App";
 
 import { CurrentUserProvider } from "./contexts/CurrentUserContext";
 import { ProfileDataProvider } from "./contexts/ProfileDataContext";
-import { GameDataProvider } from "./contexts/GameDataContext";
+// import { GameDataProvider } from "./contexts/GameDataContext";
 
 import "./assets/css/index.css";
 // bootstrap with custom styles
@@ -19,9 +19,9 @@ ReactDOM.render(
     <Router>
       <CurrentUserProvider>
         <ProfileDataProvider>
-          <GameDataProvider>
+          {/* <GameDataProvider> */}
           <App />
-          </GameDataProvider>
+          {/* </GameDataProvider> */}
         </ProfileDataProvider>
       </CurrentUserProvider>
     </Router>

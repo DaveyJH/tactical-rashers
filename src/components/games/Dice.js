@@ -28,7 +28,7 @@ const Dice = ({ value1, value2 }) => {
     }
   };
   return (
-    <Container className="d-flex justify-content-center" fluid>
+    <Container className="d-flex justify-content-center mb-3" fluid>
       {value1 ? (
         <Row className={`justify-content-between ${styles.Dice}`}>
           <Col className="px-2">

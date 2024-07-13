@@ -31,7 +31,7 @@ export const CurrentGameDataProvider = ({ children }) => {
 
   return (
     <CurrentGameDataContext.Provider value={currentGameData}>
-      <SetCurrentGameDataContext.Provider value={{ setCurrentGameData }}>{children}</SetCurrentGameDataContext.Provider>
+      <SetCurrentGameDataContext.Provider value={ setCurrentGameData }>{children}</SetCurrentGameDataContext.Provider>
     </CurrentGameDataContext.Provider>
   );
 };

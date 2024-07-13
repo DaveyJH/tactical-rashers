@@ -6,14 +6,11 @@ import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
 
 // todo change to use correct name with context
-const MoveCounter = ({count}) => {
-  const moves = useMoves();
-  const currentUser = useCurrentUser();
-
+const MoveCounter = ({number, player}) => {
   return (
     <Row className="space-between">
-      <Col className="text-left">{currentUser?.username}</Col>
-      <Col className="text-right">{count || moves.count + 1}</Col>
+      <Col className="text-left">{player}</Col>
+      <Col className="text-right">{number}</Col>
     </Row>
   );
 };

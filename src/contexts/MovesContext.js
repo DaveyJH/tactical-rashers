@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 
 import { axiosReq, axiosRes } from "../api/axiosDefaults";
 import { useCurrentUser } from "./CurrentUserContext";
+import { useCurrentGameData, useSetCurrentGameData } from "./CurrentGameDataContext";
 
 const MovesContext = createContext();
 const SetMovesContext = createContext();
@@ -13,6 +14,8 @@ export const useSetMoves = () => useContext(SetMovesContext);
 export const MovesProvider = ({ children }) => {
   const currentUser = useCurrentUser();
   const [moves, setMoves] = useState({});
+  const setCurrentGameData = useSetCurrentGameData();
+  const currentGameData = useCurrentGameData();
   const { id: gameId } = useParams();
 
   const handleNewMove = async (content) => {
@@ -22,6 +25,11 @@ export const MovesProvider = ({ children }) => {
         ...prevState,
         count: prevState.count + 1,
         results: [data, ...prevState.results],
+      }));
+      setCurrentGameData((prevState) => ({
+        ...prevState,
+        all_moves: [data, ...currentGameData.all_moves],
+        latest_move_id: data.id,
       }));
     } catch (err) {
       console.log("Moves context: handleNewMove", err);

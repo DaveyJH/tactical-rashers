@@ -1,19 +1,17 @@
-import React, { useState, useEffect, useReducer } from "react";
-import { axiosReq } from "../../api/axiosDefaults";
-import { useAllProfileData } from "../../contexts/ProfileDataContext";
-import { useParams } from "react-router-dom/cjs/react-router-dom.min";
-import { useCurrentUser } from "../../contexts/CurrentUserContext";
-import { Col, Container, Image, Row } from "react-bootstrap";
+import React, { useEffect, useReducer } from "react";
 
-import Spinner from "react-bootstrap/Spinner";
-import Dice from "../../components/games/Dice";
-import Move from "../../components/games/Move";
-import { useDice } from "../../contexts/DiceContext";
+import { useAllProfileData } from "../../contexts/ProfileDataContext";
+import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { useMoves } from "../../contexts/MovesContext";
+import { useCurrentGameData } from "../../contexts/CurrentGameDataContext";
+
+import Container from "react-bootstrap/Container";
+import Image from "react-bootstrap/Image";
+import Spinner from "react-bootstrap/Spinner";
+
 import GameHeader from "../../components/games/GameHeader";
 import EditGameImageControl from "../../components/games/EditGameImageControl";
-import CreateMove from "../../components/games/CreateMove";
-import { useCurrentGameData } from "../../contexts/CurrentGameDataContext";
+import DiceAndMoves from "../../components/games/DiceAndMoves";
 
 /**
  *
@@ -38,11 +36,8 @@ const reducer = (state, action) => {
 };
 
 const GameWithContext = () => {
-  // todo update to use context
-  // const { id } = useParams();
   const allProfileData = useAllProfileData();
   const currentUser = useCurrentUser();
-  const dice = useDice();
   const moves = useMoves();
   const game = useCurrentGameData();
 
@@ -79,29 +74,12 @@ const GameWithContext = () => {
     <>
       {hasLoaded() ? (
         <div>
-          <GameHeader player1={state.player1} player2={state.player2} game={state.game} />
-          <Container>
+          <GameHeader player1={state.player1} player2={state.player2} game={state.game} movesCount={moves.count} />
+          <Container className="mb-2">
             <Image fluid src={state.game.image} rounded />
             {state.game.active && isPlayer() && <EditGameImageControl game={state.game} />}
           </Container>
-          <Container>
-            {state.game.active && isPlayer() && <p>new move</p>}
-          </Container>
-          {/* logic for move/dice length to render new roll/move options */}
-          {dice?.results?.map((die, i) => (
-            <div key={`move-dice-${die.id}`}>
-              {moves?.results[i] && (
-                <Move
-                  content={moves.results[i].content}
-                  count={moves.count - i}
-                />
-              )}
-              <Dice value1={die.value1} value2={die.value2}/>
-              <hr/>
-            </div>
-          ))}
-          <Dice key="9"/>
-          <CreateMove />
+          <DiceAndMoves />
         </div>
       ) : (
         <Spinner animation="border" />

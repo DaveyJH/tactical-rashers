@@ -6,7 +6,7 @@ import Image from "react-bootstrap/Image";
 
 import styles from "../../assets/css/games/GameHeader.module.css";
 
-const GameHeader = ({ player1, player2, game }) => {
+const GameHeader = ({ player1, player2, game, movesCount }) => {
   return (
     <Container className={`${styles.GameHeader} mt-2`}>
       <h1>
@@ -27,7 +27,7 @@ const GameHeader = ({ player1, player2, game }) => {
         <Col>
           <p className="mb-1">
             {!game.active && (game.winner === player1.id ? `${player1.owner} wins: ` : `${player2.owner} wins: `)}
-            {game.all_moves.length} moves
+            {movesCount} moves
           </p>
         </Col>
       </Row>
