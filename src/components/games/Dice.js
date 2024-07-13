@@ -1,8 +1,11 @@
 import React from "react";
 
+import { Col, Container, Row } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 
 import { useSetDice } from "../../contexts/DiceContext";
+
+import styles from "../../assets/css/games/Dice.module.css";
 
 const Dice = ({ value1, value2 }) => {
   const { handleNewDiceRoll } = useSetDice();
@@ -25,18 +28,24 @@ const Dice = ({ value1, value2 }) => {
     }
   };
   return (
-    <>
+    <Container className="d-flex justify-content-center" fluid>
       {value1 ? (
-        <>
-          <i className={`fas fa-dice-${numberString(value1)}`}></i>
-          <i className={`fas fa-dice-${numberString(value2)}`}></i>
-        </>
+        <Row className={`justify-content-between ${styles.Dice}`}>
+          <Col className="px-2">
+            <i className={`fas fa-dice-${numberString(value1)}`}></i>
+            <span className="sr-only">numberString(value1)</span>
+          </Col>
+          <Col className="px-2">
+            <i className={`fas fa-dice-${numberString(value2)}`}></i>
+            <span className="sr-only">numberString(value1)</span>
+          </Col>
+        </Row>
       ) : (
         <Button onClick={handleNewDiceRoll}>
           Roll dice <i className="fas fa-dice"></i>
         </Button>
       )}
-    </>
+    </Container>
   );
 };
 

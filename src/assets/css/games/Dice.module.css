@@ -1,0 +1,15 @@
+.Dice {
+  font-size: 3em;
+  color: #63442d;
+}
+
+.Dice div i {
+  background-color: #ede7d9;
+  padding: .5rem;
+  border-radius: .25rem;
+}
+
+.Dice div:last-of-type i {
+  background-color: #63442d;
+  color: #ede7d9;
+}

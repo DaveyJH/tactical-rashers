@@ -26,7 +26,6 @@ const GameHeader = ({ player1, player2, game }) => {
       <Row>
         <Col>
           <p className="mb-1">
-            {console.log(game.active)}
             {!game.active && (game.winner === player1.id ? `${player1.owner} wins: ` : `${player2.owner} wins: `)}
             {game.all_moves.length} moves
           </p>
