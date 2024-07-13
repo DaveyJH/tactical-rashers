@@ -6,22 +6,13 @@ import RulesSection from "../../components/rules/RulesSection";
 import RulesContent from "../../content/RulesContent";
 
 const Rules = () => {
+  const sections = Object.entries(RulesContent);
+
   return (
     <>
       <RulesMainHeading />
-      {Object.entries(RulesContent).map(([name, { title, type, content, image, alt, ordered, short }], i) => (
-        <RulesSection
-          key={i}
-          even={i % 2 === 0}
-          name={name}
-          title={title}
-          type={type}
-          content={content}
-          image={image}
-          alt={alt}
-          ordered={ordered}
-          short={short}
-        />
+      {sections.map(([name, section], i) => (
+        <RulesSection key={name} even={i % 2 === 0} name={name} {...section} />
       ))}
       <div className="mb-5" />
     </>

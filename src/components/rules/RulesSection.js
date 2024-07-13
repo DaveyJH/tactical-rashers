@@ -17,16 +17,11 @@ const RulesSection = ({ name, title, type, content, image, alt, ordered, even, s
     <Container className={styles.RulesSection}>
       <hr />
       <RulesHeading content={title} />
-      <Row className="justify-content-center align-items-center">
-        {image && even && (
-          <Col md={4} className={styles.MobileHide}>
-            <RulesImage src={image} alt={alt} />
-          </Col>
-        )}
+      <Row className={`justify-content-center align-items-center ${(even && "flex-row-reverse") || ""}`}>
         <Col md={short || 8} className="px-0 px-md-2">
           {type === "para" ? <RulesPara content={content} /> : <RulesList content={content} ordered={ordered} />}
         </Col>
-        {image && !even && (
+        {image && (
           <Col md={4} className={styles.MobileHide}>
             <RulesImage src={image} alt={alt} />
           </Col>
