@@ -6,6 +6,8 @@ import { useMoves } from "../../contexts/MovesContext";
 import { useCurrentGameData } from "../../contexts/CurrentGameDataContext";
 
 import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 import Image from "react-bootstrap/Image";
 import Spinner from "react-bootstrap/Spinner";
 
@@ -76,7 +78,11 @@ const GameWithContext = () => {
         <div>
           <GameHeader player1={state.player1} player2={state.player2} game={state.game} movesCount={moves.count} />
           <Container className="mb-2">
-            <Image fluid src={state.game.image} rounded />
+            <Row className="justify-content-center">
+              <Col lg={{ span: 8 }}>
+                <Image fluid src={state.game.image} rounded />
+              </Col>
+            </Row>
             {state.game.active && isPlayer() && <EditGameImageControl game={state.game} />}
           </Container>
           <DiceAndMoves />
