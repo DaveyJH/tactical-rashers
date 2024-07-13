@@ -1,7 +1,7 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 
-import { axiosReq } from "../../../api/axiosDefaults";
+import { axiosReq } from "../api/axiosDefaults";
 
 const CurrentProfileDataContext = createContext();
 const SetCurrentProfileDataContext = createContext();
@@ -12,6 +12,8 @@ export const useSetCurrentProfileData = () => useContext(SetCurrentProfileDataCo
 export const CurrentProfileDataProvider = ({ children }) => {
   const [currentProfileData, setCurrentProfileData] = useState({});
   const { id } = useParams();
+
+  // ? should this be removed entirely as it will not update from other people's interactions
 
   useEffect(() => {
     const handleMount = async () => {

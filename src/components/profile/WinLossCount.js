@@ -1,6 +1,6 @@
 import React, { useEffect, useReducer } from "react";
 
-import { useCurrentProfileData } from "./contexts/CurrentProfileContext";
+import { useCurrentProfileData } from "../../contexts/CurrentProfileContext";
 
 const initialState = {
   profileData: {},
@@ -50,6 +50,7 @@ const WinLossCount = () => {
   return (
     <>
       <p>Wins: {profileData.wins}</p>
+      {/* ? should hr just be css */}
       <hr />
       <p>Losses: {profileData.losses}</p>
     </>

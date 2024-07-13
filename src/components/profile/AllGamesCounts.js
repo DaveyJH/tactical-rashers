@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
-import { useCurrentProfileData } from "./contexts/CurrentProfileContext";
+import { useCurrentProfileData } from "../../contexts/CurrentProfileContext";
 import GamesCount from "./GamesCount";
 
 const AllGamesCounts = () => {
@@ -27,7 +27,7 @@ const AllGamesCounts = () => {
   }, [currentUser, currentProfileData, profileData?.owner]);
 
   return <div>
-    {/* todo owner == link */}
+    {/* todo owner == link to active/completed games */}
     {/* todo styling */}
     <GamesCount status="Active" count={profileData.active_games_count} />
     <GamesCount status="Completed" count={profileData.finished_games_count} />

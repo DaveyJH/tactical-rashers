@@ -3,11 +3,11 @@ import { Col, Container, Image, Row } from "react-bootstrap";
 import Dropdown from "react-bootstrap/Dropdown";
 import DropdownButton from "react-bootstrap/DropdownButton";
 
-import FontAwesome from "../../components/FontAwesome";
+import FontAwesome from "../FontAwesome";
 
 import styles from "../../assets/css/profiles/ProfileHeadline.module.css";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
-import { useCurrentProfileData } from "./contexts/CurrentProfileContext";
+import { useCurrentProfileData } from "../../contexts/CurrentProfileContext";
 
 const ProfileHeadline = ({ vertical, small }) => {
   const currentProfileData = useCurrentProfileData();
@@ -55,10 +55,10 @@ const ProfileHeadline = ({ vertical, small }) => {
                 <span className={styles.FontAwesomeFollower}>edit</span>
               </>
             }>
-              {/* todo update href into to */}
-            <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-            <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-            <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+              {/* todo update href into to or use modal? */}
+            <Dropdown.Item href="#/action-1">Update image</Dropdown.Item>
+            <Dropdown.Item href="#/action-2">Change username</Dropdown.Item>
+            <Dropdown.Item href="#/action-3">Change password</Dropdown.Item>
           </DropdownButton>
           </Col>
         </Row>
