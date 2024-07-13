@@ -21,7 +21,7 @@ export const CurrentUserProvider = ({ children }) => {
       setCurrentUser(data);
     } catch (err) {
       // todo comment out clg
-      console.log(err);
+      console.error(err);
     }
   };
 

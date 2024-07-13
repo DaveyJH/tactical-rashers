@@ -36,7 +36,7 @@ const CreateGame = () => {
         }));
       } catch (err) {
         // todo clg
-        console.log(err);
+        console.error(err);
       }
     };
     handleMount();
@@ -52,7 +52,7 @@ const CreateGame = () => {
       const { data } = await axiosReq.post("/games/", formData);
       history.push(`/games/${data.id}`);
     } catch (err) {
-      console.log(err);
+      console.error(err);
       if (err.response?.status !== 401) {
         setErrors(err.response?.data);
       }

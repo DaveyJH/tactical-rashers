@@ -38,7 +38,7 @@ export const MovesProvider = ({ children }) => {
         }));
       } catch (err) {
         // todo clg
-        console.log(err);
+        console.error(err);
       }
     };
     handleMount();

@@ -23,7 +23,7 @@ const ProfileHeadline = ({ vertical, small }) => {
         }));
       } catch (err) {
         // todo clg
-        console.log(err);
+        console.error(err);
       }
     };
     handleMount();

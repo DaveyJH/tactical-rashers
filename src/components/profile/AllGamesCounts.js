@@ -20,7 +20,7 @@ const AllGamesCounts = () => {
         setOwner(currentUser?.username && currentUser.username === profileData?.owner);
       } catch (err) {
         // todo clg
-        console.log(err);
+        console.error(err);
       }
     };
     handleMount();

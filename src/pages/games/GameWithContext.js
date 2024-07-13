@@ -63,7 +63,7 @@ const Game = () => {
         });
       } catch (err) {
         // todo clg
-        console.log(err);
+        console.error(err);
       }
     };
     handleMount();

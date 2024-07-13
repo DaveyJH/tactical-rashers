@@ -22,7 +22,7 @@ export const GameDataProvider = ({ children }) => {
         }));
       } catch (err) {
         // todo clg
-        console.log(err);
+        console.error(err);
       }
     };
     handleMount();

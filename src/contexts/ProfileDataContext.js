@@ -7,6 +7,7 @@ const SetProfileDataContext = createContext();
 export const useAllProfileData = () => useContext(ProfileDataContext);
 export const useSetAllProfileData = () => useContext(SetProfileDataContext);
 
+// todo rename to all profiles
 export const ProfileDataProvider = ({ children }) => {
   const [profileData, setProfileData] = useState({});
 
@@ -24,7 +25,7 @@ export const ProfileDataProvider = ({ children }) => {
         }));
       } catch (err) {
         // todo clg
-        console.log(err);
+        console.error(err);
       }
     };
     handleMount();
