@@ -10,10 +10,12 @@ export const useSetAllProfileData = () => useContext(SetProfileDataContext);
 export const ProfileDataProvider = ({ children }) => {
   const [profileData, setProfileData] = useState({});
 
+  // todo add update logic?
+
   useEffect(() => {
     const handleMount = async () => {
       try {
-        const { data } = await axiosReq.get("/profiles");
+        const { data } = await axiosReq.get("/profiles/");
         // sort profiles by total wins count and get top 3
         data.topThree = [...data.results].sort((a, b) => b.total_wins_count - a.total_wins_count).slice(0, 3);
         setProfileData((prevState) => ({

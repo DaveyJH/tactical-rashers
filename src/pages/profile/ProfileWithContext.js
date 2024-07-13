@@ -2,9 +2,9 @@ import React from "react";
 
 import Container from "react-bootstrap/Container";
 
-import ProfileHeadline from "./ProfileHeadline";
-import AllGamesCounts from "./AllGamesCounts";
-import WinLossCount from "./WinLossCount";
+import ProfileHeadline from "../../components/profile/ProfileHeadline";
+import AllGamesCounts from "../../components/profile/AllGamesCounts";
+import WinLossCount from "../../components/profile/WinLossCount";
 
 const ProfileWithContext = () => {
   return (
@@ -12,7 +12,7 @@ const ProfileWithContext = () => {
       <ProfileHeadline />
       <AllGamesCounts />
       <WinLossCount />
-      {/* games */}
+      {/* game briefs */}
     </Container>
   );
 };
