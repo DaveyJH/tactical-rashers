@@ -9,9 +9,11 @@ import SignUp from "./pages/auth/SignUp";
 import SignIn from "./pages/auth/SignIn";
 import Rules from "./pages/rules/Rules";
 import Profile from "./pages/profile/Profile";
+import CreateGame from "./pages/games/CreateGame";
+import Game from "./pages/games/Game";
+import GamesFeed from "./pages/games/GamesFeed";
 
 import styles from "./assets/css/App.module.css";
-import Logo from "./assets/images/logo512.png";
 
 function App() {
   return (
@@ -19,25 +21,12 @@ function App() {
       <NavBar />
       <Container className={`${styles.MainContainer} text-center`}>
         <Switch>
-          <Route
-            exact
-            path="/"
-            render={() => (
-              <header className={styles.AppHeader}>
-                <img src={Logo} className={styles.AppLogo} alt="logo" />
-                <p>In development! Please come back later.</p>
-              </header>
-            )}
-          />
-          {/* <Route
-            exact
-            path="/"
-            render={() => <h1>Game feed</h1>}
-          /> */}
-          <Route path="/games/create" render={() => <h1>Create game</h1>} />
+          <Route exact path="/" render={() => <GamesFeed />} />
+          <Route path="/games/create" render={() => <CreateGame />} />
           <Route path="/games/active" render={() => <h1>Active games</h1>} />
           <Route path="/games/completed" render={() => <h1>Completed games</h1>} />
-          <Route path="/games/:id" render={() => <h1>Game details</h1>} />
+          {/* todo change to page instead of component */}
+          <Route path="/games/:id" render={() => <Game />} />
           <Route path="/profiles/:id" render={() => <Profile />} />
           <Route path="/rules" render={() => <Rules />} />
           <Route path="/sign-in" render={() => <SignIn />} />

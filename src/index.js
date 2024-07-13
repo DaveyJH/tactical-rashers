@@ -4,19 +4,24 @@ import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter as Router } from "react-router-dom/cjs/react-router-dom.min";
 
 import App from "./App";
+
 import { CurrentUserProvider } from "./contexts/CurrentUserContext";
+import { ProfileDataProvider } from "./contexts/ProfileDataContext";
+import { GameDataProvider } from "./contexts/GameDataContext";
 
 import "./assets/css/index.css";
 // bootstrap with custom styles
 import "./assets/scss/overrides.scss";
-import { ProfileDataProvider } from "./contexts/ProfileDataContext";
+
 
 ReactDOM.render(
   <React.StrictMode>
     <Router>
       <CurrentUserProvider>
         <ProfileDataProvider>
+          <GameDataProvider>
           <App />
+          </GameDataProvider>
         </ProfileDataProvider>
       </CurrentUserProvider>
     </Router>
