@@ -5,6 +5,7 @@ import { axiosReq } from "../../api/axiosDefaults";
 
 import Spinner from "react-bootstrap/Spinner";
 import GameBrief from "../../components/games/GameBrief";
+import SearchByPlayer from "../../components/SearchByPlayer";
 
 const GamesFeed = () => {
   const [games, setGames] = useState({ results: [] });
@@ -12,12 +13,11 @@ const GamesFeed = () => {
   const { pathname } = useLocation;
   const [query, setQuery] = useState("");
 
-  // handlechange for query
-
   useEffect(() => {
     const fetchGames = async () => {
       try {
-        const { data } = await axiosReq.get(`/games/?either_player=${query},is_active=no`);
+        // todo change is_active to False
+        const { data } = await axiosReq.get(`/games/?search=${query}&is_active=True`);
         setGames(data);
         setHasLoaded(true);
       } catch (err) {}
@@ -29,12 +29,17 @@ const GamesFeed = () => {
 
   return (
     <>
-    {/* search bar */}
-    {/* hasLoaded? */}
-  <div>GamesFeed</div>
-  {/* map games */}
-  <GameBrief id={1}/>
-  </>
+      <SearchByPlayer query={query} setQuery={setQuery} />
+      <div>GamesFeed</div>
+      {/* todo display no games found depending on query */}
+      {hasLoaded ? (
+      games?.results?.map((game) => (
+        <GameBrief key={game.id} {...game} />
+      ))
+      ) : (
+        <Spinner animation="border" />
+      )}
+    </>
   );
 };
 

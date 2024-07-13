@@ -1,8 +1,7 @@
 import React from "react";
 
-import { Row, Col } from "react-bootstrap";
-import { useMoves } from "../../contexts/MovesContext";
-import { useCurrentUser } from "../../contexts/CurrentUserContext";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 
 
 // todo change to use correct name with context
