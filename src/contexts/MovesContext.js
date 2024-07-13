@@ -13,15 +13,15 @@ export const useSetMoves = () => useContext(SetMovesContext);
 export const MovesProvider = ({ children }) => {
   const currentUser = useCurrentUser();
   const [moves, setMoves] = useState({});
-  const { gameId } = useParams().id;
+  const { id: gameId } = useParams();
 
-  const handleNewMove = async () => {
+  const handleNewMove = async (content) => {
     try {
-      const { data } = await axiosRes.post("/moves/", { game: gameId, owner: currentUser.profile_id });
+      const { data } = await axiosRes.post("/moves/", { game: gameId, owner: currentUser.profile_id, content });
       setMoves((prevState) => ({
         ...prevState,
         count: prevState.count + 1,
-        results: [...prevState.results, data],
+        results: [data, ...prevState.results],
       }));
     } catch (err) {
       console.log("Moves context: handleNewMove", err);

@@ -27,6 +27,7 @@ const CreateGame = () => {
     setOpponent(opponent);
   };
 
+// todo update game context
   useEffect(() => {
     const handleMount = async () => {
       try {

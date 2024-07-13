@@ -7,9 +7,13 @@ import { Col, Container, Image, Row } from "react-bootstrap";
 
 import Spinner from "react-bootstrap/Spinner";
 import Dice from "../../components/games/Dice";
+import Move from "../../components/games/Move";
 import { useDice } from "../../contexts/DiceContext";
+import { useMoves } from "../../contexts/MovesContext";
 import GameHeader from "../../components/games/GameHeader";
 import EditGameImageControl from "../../components/games/EditGameImageControl";
+import CreateMove from "../../components/games/CreateMove";
+import { useCurrentGameData } from "../../contexts/CurrentGameDataContext";
 
 /**
  *
@@ -33,12 +37,15 @@ const reducer = (state, action) => {
   }
 };
 
-const Game = () => {
-  const { id } = useParams();
+const GameWithContext = () => {
+  // todo update to use context
+  // const { id } = useParams();
   const allProfileData = useAllProfileData();
   const currentUser = useCurrentUser();
   const dice = useDice();
-  
+  const moves = useMoves();
+  const game = useCurrentGameData();
+
   const [state, dispatch] = useReducer(reducer, { game: {}, player1: {}, player2: {}, hasLoaded: false });
 
   const isPlayer = () =>
@@ -52,11 +59,10 @@ const Game = () => {
   useEffect(() => {
     const handleMount = async () => {
       try {
-        const { data } = await axiosReq.get(`/games/${id}`);
         dispatch({
           type: "SET_GAME_DATA",
           payload: {
-            game: data,
+            game,
             profiles: allProfileData,
             currentUser: currentUser,
           },
@@ -67,7 +73,7 @@ const Game = () => {
       }
     };
     handleMount();
-  }, [allProfileData, id, currentUser, dice]);
+  }, [allProfileData, currentUser, game]);
 
   return (
     <>
@@ -80,16 +86,22 @@ const Game = () => {
           </Container>
           <Container>
             {state.game.active && isPlayer() && <p>new move</p>}
-            {state.game.all_moves.length ? <div>the moves</div> : <div>no moves</div>}
           </Container>
           {/* logic for move/dice length to render new roll/move options */}
-          {dice?.results.map((die) => (
-            <Container key={die.id}>
-              <Dice value1={die.value1} value2={die.value2} />
-            </Container>))}
-          <Container>
-          <Dice />
-          </Container>
+          {dice?.results?.map((die, i) => (
+            <div key={`move-dice-${die.id}`}>
+              {moves?.results[i] && (
+                <Move
+                  content={moves.results[i].content}
+                  count={moves.count - i}
+                />
+              )}
+              <Dice value1={die.value1} value2={die.value2}/>
+              <hr/>
+            </div>
+          ))}
+          <Dice key="9"/>
+          <CreateMove />
         </div>
       ) : (
         <Spinner animation="border" />
@@ -98,4 +110,4 @@ const Game = () => {
   );
 };
 
-export default Game;
+export default GameWithContext;
