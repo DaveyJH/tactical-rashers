@@ -47,7 +47,7 @@ const CreateGame = () => {
     e.preventDefault();
     const formData = new FormData();
     formData.append("player2", opponent.id);
-    formData.append("player1", opponent.id);
+    formData.append("player1", currentUser.profile_id);
     formData.append("active", true);
     try {
       const { data } = await axiosReq.post("/games/", formData);

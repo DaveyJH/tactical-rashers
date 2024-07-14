@@ -56,7 +56,7 @@ export const MovesProvider = ({ children }) => {
       setCurrentGameData((prevState) => ({
         ...prevState,
         all_moves: prevState.all_moves.filter((move) => move.id !== moveId),
-        latest_move_id: prevState.all_moves[1].id,
+        latest_move_id: prevState.all_moves[1]?.id || null,
       }));
       setError(null);
     } catch (err) {

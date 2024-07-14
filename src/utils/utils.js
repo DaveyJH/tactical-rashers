@@ -16,6 +16,12 @@ export const fetchMoreData = async (resource, setResource) => {
   } catch (err) {}
 };
 
+export const fetchMultipleMoreData = (resources) => {
+  for (const resource of resources) {
+    fetchMoreData(...resource);
+  }
+};
+
 export const setTokenTimestamp = (data) => {
   const refreshTokenTimestamp = jwtDecode(data?.refresh_token).exp;
   localStorage.setItem("refreshTokenTimestamp", refreshTokenTimestamp);
