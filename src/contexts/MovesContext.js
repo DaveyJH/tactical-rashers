@@ -15,7 +15,7 @@ export const MovesProvider = ({ children }) => {
   const currentUser = useCurrentUser();
   const [moves, setMoves] = useState({});
   const [error, setError] = useState(null);
-  const setCurrentGameData = useSetCurrentGameData();
+  const { setCurrentGameData } = useSetCurrentGameData();
   const currentGameData = useCurrentGameData();
   const { id: gameId } = useParams();
 

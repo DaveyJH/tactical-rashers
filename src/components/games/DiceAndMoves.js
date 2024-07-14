@@ -6,7 +6,6 @@ import { useMoves, useSetMoves } from "../../contexts/MovesContext";
 import { useCurrentGameData } from "../../contexts/CurrentGameDataContext";
 import { fetchMultipleMoreData } from "../../utils/utils";
 
-import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import Alert from "react-bootstrap/Alert";
 
@@ -18,6 +17,7 @@ import styles from "../../assets/css/games/DiceAndMoves.module.css";
 import DeleteMove from "./DeleteMove";
 import InfiniteScroll from "react-infinite-scroll-component";
 import Spinner from "react-bootstrap/Spinner";
+import DeclareWin from "./DeclareWin";
 
 const DiceAndMoves = () => {
   const currentUser = useCurrentUser();
@@ -28,6 +28,7 @@ const DiceAndMoves = () => {
   const { setMoves } = useSetMoves();
 
   const isPlayer = () => game?.player1 === currentUser?.profile_id || game?.player2 === currentUser?.profile_id;
+  const isPlayerOne = () => isPlayer() && game?.player1 === currentUser?.profile_id;
   const evenCounts = () => dice?.count === moves?.count;
   const isAllowedToRoll = () =>
     isPlayer() && evenCounts() && game?.active && dice.results[0]?.owner !== currentUser?.profile_id;
@@ -40,11 +41,15 @@ const DiceAndMoves = () => {
       {/* todo extract into component? */}
       {isAllowedToRoll() ? (
         <Card className="mb-2">
-          <Card.Title className="px-1">
+          <Card.Title>
             <MoveCounter player={currentUser.username} number={moves.count + 1} />
           </Card.Title>
           <Card.Body className="p-1">
-            <Button variant="primary">Declare opponent win</Button>
+            <DeclareWin
+              winner={isPlayerOne() ? game.player2 : game.player1}
+              player1={game.player1}
+              player2={game.player2}
+            />
           </Card.Body>
           <hr />
           <Dice />
@@ -52,7 +57,7 @@ const DiceAndMoves = () => {
       ) : (
         isAllowedToMove() && (
           <Card className="mb-2">
-            <Card.Title className="px-1">
+            <Card.Title>
               <MoveCounter player={currentUser.username} number={moves.count + 1} />
             </Card.Title>
             <Card.Body className="p-1">
@@ -67,7 +72,7 @@ const DiceAndMoves = () => {
         <InfiniteScroll
           children={moves?.results?.map((move, i) => (
             <Card className="mb-2" key={move.id}>
-              <Card.Title className="px-1">
+              <Card.Title>
                 <MoveCounter player={moves?.results[i]?.owner} number={moves.count - i} />
               </Card.Title>
               <Card.Body className="p-1">
@@ -105,7 +110,7 @@ const DiceAndMoves = () => {
         />
       ) : (
         <Card className="mb-2">
-          <Card.Title className="px-1">
+          <Card.Title>
             <MoveCounter number="😕" />
           </Card.Title>
           <Card.Body className="p-1">

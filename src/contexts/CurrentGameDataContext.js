@@ -12,13 +12,28 @@ export const CurrentGameDataProvider = ({ children }) => {
   const { id } = useParams();
   const [currentGameData, setCurrentGameData] = useState({});
 
-  // todo add update logic?
+  const handleWinner = async (winner, player1, player2) => {
+    try {
+      const formData = new FormData();
+      formData.append("game", id);
+      formData.append("owner", winner);
+      const { data } = await axiosReq.post("/winners/", formData);
+      await axiosReq.put(`/games/${id}/`, { active: false, player1: player1, player2: player2 });
+      setCurrentGameData((prevState) => ({
+        ...prevState,
+        winner: data.owner,
+        active: false,
+      }));
+    } catch (err) {
+      console.error(err);
+    }
+  };
 
   useEffect(() => {
     const handleMount = async () => {
       try {
         const { data } = await axiosReq.get(`/games/${id}`);
-        setCurrentGameData((prevState) => ({
+        setCurrentGameData(() => ({
           ...data,
         }));
       } catch (err) {
@@ -31,7 +46,9 @@ export const CurrentGameDataProvider = ({ children }) => {
 
   return (
     <CurrentGameDataContext.Provider value={currentGameData}>
-      <SetCurrentGameDataContext.Provider value={ setCurrentGameData }>{children}</SetCurrentGameDataContext.Provider>
+      <SetCurrentGameDataContext.Provider value={{ setCurrentGameData, handleWinner }}>
+        {children}
+      </SetCurrentGameDataContext.Provider>
     </CurrentGameDataContext.Provider>
   );
 };

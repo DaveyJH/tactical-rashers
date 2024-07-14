@@ -14,7 +14,7 @@ export const useSetDice = () => useContext(SetDiceContext);
 export const DiceProvider = ({ children }) => {
   const currentUser = useCurrentUser();
   const [dice, setDice] = useState({});
-  const setCurrentGameData = useSetCurrentGameData();
+  const { setCurrentGameData } = useSetCurrentGameData();
   const currentGameData = useCurrentGameData();
   const { id: gameId } = useParams();
 

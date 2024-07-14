@@ -13,7 +13,7 @@ const EditGameImageControl = () => {
   const [errors, setErrors] = useState({});
   const [show, setShow] = useState(false);
   const game = useCurrentGameData();
-  const setCurrentGameData = useSetCurrentGameData();
+  const { setCurrentGameData } = useSetCurrentGameData();
   const [gameImage, setGameImage] = useState(game.image);
 
   const imageInput = useRef(null);
