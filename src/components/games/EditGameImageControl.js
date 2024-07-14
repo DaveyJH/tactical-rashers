@@ -1,12 +1,19 @@
 import React, { useRef, useState } from "react";
 
+import { axiosReq } from "../../api/axiosDefaults";
+import { useCurrentGameData, useSetCurrentGameData } from "../../contexts/CurrentGameDataContext";
+
+import Alert from "react-bootstrap/Alert";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Image from "react-bootstrap/Image";
 
-const EditGameImageControl = ({ game }) => {
+const EditGameImageControl = () => {
+  const [errors, setErrors] = useState({});
   const [show, setShow] = useState(false);
+  const game = useCurrentGameData();
+  const setCurrentGameData = useSetCurrentGameData();
   const [gameImage, setGameImage] = useState(game.image);
 
   const imageInput = useRef(null);
@@ -18,6 +25,27 @@ const EditGameImageControl = ({ game }) => {
     if (e.target.files.length) {
       URL.revokeObjectURL(gameImage);
       setGameImage(URL.createObjectURL(e.target.files[0]));
+    }
+  };
+
+  const handleSubmitImage = async (e) => {
+    e.preventDefault();
+    const formData = new FormData();
+    if (imageInput?.current?.files[0]) {
+      formData.append("player1", game.player1);
+      formData.append("player2", game.player2);
+      formData.append("active", game.active);
+      formData.append("image", imageInput.current.files[0]);
+    }
+    try {
+      await axiosReq.put(`/games/${game.id}/`, formData);
+      setCurrentGameData((prevState) => ({ ...prevState, image: gameImage }));
+      handleClose();
+    } catch (err) {
+      // console.error(err);
+      if (err.response?.status !== 401) {
+        setErrors(err.response?.data);
+      }
     }
   };
 
@@ -43,10 +71,14 @@ const EditGameImageControl = ({ game }) => {
           <Button variant="secondary" onClick={handleClose}>
             Cancel
           </Button>
-          <Button variant="primary" onClick={handleClose}>
-            {/* todo add update logic */}
+          <Button variant="primary" onClick={handleSubmitImage}>
             Upload
           </Button>
+          {errors.image?.map((message, i) => (
+            <Alert variant="warning" key={i}>
+              {message}
+            </Alert>
+          ))}
         </Modal.Footer>
       </Modal>
     </>

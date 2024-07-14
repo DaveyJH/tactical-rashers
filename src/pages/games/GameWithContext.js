@@ -83,7 +83,7 @@ const GameWithContext = () => {
                 <Image fluid src={state.game.image} rounded />
               </Col>
             </Row>
-            {state.game.active && isPlayer() && <EditGameImageControl game={state.game} />}
+            {state.game.active && isPlayer() && <EditGameImageControl />}
           </Container>
           <DiceAndMoves />
         </div>
