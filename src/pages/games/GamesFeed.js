@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
 
 import { axiosReq } from "../../api/axiosDefaults";
 
@@ -14,13 +13,11 @@ import styles from "../../assets/css/games/GamesFeed.module.css";
 const GamesFeed = () => {
   const [games, setGames] = useState({ results: [] });
   const [hasLoaded, setHasLoaded] = useState(false);
-  const { pathname } = useLocation;
   const [query, setQuery] = useState("");
 
   useEffect(() => {
     const fetchGames = async () => {
       try {
-        // todo change is_active to False
         const { data } = await axiosReq.get(`/games/?search=${query}&is_active=False`);
         setGames(data);
         setHasLoaded(true);
@@ -29,7 +26,7 @@ const GamesFeed = () => {
     setHasLoaded(false);
     const timer = setTimeout(() => fetchGames(), query ? 1000 : 0);
     return () => clearTimeout(timer);
-  }, [query, pathname]);
+  }, [query]);
 
   return (
     <Container className="mb-5">
