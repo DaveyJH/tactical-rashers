@@ -11,6 +11,7 @@
 }
 
 .SplitLevel {
+  font-size: 1.2em;
   width: 12ch;
   display: inline-flex;
   flex-wrap: wrap;

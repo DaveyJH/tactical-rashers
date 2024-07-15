@@ -9,10 +9,10 @@ import Logo from "../../assets/images/logo512.png";
 const NavBarLogo = () => (
   <Navbar.Brand as={NavLink} to="/" className={styles.Title}>
     <img src={Logo} alt="logo" height="45" className={styles.Logo} />
-    <div className={styles.SplitLevel}>
+    <h1 className={styles.SplitLevel}>
       <span>TACTICAL</span>
       <span>RASHERS</span>
-    </div>
+    </h1>
   </Navbar.Brand>
 );
 

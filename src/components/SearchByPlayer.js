@@ -11,7 +11,7 @@ import Form from "react-bootstrap/Form";
  */
 const SearchByPlayer = ({ query, setQuery }) => {
   return (
-    <Form onSubmit={(e) => e.preventDefault()}>
+    <Form aria-label="search by player" onSubmit={(e) => e.preventDefault()}>
       <Form.Control
         value={query}
         onChange={(e) => setQuery(e.target.value)}
