@@ -42,12 +42,12 @@ const ProfileHeadline = ({ vertical, small }) => {
           <Image src={profileData.image} className={styles.ProfileImage} fluid />
         </Col>
       </Row>
-      <Row className="mb-4">
-        <Col lg={{ offset: 1 }} className={`mt-2 text-left px-4 ${styles.InfoText}`}>
+      <Row className="mt-2 mb-4">
+        <Col lg={{ offset: 2 }} className={`text-left px-4 ${styles.InfoText}`}>
           {profileData.info}
         </Col>
         {profileData.is_owner ? (
-          <Col lg={3} className="mt-2 text-right">
+          <Col lg={3} className="mt-2 text-right text-lg-left">
             <DropdownButton
               menuAlign="right"
               id="edit-dropdown"
@@ -59,6 +59,7 @@ const ProfileHeadline = ({ vertical, small }) => {
               }>
               {/* todo update href into to or use modal? */}
               <Dropdown.Item href="#/action-1">Update image</Dropdown.Item>
+              <Dropdown.Item href="#/">Edit info</Dropdown.Item>
               <Dropdown.Item href="#/action-2">Change username</Dropdown.Item>
               <Dropdown.Item href="#/action-3">Change password</Dropdown.Item>
             </DropdownButton>

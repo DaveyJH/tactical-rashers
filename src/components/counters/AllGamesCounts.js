@@ -17,7 +17,7 @@ const AllGamesCounts = () => {
           ...prevState,
           ...currentProfileData,
         }));
-        setOwner(currentUser?.username && currentUser.username === profileData?.owner);
+        setOwner(currentUser?.username === profileData?.owner);
       } catch (err) {
         // todo clg
         console.error(err);
