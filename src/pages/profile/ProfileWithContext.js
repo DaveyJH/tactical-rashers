@@ -14,7 +14,7 @@ const ProfileWithContext = () => {
     <Container className="mt-3">
       <ProfileHeadline />
       <Row>
-        <Col md={{ span: 6, offset: 3 }} className={styles.GamesBorder}>
+        <Col md={{ span: 6, offset: 3 }} className={`${styles.GamesBorder} pt-3`}>
           <AllGamesCounts />
           <hr />
           <WinLossCount />

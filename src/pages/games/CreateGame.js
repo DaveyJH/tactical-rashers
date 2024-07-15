@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 import { axiosReq } from "../../api/axiosDefaults";
-import { useAllProfileData } from "../../contexts/ProfileDataContext";
+import { useAllProfileData } from "../../contexts/AllProfileDataContext";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
 import Alert from "react-bootstrap/Alert";

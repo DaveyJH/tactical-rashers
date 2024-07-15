@@ -7,11 +7,8 @@ const SetProfileDataContext = createContext();
 export const useAllProfileData = () => useContext(ProfileDataContext);
 export const useSetAllProfileData = () => useContext(SetProfileDataContext);
 
-// todo rename to all profiles
-export const ProfileDataProvider = ({ children }) => {
+export const AllProfileDataProvider = ({ children }) => {
   const [profileData, setProfileData] = useState({});
-
-  // todo add update logic?
 
   useEffect(() => {
     const handleMount = async () => {
@@ -21,7 +18,7 @@ export const ProfileDataProvider = ({ children }) => {
         data.topThree = [...data.results].sort((a, b) => b.total_wins_count - a.total_wins_count).slice(0, 3);
         setProfileData((prevState) => ({
           ...prevState,
-          data,
+          ...data,
         }));
       } catch (err) {
         // todo clg

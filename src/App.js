@@ -25,7 +25,6 @@ function App() {
           <Route path="/games/create" render={() => <CreateGame />} />
           <Route path="/games/active" render={() => <h1>Active games</h1>} />
           <Route path="/games/completed" render={() => <h1>Completed games</h1>} />
-          {/* todo change to page instead of component */}
           <Route path="/games/:id" render={() => <Game />} />
           <Route path="/profiles/:id" render={() => <Profile />} />
           <Route path="/rules" render={() => <Rules />} />

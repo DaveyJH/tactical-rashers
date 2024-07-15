@@ -31,7 +31,6 @@ const ProfileHeadline = ({ vertical, small }) => {
 
   return (
     <Container fluid className="text-left">
-      {console.log(profileData)}
       <Row className="align-items-center">
         <Col xs={8} lg={{ span: 6, offset: 1 }} className="text-right text-break pr-0">
           <div>

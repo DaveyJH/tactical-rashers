@@ -10,15 +10,13 @@ export const useSetAllGameData = () => useContext(SetGameDataContext);
 export const GameDataProvider = ({ children }) => {
   const [gameData, setGameData] = useState({});
 
-  // todo add update logic?
-
   useEffect(() => {
     const handleMount = async () => {
       try {
         const { data } = await axiosReq.get("/games/");
         setGameData((prevState) => ({
           ...prevState,
-          data,
+          ...data,
         }));
       } catch (err) {
         // todo clg

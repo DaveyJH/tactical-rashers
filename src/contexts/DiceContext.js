@@ -31,7 +31,7 @@ export const DiceProvider = ({ children }) => {
         dice_rolls: [data.id, ...currentGameData.dice_rolls],
       }));
     } catch (err) {
-      console.log("Dice context: handleNewDiceRoll", err);
+      console.error(err);
     }
   };
 
@@ -45,7 +45,7 @@ export const DiceProvider = ({ children }) => {
         }));
       } catch (err) {
         // todo clg
-        console.log("Dice context: handleMount", err);
+        console.error(err);
       }
     };
     handleMount();

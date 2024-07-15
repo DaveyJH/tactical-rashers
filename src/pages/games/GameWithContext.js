@@ -1,6 +1,6 @@
 import React, { useEffect, useReducer } from "react";
 
-import { useAllProfileData } from "../../contexts/ProfileDataContext";
+import { useAllProfileData } from "../../contexts/AllProfileDataContext";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { useMoves } from "../../contexts/MovesContext";
 import { useCurrentGameData } from "../../contexts/CurrentGameDataContext";
@@ -22,13 +22,13 @@ import DiceAndMoves from "../../components/games/DiceAndMoves";
  * @returns
  */
 const reducer = (state, action) => {
-  switch (action.type) {
+      switch (action.type) {
     case "SET_GAME_DATA":
       return {
         ...state,
         game: action.payload.game,
-        player1: action.payload.profiles.data?.results.find((profile) => profile.id === action.payload.game.player1),
-        player2: action.payload.profiles.data?.results.find((profile) => profile.id === action.payload.game.player2),
+        player1: action.payload.profiles?.results?.find((profile) => profile.id === action.payload.game.player1),
+        player2: action.payload.profiles?.results?.find((profile) => profile.id === action.payload.game.player2),
         hasLoaded: state.player1?.id && state.player2?.id && true,
         currentUser: action.payload.currentUser,
       };
