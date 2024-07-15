@@ -49,10 +49,10 @@ const WinLossCount = () => {
 
   return (
     <>
-      <p>Wins: {profileData.wins}</p>
-      {/* ? should hr just be css */}
-      <hr />
-      <p>Losses: {profileData.losses}</p>
+      <p className="d-flex justify-content-between px-4"><span>Wins:</span>
+      <span>{" "}{profileData.wins}</span></p>
+      <p className="d-flex justify-content-between px-4"><span>Losses:</span>
+      <span>{" "}{profileData.losses}</span></p>
     </>
   );
 };

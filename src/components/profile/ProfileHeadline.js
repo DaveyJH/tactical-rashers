@@ -29,12 +29,11 @@ const ProfileHeadline = ({ vertical, small }) => {
     handleMount();
   }, [currentUser, currentProfileData, profileData?.owner]);
 
-
   return (
     <Container fluid className="text-left">
       {console.log(profileData)}
       <Row className="align-items-center">
-        <Col xs={8} lg={{span: 6, offset: 1}} className="text-right text-break pr-0">
+        <Col xs={8} lg={{ span: 6, offset: 1 }} className="text-right text-break pr-0">
           <div>
             <h1>{profileData.owner}</h1>
           </div>
@@ -43,26 +42,31 @@ const ProfileHeadline = ({ vertical, small }) => {
           <Image src={profileData.image} className={styles.ProfileImage} fluid />
         </Col>
       </Row>
-      {profileData.is_owner && (
-        <Row>
-          <Col lg={10} className="mt-2 text-right">
-          <DropdownButton
-            menuAlign="right"
-            id="edit-dropdown"
-            title={
-              <>
-                <FontAwesome iconName="fas fa-user-edit" />
-                <span className={styles.FontAwesomeFollower}>edit</span>
-              </>
-            }>
+      <Row className="mb-4">
+        <Col lg={{ offset: 1 }} className={`mt-2 text-left px-4 ${styles.InfoText}`}>
+          {profileData.info}
+        </Col>
+        {profileData.is_owner ? (
+          <Col lg={3} className="mt-2 text-right">
+            <DropdownButton
+              menuAlign="right"
+              id="edit-dropdown"
+              title={
+                <>
+                  <FontAwesome iconName="fas fa-user-edit" />
+                  <span className={styles.FontAwesomeFollower}>edit</span>
+                </>
+              }>
               {/* todo update href into to or use modal? */}
-            <Dropdown.Item href="#/action-1">Update image</Dropdown.Item>
-            <Dropdown.Item href="#/action-2">Change username</Dropdown.Item>
-            <Dropdown.Item href="#/action-3">Change password</Dropdown.Item>
-          </DropdownButton>
+              <Dropdown.Item href="#/action-1">Update image</Dropdown.Item>
+              <Dropdown.Item href="#/action-2">Change username</Dropdown.Item>
+              <Dropdown.Item href="#/action-3">Change password</Dropdown.Item>
+            </DropdownButton>
           </Col>
-        </Row>
-      )}
+        ) : (
+          <Col lg={1} />
+        )}
+      </Row>
     </Container>
   );
 };
