@@ -14,11 +14,14 @@ import Game from "./pages/games/Game";
 import GamesFeed from "./pages/games/GamesFeed";
 
 import styles from "./assets/css/App.module.css";
+import { NavBarCollapseProvider } from "./contexts/NavBarCollapseContext";
 
 function App() {
   return (
     <div className="App">
-      <NavBar />
+      <NavBarCollapseProvider>
+        <NavBar />
+      </NavBarCollapseProvider>
       <Container className={`${styles.MainContainer} text-center`}>
         <Switch>
           <Route exact path="/" render={() => <GamesFeed />} />

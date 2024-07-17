@@ -13,13 +13,22 @@ import NavBarLink from "./NavBarLink";
 
 import styles from "../../assets/css/nav/NavBarNavigation.module.css";
 
+import { useNavBarCollapse, useSetNavBarCollapse } from "../../contexts/NavBarCollapseContext";
+
 const NavBarNavigation = () => {
   const currentUser = useCurrentUser();
+
+  const { expanded } = useNavBarCollapse();
+  const { setExpanded } = useSetNavBarCollapse();
 
   return (
     <>
       <div className={`${styles.ToggleContainer} d-flex justify-content-end`}>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" className={styles.Toggle} />
+        <Navbar.Toggle
+          onClick={() => setExpanded(!expanded)}
+          aria-controls="basic-navbar-nav"
+          className={styles.Toggle}
+        />
       </div>
       <Container className="justify-content-end">
         <Row>
@@ -28,7 +37,9 @@ const NavBarNavigation = () => {
               <Nav className="me-auto align-items-md-center">
                 <NavBarLink exact to="/" textContent="Game feed" active border />
                 {currentUser && <GamesDropdown />}
-                {currentUser && <NavBarLink to={`/profiles/${currentUser.profile_id}`} textContent="Profile" active border />}
+                {currentUser && (
+                  <NavBarLink to={`/profiles/${currentUser.profile_id}`} textContent="Profile" active border />
+                )}
                 <NavBarLink to="/rules" textContent="Rules" active border />
                 {currentUser ? (
                   <NavBarLink to="/" textContent="Sign out" border signOut />
