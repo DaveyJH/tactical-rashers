@@ -15,13 +15,14 @@ const initialState = {
  * @returns the updated state with wins and losses
  */
 const reducer = (state, action) => {
+  console.log("action", action);
   switch (action.type) {
     case "SET_PROFILE_DATA":
       return {
         ...state,
         profileData: action.payload,
-        wins: action.payload.total_wins_count || 0,
-        losses: action.payload.finished_games_count - action.payload.total_wins_count || 0,
+        wins: action.payload?.total_wins_count || 0,
+        losses: action.payload?.finished_games_count - action.payload.total_wins_count || 0,
       };
     default:
       return state;
@@ -30,11 +31,11 @@ const reducer = (state, action) => {
 
 const WinLossCount = () => {
   const currentProfileData = useCurrentProfileData();
-  const [profileData, dispatch] = useReducer(reducer, initialState);
+  const [state, dispatch] = useReducer(reducer, initialState);
 
   useEffect(() => {
     const handleMount = async () => {
-      try {
+      if (currentProfileData) try {
         dispatch({
           type: "SET_PROFILE_DATA",
           payload: currentProfileData,
@@ -51,11 +52,11 @@ const WinLossCount = () => {
     <>
       <p className="d-flex justify-content-between px-4 mt">
         <span>Wins:</span>
-        <span> {profileData.wins}</span>
+        <span> {state?.wins}</span>
       </p>
       <p className="d-flex justify-content-between px-4">
         <span>Losses:</span>
-        <span> {profileData.losses}</span>
+        <span> {state?.losses}</span>
       </p>
     </>
   );

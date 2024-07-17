@@ -13,8 +13,6 @@ export const CurrentProfileDataProvider = ({ children }) => {
   const [currentProfileData, setCurrentProfileData] = useState({});
   const { id } = useParams();
 
-  // ? should this be removed entirely as it will not update from other people's interactions
-
   useEffect(() => {
     const handleMount = async () => {
       try {

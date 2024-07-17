@@ -1,11 +1,15 @@
 import React from "react";
-
 import { NavLink } from "react-router-dom/cjs/react-router-dom.min";
+
+import { useCurrentUser } from "../../contexts/CurrentUserContext";
+
 import NavDropdown from "react-bootstrap/NavDropdown";
 
 import styles from "../../assets/css/nav/NavBarLink.module.css";
 
 const GamesDropdown = () => {
+  const currentUser = useCurrentUser();
+
   return (
     <NavDropdown title="Games" id="games-nav-dropdown" className={`align-middle font-weight-bold ${styles.NavBorder}`}>
       <NavDropdown.Item
@@ -18,14 +22,14 @@ const GamesDropdown = () => {
       <NavDropdown.Divider />
       <NavDropdown.Item
         as={NavLink}
-        to="/games/active"
+        to={`/profiles/${currentUser.profile_id}/active`}
         className={`${styles.NavLink} text-right`}
         activeClassName={styles.Active}>
         Active games
       </NavDropdown.Item>
       <NavDropdown.Item
         as={NavLink}
-        to="/games/completed"
+        to={`/profiles/${currentUser.profile_id}/completed`}
         className={`${styles.NavLink} text-right`}
         activeClassName={styles.Active}>
         Completed games
