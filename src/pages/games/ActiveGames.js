@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 
 import { axiosReq } from "../../api/axiosDefaults";
+import { usePageIsForCurrentUser } from "../../hooks/usePageIsForCurrentUser";
+import { useRedirect } from "../../hooks/useRedirect";
 
 import Spinner from "react-bootstrap/Spinner";
 import Container from "react-bootstrap/Container";
@@ -16,7 +18,9 @@ const ActiveGames = () => {
   const [hasLoaded, setHasLoaded] = useState(false);
   const [query, setQuery] = useState("");
   const { id } = useParams();
-
+  usePageIsForCurrentUser();
+  useRedirect("loggedOut");
+  
   useEffect(() => {
     const fetchGames = async () => {
       try {

@@ -4,6 +4,7 @@ import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { axiosReq } from "../../api/axiosDefaults";
 import { useAllProfileData } from "../../contexts/AllProfileDataContext";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
+import { useRedirect } from "../../hooks/useRedirect";
 
 import Alert from "react-bootstrap/Alert";
 import Form from "react-bootstrap/Form";
@@ -13,6 +14,7 @@ import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
 
 const CreateGame = () => {
+  useRedirect("loggedOut");
   const currentUser = useCurrentUser();
   const allProfileData = useAllProfileData();
   const [allProfiles, setAllProfiles] = useState({ data: [] });
@@ -27,7 +29,6 @@ const CreateGame = () => {
     setOpponent(opponent);
   };
 
-// todo update game context
   useEffect(() => {
     const handleMount = async () => {
       try {

@@ -38,7 +38,7 @@ const NavBarNavigation = () => {
                 <NavBarLink exact to="/" textContent="Game feed" active border />
                 {currentUser && <GamesDropdown />}
                 {currentUser && (
-                  <NavBarLink to={`/profiles/${currentUser.profile_id}`} textContent="Profile" active border />
+                  <NavBarLink exact to={`/profiles/${currentUser.profile_id}`} textContent="Profile" active border />
                 )}
                 <NavBarLink to="/rules" textContent="Rules" active border />
                 {currentUser ? (

@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import axios from "axios";
 
+import { useRedirect } from "../../hooks/useRedirect";
+
 import Form from "react-bootstrap/Form";
 import Alert from "react-bootstrap/Alert";
 import Button from "react-bootstrap/Button";
@@ -14,7 +16,7 @@ import BackgammonImage from "../../components/BackgammonImage";
 import styles from "../../assets/css/AuthPages.module.css";
 
 const SignUp = () => {
-  // todo add redirect for logged in users
+  useRedirect("redirectToProfile");
   const [errors, setErrors] = useState({});
   const [signUpData, setSignUpData] = useState({
     username: "",

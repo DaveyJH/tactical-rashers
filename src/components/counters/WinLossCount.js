@@ -15,7 +15,6 @@ const initialState = {
  * @returns the updated state with wins and losses
  */
 const reducer = (state, action) => {
-  console.log("action", action);
   switch (action.type) {
     case "SET_PROFILE_DATA":
       return {

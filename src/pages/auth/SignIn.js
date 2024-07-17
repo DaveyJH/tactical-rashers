@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import axios from "axios";
 
-import { useSetCurrentUser } from "../../contexts/CurrentUserContext";
+import { useCurrentUser, useSetCurrentUser } from "../../contexts/CurrentUserContext";
 import { setTokenTimestamp } from "../../utils/utils";
+import { useRedirect } from "../../hooks/useRedirect";
 
 import Form from "react-bootstrap/Form";
 import Alert from "react-bootstrap/Alert";
@@ -17,7 +18,8 @@ import BackgammonImage from "../../components/BackgammonImage";
 import styles from "../../assets/css/AuthPages.module.css";
 
 const SignIn = () => {
-  // todo add redirect for logged in users
+  useRedirect("redirectToProfile");
+  const currentUser = useCurrentUser();
   const setCurrentUser = useSetCurrentUser();
 
   const [errors, setErrors] = useState({});
@@ -41,7 +43,7 @@ const SignIn = () => {
       const { data } = await axios.post("/dj-rest-auth/login/", signInData);
       setCurrentUser(data.user);
       setTokenTimestamp(data);
-      history.goBack();
+      history.push(`/profiles/${currentUser.profile_id}`);
     } catch (err) {
       setErrors(err.response?.data);
     }
@@ -57,7 +59,7 @@ const SignIn = () => {
               <Form.Label>Username</Form.Label>
               <Form.Control type="text" name="username" value={username} onChange={handleChange} />
             </Form.Group>
-            {errors.username?.map((message, i) => (
+            {errors?.username?.map((message, i) => (
               <Alert variant="warning" key={i}>
                 {message}
               </Alert>
@@ -66,7 +68,7 @@ const SignIn = () => {
               <Form.Label>Password</Form.Label>
               <Form.Control type="password" name="password" value={password} onChange={handleChange} />
             </Form.Group>
-            {errors.password1?.map((message, i) => (
+            {errors?.password1?.map((message, i) => (
               <Alert variant="warning" key={i}>
                 {message}
               </Alert>
@@ -74,7 +76,7 @@ const SignIn = () => {
             <Button className={styles.Button} type="submit">
               Sign In
             </Button>
-            {errors.non_field_errors?.map((message, i) => (
+            {errors?.non_field_errors?.map((message, i) => (
               <Alert variant="warning" key={i} className="mt-3">
                 {message}
               </Alert>
