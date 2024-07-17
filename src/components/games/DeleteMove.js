@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 
+import { useSetMoves } from "../../contexts/MovesContext";
+
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
-import { useSetMoves } from "../../contexts/MovesContext";
 
 const DeleteMove = ({ moveId }) => {
   const [show, setShow] = useState(false);

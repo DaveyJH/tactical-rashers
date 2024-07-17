@@ -1,19 +1,19 @@
 import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 
 import { axiosReq } from "../../api/axiosDefaults";
 
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 import Spinner from "react-bootstrap/Spinner";
 import Container from "react-bootstrap/Container";
 
 import GameBrief from "../../components/games/GameBrief";
-
 import ProfileHeadline from "../../components/profile/ProfileHeadline";
 import AllGamesCounts from "../../components/counters/AllGamesCounts";
 import WinLossCount from "../../components/counters/WinLossCount";
 
 import styles from "../../assets/css/profiles/Profile.module.css";
-import { Col, Row } from "react-bootstrap";
-import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 
 const ProfileWithContext = () => {
   const [games, setGames] = useState();

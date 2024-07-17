@@ -4,7 +4,7 @@
   border-radius: .25rem;
 }
 
-.GameCard:nth-of-type(2n)>div>div>div {
+.GameCard:nth-of-type(2n) > div > div > div {
   flex-direction: row-reverse;
 }
 

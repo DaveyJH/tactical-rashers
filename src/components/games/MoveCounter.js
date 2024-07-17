@@ -3,7 +3,6 @@ import React from "react";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
-
 // todo change to use correct name with context
 const MoveCounter = ({number, player}) => {
   return (

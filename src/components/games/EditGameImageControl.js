@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 
-import { axiosReq } from "../../api/axiosDefaults";
 import { useCurrentGameData, useSetCurrentGameData } from "../../contexts/CurrentGameDataContext";
+import { axiosReq } from "../../api/axiosDefaults";
 
 import Alert from "react-bootstrap/Alert";
 import Modal from "react-bootstrap/Modal";

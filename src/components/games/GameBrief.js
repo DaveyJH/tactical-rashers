@@ -8,12 +8,12 @@ import Card from "react-bootstrap/Card";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-
-import FontAwesome from "../FontAwesome";
 import Image from "react-bootstrap/Image";
 
-import profileStyles from "../../assets/css/profiles/ProfileHeadline.module.css";
+import FontAwesome from "../FontAwesome";
+
 import styles from "../../assets/css/games/GameBrief.module.css";
+import profileStyles from "../../assets/css/profiles/ProfileHeadline.module.css";
 
 /**
  * 

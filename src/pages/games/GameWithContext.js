@@ -22,7 +22,7 @@ import DiceAndMoves from "../../components/games/DiceAndMoves";
  * @returns
  */
 const reducer = (state, action) => {
-      switch (action.type) {
+  switch (action.type) {
     case "SET_GAME_DATA":
       return {
         ...state,

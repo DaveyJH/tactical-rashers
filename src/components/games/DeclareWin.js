@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 
+import { useSetCurrentGameData } from "../../contexts/CurrentGameDataContext";
+
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
-import { useSetCurrentGameData } from "../../contexts/CurrentGameDataContext";
 
 const DeclareWin = ({ winner, player1, player2 }) => {
   const [show, setShow] = useState(false);

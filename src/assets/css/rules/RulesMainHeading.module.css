@@ -2,9 +2,9 @@
   font-size: 1.4rem;
   background-color: #63442d;
   color: #edebe9;
-  letter-spacing: 0.2em;
+  letter-spacing: .2em;
   text-transform: uppercase;
-  border-radius: 0.25rem;
+  border-radius: .25rem;
   text-shadow: 3px 3px 7px #63442d,  -3px 3px 7px #ede7d9;
 }
 

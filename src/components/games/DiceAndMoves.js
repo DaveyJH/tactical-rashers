@@ -1,23 +1,23 @@
 import React from "react";
 
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
+import { useCurrentGameData } from "../../contexts/CurrentGameDataContext";
 import { useDice, useSetDice } from "../../contexts/DiceContext";
 import { useMoves, useSetMoves } from "../../contexts/MovesContext";
-import { useCurrentGameData } from "../../contexts/CurrentGameDataContext";
 import { fetchMultipleMoreData } from "../../utils/utils";
 
 import Card from "react-bootstrap/Card";
 import Alert from "react-bootstrap/Alert";
+import Spinner from "react-bootstrap/Spinner";
+import InfiniteScroll from "react-infinite-scroll-component";
 
 import Dice from "./Dice";
 import MoveCounter from "./MoveCounter";
 import CreateMove from "./CreateMove";
+import DeleteMove from "./DeleteMove";
+import DeclareWin from "./DeclareWin";
 
 import styles from "../../assets/css/games/DiceAndMoves.module.css";
-import DeleteMove from "./DeleteMove";
-import InfiniteScroll from "react-infinite-scroll-component";
-import Spinner from "react-bootstrap/Spinner";
-import DeclareWin from "./DeclareWin";
 
 const DiceAndMoves = () => {
   const currentUser = useCurrentUser();

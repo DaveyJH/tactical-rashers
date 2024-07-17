@@ -6,7 +6,7 @@
 
 .RulesSection h2 {
   font-size: 1.2rem;
-  letter-spacing: 0.2em;
+  letter-spacing: .2em;
   text-transform: uppercase;
   border-radius: 2rem;
   text-shadow: 3px 3px 7px #63442d,  -3px 3px 7px #ede7d9;

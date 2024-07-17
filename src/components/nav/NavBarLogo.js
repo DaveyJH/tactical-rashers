@@ -1,11 +1,12 @@
 import React from "react";
-
-import Navbar from "react-bootstrap/Navbar";
 import { NavLink } from "react-router-dom/cjs/react-router-dom.min";
 
-import styles from "../../assets/css/nav/NavBarLogo.module.css";
-import Logo from "../../assets/images/logo512.png";
 import { useNavBarCollapse } from "../../contexts/NavBarCollapseContext";
+
+import Navbar from "react-bootstrap/Navbar";
+
+import Logo from "../../assets/images/logo512.png";
+import styles from "../../assets/css/nav/NavBarLogo.module.css";
 
 const NavBarLogo = () => {
   const { logoRef } = useNavBarCollapse();

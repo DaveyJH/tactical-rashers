@@ -1,12 +1,9 @@
-import axios from "axios";
-
 import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import axios from "axios";
 
 import { useSetCurrentUser } from "../../contexts/CurrentUserContext";
 import { setTokenTimestamp } from "../../utils/utils";
-
-import styles from "../../assets/css/AuthPages.module.css";
 
 import Form from "react-bootstrap/Form";
 import Alert from "react-bootstrap/Alert";
@@ -16,6 +13,8 @@ import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
 
 import BackgammonImage from "../../components/BackgammonImage";
+
+import styles from "../../assets/css/AuthPages.module.css";
 
 const SignIn = () => {
   // todo add redirect for logged in users

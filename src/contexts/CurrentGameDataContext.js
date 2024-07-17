@@ -1,6 +1,7 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import { axiosReq } from "../api/axiosDefaults";
 import { useParams } from "react-router-dom/cjs/react-router-dom.min";
+
+import { axiosReq } from "../api/axiosDefaults";
 
 const CurrentGameDataContext = createContext();
 const SetCurrentGameDataContext = createContext();

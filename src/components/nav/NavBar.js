@@ -1,11 +1,12 @@
 import React from "react";
 
+import { useNavBarCollapse } from "../../contexts/NavBarCollapseContext";
+
 import Container from "react-bootstrap/Container";
 import Navbar from "react-bootstrap/Navbar";
 
 import NavBarLogo from "./NavBarLogo";
 import NavBarNavigation from "./NavBarNavigation";
-import { useNavBarCollapse } from "../../contexts/NavBarCollapseContext";
 
 const NavBar = () => {
   const { mainRef, expanded } = useNavBarCollapse();

@@ -1,6 +1,6 @@
-import axios from "axios";
 import React from "react";
 import { NavLink } from "react-router-dom/cjs/react-router-dom.min";
+import axios from "axios";
 
 import { useSetCurrentUser } from "../../contexts/CurrentUserContext";
 import { removeTokenTimestamp } from "../../utils/utils";

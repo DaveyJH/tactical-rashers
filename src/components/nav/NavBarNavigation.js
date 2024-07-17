@@ -1,6 +1,7 @@
 import React from "react";
 
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
+import { useNavBarCollapse, useSetNavBarCollapse } from "../../contexts/NavBarCollapseContext";
 
 import Container from "react-bootstrap/Container";
 import Navbar from "react-bootstrap/Navbar";
@@ -13,7 +14,6 @@ import NavBarLink from "./NavBarLink";
 
 import styles from "../../assets/css/nav/NavBarNavigation.module.css";
 
-import { useNavBarCollapse, useSetNavBarCollapse } from "../../contexts/NavBarCollapseContext";
 
 const NavBarNavigation = () => {
   const currentUser = useCurrentUser();

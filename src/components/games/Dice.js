@@ -1,9 +1,12 @@
 import React from "react";
 
-import { Col, Container, Row } from "react-bootstrap";
-import Button from "react-bootstrap/Button";
-
 import { useSetDice } from "../../contexts/DiceContext";
+
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+
+import Button from "react-bootstrap/Button";
 
 import styles from "../../assets/css/games/Dice.module.css";
 

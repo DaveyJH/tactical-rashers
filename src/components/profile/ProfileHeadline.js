@@ -1,13 +1,18 @@
 import React, { useEffect, useState } from "react";
-import { Col, Container, Image, Row } from "react-bootstrap";
+
+import { useCurrentUser } from "../../contexts/CurrentUserContext";
+import { useCurrentProfileData } from "../../contexts/CurrentProfileContext";
+
+import Col from "react-bootstrap/Col";
+import Container from "react-bootstrap/Container";
+import Image from "react-bootstrap/Image";
+import Row from "react-bootstrap/Row";
 import Dropdown from "react-bootstrap/Dropdown";
 import DropdownButton from "react-bootstrap/DropdownButton";
 
 import FontAwesome from "../FontAwesome";
 
 import styles from "../../assets/css/profiles/ProfileHeadline.module.css";
-import { useCurrentUser } from "../../contexts/CurrentUserContext";
-import { useCurrentProfileData } from "../../contexts/CurrentProfileContext";
 
 const ProfileHeadline = ({ vertical, small }) => {
   const currentProfileData = useCurrentProfileData();

@@ -6,44 +6,8 @@
   padding-top: 8rem;
 }
 
-.AppLogo {
-  height: 35vmin;
-  pointer-events: none;
-  margin-bottom: 50px;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .AppLogo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.AppHeader {
-  background-color: #445261;
-  min-height: calc(100vh - 8rem);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
 @media screen and (min-width: 345px) {
   .MainContainer {
     padding-top: 5.25rem;
-  }
-
-  .AppHeader {
-    min-height: calc(100vh - 5.25rem);
   }
 }

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { useCurrentProfileData } from "../../contexts/CurrentProfileContext";
+
 import GamesCount from "./GamesCount";
 
 const AllGamesCounts = () => {

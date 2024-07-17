@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 
-import { Form, InputGroup, Button, Container } from "react-bootstrap";
-
 import { useSetMoves } from "../../contexts/MovesContext";
+
+import Form from "react-bootstrap/Form";
+import InputGroup from "react-bootstrap/InputGroup";
+import Button from "react-bootstrap/Button";
+import Container from "react-bootstrap/Container";
 
 const CreateMove = () => {
   const [content, setContent] = useState("");
