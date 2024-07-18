@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
 
 import { axiosReq } from "../../api/axiosDefaults";
+import { fetchMoreData } from "../../utils/utils";
 
 import Spinner from "react-bootstrap/Spinner";
 import Container from "react-bootstrap/Container";
+import InfiniteScroll from "react-infinite-scroll-component";
 
 import GameBrief from "../../components/games/GameBrief";
 import SearchByPlayer from "../../components/SearchByPlayer";
@@ -34,7 +36,15 @@ const GamesFeed = () => {
       <SearchByPlayer query={query} setQuery={setQuery} />
       {hasLoaded ? (
         games?.results?.length ? (
-          games?.results?.map((game) => <GameBrief key={game.id} {...game} />)
+          <InfiniteScroll
+            children={games?.results?.map((game) => (
+              <GameBrief key={game.id} {...game} />
+            ))}
+            dataLength={games.results.length}
+            loader={<Spinner />}
+            hasMore={!!games.next}
+            next={() => fetchMoreData(games, setGames)}
+          />
         ) : (
           <p>No games found... maybe you should play?</p>
         )
