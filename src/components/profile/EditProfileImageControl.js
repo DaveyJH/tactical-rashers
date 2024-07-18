@@ -15,12 +15,14 @@ const EditProfileImageControl = ({ show, handleClose }) => {
   const profile = useCurrentProfileData();
   const { setCurrentProfileData } = useSetCurrentProfileData();
   const [profileImage, setProfileImage] = useState(profile.image);
+  const [imageChanged, setImageChanged] = useState(false);
 
   const imageInput = useRef(null);
 
   const resetImageAndClose = () => {
     URL.revokeObjectURL(profileImage);
     setProfileImage(profile.image);
+    setImageChanged(false);
     handleClose();
   }
 
@@ -28,6 +30,7 @@ const EditProfileImageControl = ({ show, handleClose }) => {
     if (e.target.files.length) {
       URL.revokeObjectURL(profileImage);
       setProfileImage(URL.createObjectURL(e.target.files[0]));
+      setImageChanged(true);
     }
   };
 
@@ -62,7 +65,7 @@ const EditProfileImageControl = ({ show, handleClose }) => {
           <Button variant="secondary" onClick={resetImageAndClose}>
             Cancel
           </Button>
-          <Button variant="primary" onClick={handleSubmitImage}>
+          <Button variant="primary" disabled={!imageChanged} onClick={handleSubmitImage}>
             Upload
           </Button>
           {errors?.image?.map((message, i) => (

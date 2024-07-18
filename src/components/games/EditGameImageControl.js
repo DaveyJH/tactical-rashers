@@ -16,6 +16,7 @@ const EditGameImageControl = () => {
   const game = useCurrentGameData();
   const { setCurrentGameData } = useSetCurrentGameData();
   const [gameImage, setGameImage] = useState(game.image);
+  const [imageChanged, setImageChanged] = useState(false);
 
   const imageInput = useRef(null);
 
@@ -66,7 +67,7 @@ const EditGameImageControl = () => {
           <Button variant="secondary" onClick={handleClose}>
             Cancel
           </Button>
-          <Button variant="primary" onClick={handleSubmitImage}>
+          <Button variant="primary" disabled={!imageChanged} onClick={handleSubmitImage}>
             Upload
           </Button>
           {errors?.image?.map((message, i) => (
