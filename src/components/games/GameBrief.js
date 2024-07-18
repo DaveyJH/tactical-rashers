@@ -16,7 +16,7 @@ import styles from "../../assets/css/games/GameBrief.module.css";
 import profileStyles from "../../assets/css/profiles/ProfileHeadline.module.css";
 
 /**
- * 
+ *
  * @param {*} game the game data
  * @returns a card with players, number of moves, and a button to view details
  */
@@ -39,13 +39,21 @@ const GameBrief = ({ id, all_moves, player1, player2, winner }) => {
                     <Image role="presentation" src={player1Data?.image} className={profileStyles.ProfileImage} fluid />
                   </Col>
                   <Col className={styles.BiggerText}>
-                    {player1Data?.owner} {winner === player1 && <FontAwesome className="ml-2" iconName="fas fa-trophy" />}
+                    <Link to={`/profiles/${player1Data?.id}`}>
+                      {player1Data?.owner}{" "}
+                      {winner === player1 && <FontAwesome className="ml-2" iconName="fas fa-trophy" />}
+                    </Link>
                   </Col>
                 </Row>
-                <Row className="justify-content-center align-items-center m-auto" noGutters>vs.</Row>
+                <Row className="justify-content-center align-items-center m-auto" noGutters>
+                  vs.
+                </Row>
                 <Row className="justify-content-center align-items-center m-auto" noGutters>
                   <Col className={styles.BiggerText}>
-                    {winner === player2 && <FontAwesome className="mr-2" iconName="fas fa-trophy" />} {player2Data?.owner}
+                    <Link to={`/profiles/${player1Data?.id}`}>
+                      {winner === player2 && <FontAwesome className="mr-2" iconName="fas fa-trophy" />}{" "}
+                      {player2Data?.owner}
+                    </Link>
                   </Col>
                   <Col xs={5} lg={2}>
                     <Image role="presentation" src={player2Data?.image} className={profileStyles.ProfileImage} fluid />
@@ -63,7 +71,9 @@ const GameBrief = ({ id, all_moves, player1, player2, winner }) => {
             </Col>
           </Row>
           <hr />
-          <Button as={Link} to={`/games/${id}`} className="mb-3">View details</Button>
+          <Button as={Link} to={`/games/${id}`} className="mb-3">
+            View details
+          </Button>
         </Container>
       </Card>
     </article>

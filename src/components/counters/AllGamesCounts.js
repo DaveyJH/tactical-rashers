@@ -4,6 +4,7 @@ import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { useCurrentProfileData } from "../../contexts/CurrentProfileDataContext";
 
 import GamesCount from "./GamesCount";
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
 const AllGamesCounts = () => {
   const currentProfileData = useCurrentProfileData();
@@ -27,12 +28,25 @@ const AllGamesCounts = () => {
     handleMount();
   }, [currentUser, currentProfileData, profileData?.owner]);
 
-  return <div>
-    {/* todo owner == link to active/completed games */}
-    {/* todo styling */}
-    <GamesCount status="Active" count={profileData.active_games_count} />
-    <GamesCount status="Completed" count={profileData.finished_games_count} />
-  </div>;
+  return (
+    <div>
+      {owner ? (
+        <>
+          <Link to={`/profiles/${profileData.id}/active`}>
+            <GamesCount status="Active" count={profileData.active_games_count} />
+          </Link>
+          <Link to={`/profiles/${profileData.id}/completed`}>
+            <GamesCount status="Completed" count={profileData.finished_games_count} />
+          </Link>
+        </>
+      ) : (
+        <>
+          <GamesCount status="Active" count={profileData.active_games_count} />
+          <GamesCount status="Completed" count={profileData.finished_games_count} />
+        </>
+      )}
+    </div>
+  );
 };
 
 export default AllGamesCounts;

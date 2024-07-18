@@ -76,7 +76,6 @@ const ProfileHeadline = ({ vertical, small }) => {
                     <span className={styles.FontAwesomeFollower}>edit</span>
                   </>
                 }>
-                {/* todo update href into to or use modal? */}
                 <Dropdown.Item onClick={handleShowImageEditor}>Update image</Dropdown.Item>
                 <Dropdown.Item onClick={handleShowInfoEditor}>Edit info</Dropdown.Item>
                 <Dropdown.Item onClick={handleShowPasswordEditor}>Change password</Dropdown.Item>
