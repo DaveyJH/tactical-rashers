@@ -25,7 +25,7 @@ const CreateGame = () => {
 
   const handleChange = (e) => {
     const opponentName = e.target.value;
-    const opponent = allProfiles?.data.results.find((profile) => profile.owner === opponentName);
+    const opponent = allProfiles?.results.find((profile) => profile.owner === opponentName);
     setOpponent(opponent);
   };
 
@@ -37,8 +37,7 @@ const CreateGame = () => {
           ...allProfileData,
         }));
       } catch (err) {
-        // todo clg
-        console.error(err);
+        // console.error(err);
       }
     };
     handleMount();
@@ -64,10 +63,9 @@ const CreateGame = () => {
   const opponentSelect = (
     <Form.Group controlId="opponent">
       <Form.Label>Select opponent</Form.Label>
-      {/* todo disable top select option */}
       <Form.Control as="select" onChange={handleChange} required>
         <option value="">Choose your Opponent</option>
-        {allProfiles?.data.results
+        {allProfiles?.results
           ?.filter((profile) => profile.id !== currentUser.profile_id)
           .map((profile) => (
             <option key={profile.id} value={profile.owner}>
