@@ -21,7 +21,7 @@ export const MovesProvider = ({ children }) => {
 
   const handleNewMove = async (content) => {
     try {
-      const { data } = await axiosRes.post("/moves/", { game: gameId, owner: currentUser.profile_id, content });
+      const { data } = await axiosRes.post("/moves/", { game: gameId, owner: currentUser?.profile_id, content });
       setMoves((prevState) => ({
         ...prevState,
         count: prevState.count + 1,

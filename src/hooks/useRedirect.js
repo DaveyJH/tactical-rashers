@@ -13,7 +13,7 @@ export const useRedirect = (authStatus) => {
       try {
         await axios.post("/dj-rest-auth/token/refresh/");
         if (authStatus === "redirectToProfile") {
-          history.push(`/profiles/${currentUser.profile_id}`);
+          history.push(`/profiles/${currentUser?.profile_id}`);
         }
       } catch (err) {
         if (authStatus === "loggedOut") {

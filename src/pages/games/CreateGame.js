@@ -66,7 +66,7 @@ const CreateGame = () => {
       <Form.Control as="select" onChange={handleChange} required>
         <option value="">Choose your Opponent</option>
         {allProfiles?.results
-          ?.filter((profile) => profile.id !== currentUser.profile_id)
+          ?.filter((profile) => profile.id !== currentUser?.profile_id)
           .map((profile) => (
             <option key={profile.id} value={profile.owner}>
               {profile.owner}

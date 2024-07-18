@@ -20,7 +20,7 @@ export const DiceProvider = ({ children }) => {
 
   const handleNewDiceRoll = async () => {
     try {
-      const { data } = await axiosRes.post("/dice/", { game: gameId, owner: currentUser.profile_id });
+      const { data } = await axiosRes.post("/dice/", { game: gameId, owner: currentUser?.profile_id });
       setDice((prevState) => ({
         ...prevState,
         count: prevState.count + 1,

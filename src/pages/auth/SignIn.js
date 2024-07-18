@@ -43,7 +43,7 @@ const SignIn = () => {
       const { data } = await axios.post("/dj-rest-auth/login/", signInData);
       setCurrentUser(data.user);
       setTokenTimestamp(data);
-      history.push(`/profiles/${currentUser.profile_id}`);
+      history.push(`/profiles/${currentUser?.profile_id}`);
     } catch (err) {
       setErrors(err.response?.data);
     }

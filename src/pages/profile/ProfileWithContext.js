@@ -2,11 +2,13 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 
 import { axiosReq } from "../../api/axiosDefaults";
+import { fetchMoreData } from "../../utils/utils";
 
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Spinner from "react-bootstrap/Spinner";
 import Container from "react-bootstrap/Container";
+import InfiniteScroll from "react-infinite-scroll-component";
 
 import GameBrief from "../../components/games/GameBrief";
 import ProfileHeadline from "../../components/profile/ProfileHeadline";
@@ -47,7 +49,15 @@ const ProfileWithContext = () => {
       </Row>
       {hasLoaded ? (
         games?.results?.length ? (
-          games?.results?.map((game) => <GameBrief key={game.id} {...game} />)
+          <InfiniteScroll
+            children={games?.results?.map((game) => (
+              <GameBrief key={game.id} {...game} />
+            ))}
+            dataLength={games.results.length}
+            loader={<Spinner />}
+            hasMore={!!games.next}
+            next={() => fetchMoreData(games, setGames)}
+          />
         ) : (
           <p>No games found... maybe you should play?</p>
         )

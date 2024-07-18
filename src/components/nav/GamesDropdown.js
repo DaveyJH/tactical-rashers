@@ -22,14 +22,14 @@ const GamesDropdown = () => {
       <NavDropdown.Divider />
       <NavDropdown.Item
         as={NavLink}
-        to={`/profiles/${currentUser.profile_id}/active`}
+        to={`/profiles/${currentUser?.profile_id}/active`}
         className={`${styles.NavLink} text-right`}
         activeClassName={styles.Active}>
         Active games
       </NavDropdown.Item>
       <NavDropdown.Item
         as={NavLink}
-        to={`/profiles/${currentUser.profile_id}/completed`}
+        to={`/profiles/${currentUser?.profile_id}/completed`}
         className={`${styles.NavLink} text-right`}
         activeClassName={styles.Active}>
         Completed games
