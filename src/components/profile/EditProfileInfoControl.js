@@ -49,10 +49,11 @@ const EditProfileInfoControl = ({ show, handleClose }) => {
           <Form.Label>Update your info</Form.Label>
           <Form.Control
             placeholder="Tell us about yourself"
-            type="text"
+            as="textarea"
             value={userInfo}
             onChange={handleChange}
             name="info"
+            rows={5}
           />
         </Form.Group>
         {errors?.info?.map((message, i) => (
