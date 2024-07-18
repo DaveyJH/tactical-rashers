@@ -12,6 +12,8 @@ import DropdownButton from "react-bootstrap/DropdownButton";
 
 import FontAwesome from "../FontAwesome";
 import EditProfileImageControl from "./EditProfileImageControl";
+import EditProfileInfoControl from "./EditProfileInfoControl";
+import EditPasswordControl from "./EditPasswordControl";
 
 import styles from "../../assets/css/profiles/ProfileHeadline.module.css";
 
@@ -21,9 +23,15 @@ const ProfileHeadline = ({ vertical, small }) => {
   const [profileData, setProfileData] = useState({});
 
   const [showImageEditor, setShowImageEditor] = useState(false);
+  const [showInfoEditor, setShowInfoEditor] = useState(false);
+  const [showPasswordEditor, setShowPasswordEditor] = useState(false);
 
   const handleCloseImageEditor = () => setShowImageEditor(false);
   const handleShowImageEditor = () => setShowImageEditor(true);
+  const handleCloseInfoEditor = () => setShowInfoEditor(false);
+  const handleShowInfoEditor = () => setShowInfoEditor(true);
+  const handleClosePasswordEditor = () => setShowPasswordEditor(false);
+  const handleShowPasswordEditor = () => setShowPasswordEditor(true);
 
   useEffect(() => {
     const handleMount = async () => {
@@ -70,12 +78,13 @@ const ProfileHeadline = ({ vertical, small }) => {
                 }>
                 {/* todo update href into to or use modal? */}
                 <Dropdown.Item onClick={handleShowImageEditor}>Update image</Dropdown.Item>
-                <Dropdown.Item href="#/">Edit info</Dropdown.Item>
-                <Dropdown.Item href="#/action-2">Change username</Dropdown.Item>
-                <Dropdown.Item href="#/action-3">Change password</Dropdown.Item>
+                <Dropdown.Item onClick={handleShowInfoEditor}>Edit info</Dropdown.Item>
+                <Dropdown.Item onClick={handleShowPasswordEditor}>Change password</Dropdown.Item>
               </DropdownButton>
             </Col>
             <EditProfileImageControl show={showImageEditor} handleClose={handleCloseImageEditor} />
+            <EditProfileInfoControl show={showInfoEditor} handleClose={handleCloseInfoEditor} />
+            <EditPasswordControl show={showPasswordEditor} handleClose={handleClosePasswordEditor} />
           </>
         ) : (
           <Col lg={1} />

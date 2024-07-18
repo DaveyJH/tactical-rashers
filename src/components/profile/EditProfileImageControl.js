@@ -24,7 +24,7 @@ const EditProfileImageControl = ({ show, handleClose }) => {
     setProfileImage(profile.image);
     setImageChanged(false);
     handleClose();
-  }
+  };
 
   const handleChangeImage = (e) => {
     if (e.target.files.length) {
@@ -53,29 +53,27 @@ const EditProfileImageControl = ({ show, handleClose }) => {
   };
 
   return (
-    <>
-      <Modal show={show} onHide={resetImageAndClose}>
-        <Modal.Header closeButton>
-          <Modal.Title>Profile image</Modal.Title>
-        </Modal.Header>
-        <Form>
-          <ImageUploader image={profileImage} handleChangeImage={handleChangeImage} ref={imageInput} />
-        </Form>
-        <Modal.Footer className="justify-content-between">
-          <Button variant="secondary" onClick={resetImageAndClose}>
-            Cancel
-          </Button>
-          <Button variant="primary" disabled={!imageChanged} onClick={handleSubmitImage}>
-            Upload
-          </Button>
-          {errors?.image?.map((message, i) => (
-            <Alert variant="warning" key={i}>
-              {message}
-            </Alert>
-          ))}
-        </Modal.Footer>
-      </Modal>
-    </>
+    <Modal show={show} onHide={resetImageAndClose}>
+      <Modal.Header closeButton>
+        <Modal.Title>Profile image</Modal.Title>
+      </Modal.Header>
+      <Form>
+        <ImageUploader image={profileImage} handleChangeImage={handleChangeImage} ref={imageInput} />
+      </Form>
+      <Modal.Footer className="justify-content-between">
+        <Button variant="secondary" onClick={resetImageAndClose}>
+          Cancel
+        </Button>
+        <Button variant="primary" disabled={!imageChanged} onClick={handleSubmitImage}>
+          Upload
+        </Button>
+        {errors?.image?.map((message, i) => (
+          <Alert variant="warning" key={i}>
+            {message}
+          </Alert>
+        ))}
+      </Modal.Footer>
+    </Modal>
   );
 };
 
