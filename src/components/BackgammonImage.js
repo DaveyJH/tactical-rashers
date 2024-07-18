@@ -4,9 +4,9 @@ import Image from "react-bootstrap/Image";
 
 import styles from "../assets/css/BackgammonImage.module.css";
 
-import BackgammonBoardLargeWEBP from "../assets/images/BackgammonBoardL.webp";
-import BackgammonBoardMedWEBP from "../assets/images/BackgammonBoardM.webp";
-import BackgammonBoardSmallWEBP from "../assets/images/BackgammonBoardS.webp";
+import BackgammonBoardLargeWEBP from "../assets/images/backgammon-board-l.webp";
+import BackgammonBoardMedWEBP from "../assets/images/backgammon-board-m.webp";
+import BackgammonBoardSmallWEBP from "../assets/images/backgammon-board-s.webp";
 
 const BackgammonImage = () => {
   return (
