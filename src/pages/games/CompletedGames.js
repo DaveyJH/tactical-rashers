@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 
+import { CurrentProfileDataProvider } from "../../contexts/CurrentProfileDataContext";
 import { axiosReq } from "../../api/axiosDefaults";
 import { usePageIsForCurrentUser } from "../../hooks/usePageIsForCurrentUser";
 import { useRedirect } from "../../hooks/useRedirect";
@@ -36,20 +37,22 @@ const CompletedGames = () => {
   }, [query, id]);
 
   return (
-    <Container className="mb-5">
-      <h2 className={`my-2 ${styles.Heading}`}>Completed games</h2>
-      <WinLossCount />
-      <SearchByPlayer query={query} setQuery={setQuery} />
-      {hasLoaded ? (
-        games?.results?.length ? (
-          games?.results?.map((game) => <GameBrief key={game.id} {...game} />)
+    <CurrentProfileDataProvider>
+      <Container className="mb-5">
+        <h2 className={`my-2 ${styles.Heading}`}>Completed games</h2>
+        <WinLossCount />
+        <SearchByPlayer query={query} setQuery={setQuery} />
+        {hasLoaded ? (
+          games?.results?.length ? (
+            games?.results?.map((game) => <GameBrief key={game.id} {...game} />)
+          ) : (
+            <p>No games found... maybe you should play?</p>
+          )
         ) : (
-          <p>No games found... maybe you should play?</p>
-        )
-      ) : (
-        <Spinner animation="border" />
-      )}
-    </Container>
+          <Spinner animation="border" />
+        )}
+      </Container>
+    </CurrentProfileDataProvider>
   );
 };
 

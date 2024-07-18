@@ -20,7 +20,7 @@ const ActiveGames = () => {
   const { id } = useParams();
   usePageIsForCurrentUser();
   useRedirect("loggedOut");
-  
+
   useEffect(() => {
     const fetchGames = async () => {
       try {
