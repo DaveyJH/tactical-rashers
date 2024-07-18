@@ -1,6 +1,6 @@
 import React, { useEffect, useReducer } from "react";
 
-import { useCurrentProfileData } from "../../contexts/CurrentProfileContext";
+import { useCurrentProfileData } from "../../contexts/CurrentProfileDataContext";
 
 const initialState = {
   profileData: {},

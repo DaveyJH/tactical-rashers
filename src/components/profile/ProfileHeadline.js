@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
-import { useCurrentProfileData } from "../../contexts/CurrentProfileContext";
+import { useCurrentProfileData } from "../../contexts/CurrentProfileDataContext";
 
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
@@ -11,6 +11,7 @@ import Dropdown from "react-bootstrap/Dropdown";
 import DropdownButton from "react-bootstrap/DropdownButton";
 
 import FontAwesome from "../FontAwesome";
+import EditProfileImageControl from "./EditProfileImageControl";
 
 import styles from "../../assets/css/profiles/ProfileHeadline.module.css";
 
@@ -18,6 +19,11 @@ const ProfileHeadline = ({ vertical, small }) => {
   const currentProfileData = useCurrentProfileData();
   const currentUser = useCurrentUser();
   const [profileData, setProfileData] = useState({});
+
+  const [showImageEditor, setShowImageEditor] = useState(false);
+
+  const handleCloseImageEditor = () => setShowImageEditor(false);
+  const handleShowImageEditor = () => setShowImageEditor(true);
 
   useEffect(() => {
     const handleMount = async () => {
@@ -51,23 +57,26 @@ const ProfileHeadline = ({ vertical, small }) => {
           {profileData.info}
         </Col>
         {profileData.is_owner ? (
-          <Col lg={3} className="mt-2 text-right text-lg-left">
-            <DropdownButton
-              menuAlign="right"
-              id="edit-dropdown"
-              title={
-                <>
-                  <FontAwesome iconName="fas fa-user-edit" />
-                  <span className={styles.FontAwesomeFollower}>edit</span>
-                </>
-              }>
-              {/* todo update href into to or use modal? */}
-              <Dropdown.Item href="#/action-1">Update image</Dropdown.Item>
-              <Dropdown.Item href="#/">Edit info</Dropdown.Item>
-              <Dropdown.Item href="#/action-2">Change username</Dropdown.Item>
-              <Dropdown.Item href="#/action-3">Change password</Dropdown.Item>
-            </DropdownButton>
-          </Col>
+          <>
+            <Col lg={3} className="mt-2 text-right text-lg-left">
+              <DropdownButton
+                menuAlign="right"
+                id="edit-dropdown"
+                title={
+                  <>
+                    <FontAwesome iconName="fas fa-user-edit" />
+                    <span className={styles.FontAwesomeFollower}>edit</span>
+                  </>
+                }>
+                {/* todo update href into to or use modal? */}
+                <Dropdown.Item onClick={handleShowImageEditor}>Update image</Dropdown.Item>
+                <Dropdown.Item href="#/">Edit info</Dropdown.Item>
+                <Dropdown.Item href="#/action-2">Change username</Dropdown.Item>
+                <Dropdown.Item href="#/action-3">Change password</Dropdown.Item>
+              </DropdownButton>
+            </Col>
+            <EditProfileImageControl show={showImageEditor} handleClose={handleCloseImageEditor} />
+          </>
         ) : (
           <Col lg={1} />
         )}

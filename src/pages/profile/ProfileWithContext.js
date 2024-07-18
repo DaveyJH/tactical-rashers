@@ -14,23 +14,27 @@ import AllGamesCounts from "../../components/counters/AllGamesCounts";
 import WinLossCount from "../../components/counters/WinLossCount";
 
 import styles from "../../assets/css/profiles/Profile.module.css";
+import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
 const ProfileWithContext = () => {
   const [games, setGames] = useState();
   const [hasLoaded, setHasLoaded] = useState(false);
   const { id } = useParams();
+  const currentUser = useCurrentUser();
+  const isOwner = currentUser?.profile_id === parseInt(id);
 
   useEffect(() => {
     const fetchGames = async () => {
       try {
-        const { data } = await axiosReq.get(`/games/?either_player=${id}`);
+        console.log(isOwner)
+        const { data } = await axiosReq.get(`/games/?either_player=${id}${!isOwner ? "&is_active=False" : ""}`);
         setGames(data);
         setHasLoaded(true);
       } catch (err) {}
     };
     setHasLoaded(false);
     fetchGames();
-  }, [id]);
+  }, [id, isOwner]);
 
   return (
     <Container className="mt-3 mb-5">

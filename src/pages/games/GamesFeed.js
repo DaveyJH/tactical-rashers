@@ -30,7 +30,7 @@ const GamesFeed = () => {
 
   return (
     <Container className="mb-5">
-      <h2 className={`my-2 ${styles.Heading}`}>Completed games</h2>
+      <h2 className={`my-2 ${styles.Heading}`}>Games</h2>
       <SearchByPlayer query={query} setQuery={setQuery} />
       {hasLoaded ? (
         games?.results?.length ? (

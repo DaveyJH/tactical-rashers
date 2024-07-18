@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
 
-import { useCurrentGameData, useSetCurrentGameData } from "../../contexts/CurrentGameDataContext";
+import { useCurrentProfileData, useSetCurrentProfileData } from "../../contexts/CurrentProfileDataContext";
 import { axiosReq } from "../../api/axiosDefaults";
 
 import Alert from "react-bootstrap/Alert";
@@ -10,22 +10,24 @@ import Form from "react-bootstrap/Form";
 
 import ImageUploader from "../forms/ImageUploader";
 
-const EditGameImageControl = () => {
+const EditProfileImageControl = ({ show, handleClose }) => {
   const [errors, setErrors] = useState({});
-  const [show, setShow] = useState(false);
-  const game = useCurrentGameData();
-  const { setCurrentGameData } = useSetCurrentGameData();
-  const [gameImage, setGameImage] = useState(game.image);
+  const profile = useCurrentProfileData();
+  const { setCurrentProfileData } = useSetCurrentProfileData();
+  const [profileImage, setProfileImage] = useState(profile.image);
 
   const imageInput = useRef(null);
 
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  const resetImageAndClose = () => {
+    URL.revokeObjectURL(profileImage);
+    setProfileImage(profile.image);
+    handleClose();
+  }
 
   const handleChangeImage = (e) => {
     if (e.target.files.length) {
-      URL.revokeObjectURL(gameImage);
-      setGameImage(URL.createObjectURL(e.target.files[0]));
+      URL.revokeObjectURL(profileImage);
+      setProfileImage(URL.createObjectURL(e.target.files[0]));
     }
   };
 
@@ -33,14 +35,11 @@ const EditGameImageControl = () => {
     e.preventDefault();
     const formData = new FormData();
     if (imageInput?.current?.files[0]) {
-      formData.append("player1", game.player1);
-      formData.append("player2", game.player2);
-      formData.append("active", game.active);
       formData.append("image", imageInput.current.files[0]);
     }
     try {
-      await axiosReq.put(`/games/${game.id}/`, formData);
-      setCurrentGameData((prevState) => ({ ...prevState, image: gameImage }));
+      await axiosReq.put(`/profiles/${profile.id}/`, formData);
+      setCurrentProfileData((prevState) => ({ ...prevState, image: profileImage }));
       handleClose();
     } catch (err) {
       // console.error(err);
@@ -52,18 +51,15 @@ const EditGameImageControl = () => {
 
   return (
     <>
-      <Button variant="primary" className="mt-1" onClick={handleShow}>
-        Edit image
-      </Button>
-      <Modal show={show} onHide={handleClose}>
+      <Modal show={show} onHide={resetImageAndClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Game image</Modal.Title>
+          <Modal.Title>Profile image</Modal.Title>
         </Modal.Header>
         <Form>
-          <ImageUploader image={gameImage} handleChangeImage={handleChangeImage} ref={imageInput} />
+          <ImageUploader image={profileImage} handleChangeImage={handleChangeImage} ref={imageInput} />
         </Form>
         <Modal.Footer className="justify-content-between">
-          <Button variant="secondary" onClick={handleClose}>
+          <Button variant="secondary" onClick={resetImageAndClose}>
             Cancel
           </Button>
           <Button variant="primary" onClick={handleSubmitImage}>
@@ -80,4 +76,4 @@ const EditGameImageControl = () => {
   );
 };
 
-export default EditGameImageControl;
+export default EditProfileImageControl;

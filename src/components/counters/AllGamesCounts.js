@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
-import { useCurrentProfileData } from "../../contexts/CurrentProfileContext";
+import { useCurrentProfileData } from "../../contexts/CurrentProfileDataContext";
 
 import GamesCount from "./GamesCount";
 

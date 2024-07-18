@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useHistory } from "react-router-dom/cjs/react-router-dom.min"
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import axios from "axios";
 
 import { useCurrentUser } from "../contexts/CurrentUserContext";
@@ -23,4 +23,4 @@ export const useRedirect = (authStatus) => {
     };
     handleMount();
   }, [history, authStatus, currentUser]);
-}
+};

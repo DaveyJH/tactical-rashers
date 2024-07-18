@@ -1,6 +1,6 @@
 import React from "react";
 
-import { CurrentProfileDataProvider } from "../../contexts/CurrentProfileContext";
+import { CurrentProfileDataProvider } from "../../contexts/CurrentProfileDataContext";
 
 import ProfileWithContext from "./ProfileWithContext";
 
