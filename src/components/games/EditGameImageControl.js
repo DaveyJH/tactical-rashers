@@ -23,10 +23,18 @@ const EditGameImageControl = () => {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
+  const resetImageAndClose = () => {
+    URL.revokeObjectURL(gameImage);
+    setGameImage(game.image);
+    setImageChanged(false);
+    handleClose();
+  };
+
   const handleChangeImage = (e) => {
     if (e.target.files.length) {
       URL.revokeObjectURL(gameImage);
       setGameImage(URL.createObjectURL(e.target.files[0]));
+      setImageChanged(true);
     }
   };
 
@@ -56,7 +64,7 @@ const EditGameImageControl = () => {
       <Button variant="primary" className="mt-1" onClick={handleShow}>
         Edit image
       </Button>
-      <Modal show={show} onHide={handleClose}>
+      <Modal show={show} onHide={resetImageAndClose}>
         <Modal.Header closeButton>
           <Modal.Title>Game image</Modal.Title>
         </Modal.Header>
@@ -64,7 +72,7 @@ const EditGameImageControl = () => {
           <ImageUploader image={gameImage} handleChangeImage={handleChangeImage} ref={imageInput} />
         </Form>
         <Modal.Footer className="justify-content-between">
-          <Button variant="secondary" onClick={handleClose}>
+          <Button variant="secondary" onClick={resetImageAndClose}>
             Cancel
           </Button>
           <Button variant="primary" disabled={!imageChanged} onClick={handleSubmitImage}>
