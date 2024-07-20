@@ -35,7 +35,13 @@ const GameBrief = ({ id, all_moves, player1, player2, winner }) => {
             <Card.Body className="my-0 p-2">
               <Row className="justify-content-center align-items-center m-auto" noGutters>
                 <Col xs={5} lg={2}>
-                  <Image role="presentation" src={player1Data?.image} className={profileStyles.ProfileImage} fluid />
+                  <Image
+                    role="presentation"
+                    src={player1Data?.image}
+                    className={profileStyles.ProfileImage}
+                    alt="player 1 avatar"
+                    fluid
+                  />
                 </Col>
                 <Col className={styles.BiggerText}>
                   <Link to={`/profiles/${player1Data?.id}`}>
@@ -55,14 +61,20 @@ const GameBrief = ({ id, all_moves, player1, player2, winner }) => {
                   </Link>
                 </Col>
                 <Col xs={5} lg={2}>
-                  <Image role="presentation" src={player2Data?.image} className={profileStyles.ProfileImage} fluid />
+                  <Image
+                    role="presentation"
+                    src={player2Data?.image}
+                    className={profileStyles.ProfileImage}
+                    alt="player 2 avatar"
+                    fluid
+                  />
                 </Col>
               </Row>
             </Card.Body>
           </Col>
           <Col className="px-0 d-flex align-items-center" xs={4}>
             <Card.Body className={`px-1 ${styles.numberOfMoves}`}>
-              <Row className="flex-column">
+              <Row className="flex-column" noGutters>
                 <Col>No. of moves</Col>
                 <Col className={styles.BiggerText}>{numberOfMoves}</Col>
               </Row>

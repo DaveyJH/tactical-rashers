@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
@@ -13,13 +14,17 @@ const GameHeader = ({ player1, player2, game, movesCount }) => {
       <h1>
         <Row noGutters className="align-items-center">
           <Col xs={5} className="text-truncate text-right">
-            {player1.owner}
-            <Image height={25} src={player1.image} alt="player 1 avatar" rounded />
+            <Link to={`/profiles/${player1?.id}`}>
+              {player1?.owner}
+              <Image height={25} src={player1?.image} alt="player 1 avatar" rounded />
+            </Link>
           </Col>
           <Col>vs.</Col>
           <Col xs={5} className="text-truncate text-left">
-            <Image height={25} src={player2.image} alt="player 2 avatar" rounded />
-            {player2.owner}
+            <Link to={`/profiles/${player2?.id}`}>
+              <Image height={25} src={player2?.image} alt="player 2 avatar" rounded />
+              {player2.owner}
+            </Link>
           </Col>
         </Row>
       </h1>
@@ -27,7 +32,7 @@ const GameHeader = ({ player1, player2, game, movesCount }) => {
       <Row>
         <Col>
           <p className="mb-1">
-            {!game.active && (game.winner === player1.id ? `${player1.owner} wins: ` : `${player2.owner} wins: `)}
+            {!game?.active && (game?.winner === player1?.id ? `${player1?.owner} wins: ` : `${player2?.owner} wins: `)}
             {movesCount} moves
           </p>
         </Col>

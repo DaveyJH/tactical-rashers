@@ -11,14 +11,17 @@ import Form from "react-bootstrap/Form";
  */
 const SearchByPlayer = ({ query, setQuery }) => {
   return (
-    <Form aria-label="search by player" onSubmit={(e) => e.preventDefault()}>
+    <Form onSubmit={(e) => e.preventDefault()}>
+      <Form.Group controlId="player-search">
+      <Form.Label className="sr-only">Search by player</Form.Label>
       <Form.Control
-        value={query}
-        onChange={(e) => setQuery(e.target.value)}
-        type="text"
-        className="mr-sm-2"
-        placeholder="Search by player"
+      value={query}
+      onChange={(e) => setQuery(e.target.value)}
+      type="text"
+      className="mr-sm-2"
+      placeholder="Search by player"
       />
+      </Form.Group>
     </Form>
   );
 };
