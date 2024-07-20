@@ -7,10 +7,10 @@ import Button from "react-bootstrap/Button";
 
 const DeclareWin = ({ winner, player1, player2 }) => {
   const [show, setShow] = useState(false);
+  const { handleWinner } = useSetCurrentGameData();
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-  const { handleWinner } = useSetCurrentGameData();
 
   return (
     <>

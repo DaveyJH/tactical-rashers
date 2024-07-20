@@ -2,7 +2,8 @@ import React from "react";
 
 import styles from "../../assets/css/rules/RulesList.module.css";
 
-const RulesList = ({ ordered, content, short }) => {
+const RulesList = ({ ordered, content }) => {
+
   return (
     <>
       {ordered ? (

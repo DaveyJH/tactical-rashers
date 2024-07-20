@@ -38,7 +38,6 @@ const DiceAndMoves = () => {
 
   return (
     <>
-      {/* todo extract into component? */}
       {isAllowedToRoll() ? (
         <Card className="mb-2">
           <Card.Title>

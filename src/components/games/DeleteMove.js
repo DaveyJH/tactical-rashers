@@ -7,10 +7,10 @@ import Button from "react-bootstrap/Button";
 
 const DeleteMove = ({ moveId }) => {
   const [show, setShow] = useState(false);
+  const { handleDeleteMove } = useSetMoves();
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-  const { handleDeleteMove } = useSetMoves();
 
   return (
     <>

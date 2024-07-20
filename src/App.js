@@ -25,20 +25,22 @@ function App() {
       <NavBarCollapseProvider>
         <NavBar />
       </NavBarCollapseProvider>
-      <Container className={`${styles.MainContainer} text-center`}>
-        <Switch>
-          <Route exact path="/" render={() => <GamesFeed />} />
-          <Route path="/games/create" render={() => <CreateGame />} />
-          <Route path="/games/:id" render={() => <Game />} />
-          <Route path="/profiles/:id/active" render={() => <ActiveGames />} />
-          <Route path="/profiles/:id/completed" render={() => <CompletedGames />} />
-          <Route path="/profiles/:id" render={() => <Profile />} />
-          <Route path="/rules" render={() => <Rules />} />
-          <Route path="/sign-in" render={() => <SignIn />} />
-          <Route path="/sign-up" render={() => <SignUp />} />
-          <Route render={() => <h1>404: page not found</h1>} />
-        </Switch>
-      </Container>
+      <main>
+        <Container className={`${styles.MainContainer} text-center`}>
+          <Switch>
+            <Route exact path="/" render={() => <GamesFeed />} />
+            <Route path="/games/create" render={() => <CreateGame />} />
+            <Route path="/games/:id" render={() => <Game />} />
+            <Route path="/profiles/:id/active" render={() => <ActiveGames />} />
+            <Route path="/profiles/:id/completed" render={() => <CompletedGames />} />
+            <Route path="/profiles/:id" render={() => <Profile />} />
+            <Route path="/rules" render={() => <Rules />} />
+            <Route path="/sign-in" render={() => <SignIn />} />
+            <Route path="/sign-up" render={() => <SignUp />} />
+            <Route render={() => <h1>404: page not found</h1>} />
+          </Switch>
+        </Container>
+      </main>
     </div>
   );
 }

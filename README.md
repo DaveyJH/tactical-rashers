@@ -231,6 +231,9 @@ F2
 ## Testing
 
 <!-- explain testing
+
+ npx eslint src --ext .js --format json --output-file docs/tests/eslint.json
+
 ? item tested
 ? expected result
 ? how test was performed
@@ -251,6 +254,8 @@ look at daisy's testing documentation and [webinar](https://us02web.zoom.us/rec/
 <!-- current bugs -->
 
 <!-- - bugOne explanation
+
+updating profile image will not update game profile image
 
 *notes on explanation* -->
 ***
@@ -273,6 +278,10 @@ https://create-react-app.dev/docs/adding-bootstrap/#using-a-custom-theme
 *Commit - **[sha](commit link with highlighted lines)** - explanation of fix* -->
 ***
 <!-- 1. bugTwo
+
+- enable button for image upload
+
+- select opponent
 
 ![bugTwoImg](bugTwoImgURL)
 

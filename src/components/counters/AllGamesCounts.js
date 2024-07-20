@@ -21,8 +21,7 @@ const AllGamesCounts = () => {
         }));
         setOwner(currentUser?.username === profileData?.owner);
       } catch (err) {
-        // todo clg
-        console.error(err);
+        // console.error(err);
       }
     };
     handleMount();

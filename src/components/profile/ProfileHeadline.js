@@ -17,7 +17,7 @@ import EditPasswordControl from "./EditPasswordControl";
 
 import styles from "../../assets/css/profiles/ProfileHeadline.module.css";
 
-const ProfileHeadline = ({ vertical, small }) => {
+const ProfileHeadline = () => {
   const currentProfileData = useCurrentProfileData();
   const currentUser = useCurrentUser();
   const [profileData, setProfileData] = useState({});
@@ -57,7 +57,7 @@ const ProfileHeadline = ({ vertical, small }) => {
           </div>
         </Col>
         <Col xs={4} lg={3}>
-          <Image src={profileData.image} className={styles.ProfileImage} fluid />
+          <Image src={profileData.image} className={styles.ProfileImage} alt="profile picture" fluid />
         </Col>
       </Row>
       <Row className="mt-2 mb-4">

@@ -28,55 +28,53 @@ const GameBrief = ({ id, all_moves, player1, player2, winner }) => {
   const player2Data = allProfileData?.results?.find((profile) => profile.id === player2);
 
   return (
-    <article className={`mt-4 ${styles.GameCard}`}>
-      <Card>
-        <Container className="text-center text-break">
-          <Row>
-            <Col className="px-0">
-              <Card.Body className="my-0 p-2">
-                <Row className="justify-content-center align-items-center m-auto" noGutters>
-                  <Col xs={5} lg={2}>
-                    <Image role="presentation" src={player1Data?.image} className={profileStyles.ProfileImage} fluid />
-                  </Col>
-                  <Col className={styles.BiggerText}>
-                    <Link to={`/profiles/${player1Data?.id}`}>
-                      {player1Data?.owner}{" "}
-                      {winner === player1 && <FontAwesome className="ml-2" iconName="fas fa-trophy" />}
-                    </Link>
-                  </Col>
-                </Row>
-                <Row className="justify-content-center align-items-center m-auto" noGutters>
-                  vs.
-                </Row>
-                <Row className="justify-content-center align-items-center m-auto" noGutters>
-                  <Col className={styles.BiggerText}>
-                    <Link to={`/profiles/${player1Data?.id}`}>
-                      {winner === player2 && <FontAwesome className="mr-2" iconName="fas fa-trophy" />}{" "}
-                      {player2Data?.owner}
-                    </Link>
-                  </Col>
-                  <Col xs={5} lg={2}>
-                    <Image role="presentation" src={player2Data?.image} className={profileStyles.ProfileImage} fluid />
-                  </Col>
-                </Row>
-              </Card.Body>
-            </Col>
-            <Col className="px-0 d-flex align-items-center" xs={4}>
-              <Card.Body className={`px-1 ${styles.numberOfMoves}`}>
-                <Row className="flex-column">
-                  <Col>No. of moves</Col>
-                  <Col className={styles.BiggerText}>{numberOfMoves}</Col>
-                </Row>
-              </Card.Body>
-            </Col>
-          </Row>
-          <hr />
-          <Button as={Link} to={`/games/${id}`} className="mb-3">
-            View details
-          </Button>
-        </Container>
-      </Card>
-    </article>
+    <Card className={`mt-4 ${styles.GameCard}`}>
+      <Container className="text-center text-break">
+        <Row>
+          <Col className="px-0">
+            <Card.Body className="my-0 p-2">
+              <Row className="justify-content-center align-items-center m-auto" noGutters>
+                <Col xs={5} lg={2}>
+                  <Image role="presentation" src={player1Data?.image} className={profileStyles.ProfileImage} fluid />
+                </Col>
+                <Col className={styles.BiggerText}>
+                  <Link to={`/profiles/${player1Data?.id}`}>
+                    {player1Data?.owner}{" "}
+                    {winner === player1 && <FontAwesome className="ml-2" iconName="fas fa-trophy" />}
+                  </Link>
+                </Col>
+              </Row>
+              <Row className="justify-content-center align-items-center m-auto" noGutters>
+                vs.
+              </Row>
+              <Row className="justify-content-center align-items-center m-auto" noGutters>
+                <Col className={styles.BiggerText}>
+                  <Link to={`/profiles/${player2Data?.id}`}>
+                    {winner === player2 && <FontAwesome className="mr-2" iconName="fas fa-trophy" />}{" "}
+                    {player2Data?.owner}
+                  </Link>
+                </Col>
+                <Col xs={5} lg={2}>
+                  <Image role="presentation" src={player2Data?.image} className={profileStyles.ProfileImage} fluid />
+                </Col>
+              </Row>
+            </Card.Body>
+          </Col>
+          <Col className="px-0 d-flex align-items-center" xs={4}>
+            <Card.Body className={`px-1 ${styles.numberOfMoves}`}>
+              <Row className="flex-column">
+                <Col>No. of moves</Col>
+                <Col className={styles.BiggerText}>{numberOfMoves}</Col>
+              </Row>
+            </Card.Body>
+          </Col>
+        </Row>
+        <hr />
+        <Button as={Link} to={`/games/${id}`} className="mb-3">
+          View details
+        </Button>
+      </Container>
+    </Card>
   );
 };
 

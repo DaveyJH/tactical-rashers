@@ -40,8 +40,7 @@ const WinLossCount = () => {
           payload: currentProfileData,
         });
       } catch (err) {
-        // todo clg
-        console.error(err);
+        // console.error(err);
       }
     };
     handleMount();

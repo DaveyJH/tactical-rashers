@@ -80,7 +80,7 @@ const GameWithContext = () => {
           <Container className="mb-2">
             <Row className="justify-content-center">
               <Col lg={{ span: 8 }}>
-                <Image fluid src={state.game.image} rounded />
+                <Image fluid src={state.game.image} alt="most recent game status uploaded" rounded />
               </Col>
             </Row>
             {state.game.active && isPlayer() && <EditGameImageControl />}
