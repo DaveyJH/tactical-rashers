@@ -2,14 +2,14 @@ import { createContext, useContext, useEffect, useState } from "react";
 
 import { axiosReq } from "../api/axiosDefaults";
 
-const ProfileDataContext = createContext();
-const SetProfileDataContext = createContext();
+const AllProfileDataContext = createContext();
+const SetAllProfileDataContext = createContext();
 
-export const useAllProfileData = () => useContext(ProfileDataContext);
-export const useSetAllProfileData = () => useContext(SetProfileDataContext);
+export const useAllProfileData = () => useContext(AllProfileDataContext);
+export const useSetAllProfileData = () => useContext(SetAllProfileDataContext);
 
 export const AllProfileDataProvider = ({ children }) => {
-  const [profileData, setProfileData] = useState({});
+  const [allProfileData, setAllProfileData] = useState({});
 
   useEffect(() => {
     const handleMount = async () => {
@@ -17,7 +17,7 @@ export const AllProfileDataProvider = ({ children }) => {
         const { data } = await axiosReq.get("/profiles/");
         // sort profiles by total wins count and get top 3
         data.topThree = [...data.results].sort((a, b) => b.total_wins_count - a.total_wins_count).slice(0, 3);
-        setProfileData((prevState) => ({
+        setAllProfileData((prevState) => ({
           ...prevState,
           ...data,
         }));
@@ -30,8 +30,8 @@ export const AllProfileDataProvider = ({ children }) => {
   }, []);
 
   return (
-    <ProfileDataContext.Provider value={profileData}>
-      <SetProfileDataContext.Provider value={{ setProfileData }}>{children}</SetProfileDataContext.Provider>
-    </ProfileDataContext.Provider>
+    <AllProfileDataContext.Provider value={allProfileData}>
+      <SetAllProfileDataContext.Provider value={{ setAllProfileData }}>{children}</SetAllProfileDataContext.Provider>
+    </AllProfileDataContext.Provider>
   );
 };

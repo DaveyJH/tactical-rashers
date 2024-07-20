@@ -1,6 +1,7 @@
 import React, { useRef, useState } from "react";
 
 import { useCurrentProfileData, useSetCurrentProfileData } from "../../contexts/CurrentProfileDataContext";
+import { useSetAllProfileData } from "../../contexts/AllProfileDataContext";
 import { axiosReq } from "../../api/axiosDefaults";
 
 import Alert from "react-bootstrap/Alert";
@@ -14,6 +15,7 @@ const EditProfileImageControl = ({ show, handleClose }) => {
   const [errors, setErrors] = useState({});
   const profile = useCurrentProfileData();
   const { setCurrentProfileData } = useSetCurrentProfileData();
+  const { setAllProfileData } = useSetAllProfileData();
   const [profileImage, setProfileImage] = useState(profile.image);
   const [imageChanged, setImageChanged] = useState(false);
 
@@ -43,6 +45,10 @@ const EditProfileImageControl = ({ show, handleClose }) => {
     try {
       await axiosReq.put(`/profiles/${profile.id}/`, formData);
       setCurrentProfileData((prevState) => ({ ...prevState, image: profileImage }));
+      setAllProfileData((prevState) => ({
+        ...prevState,
+        results: prevState.results.map((prof) => (profile.id === prof.id ? { ...prof, image: profileImage } : prof)),
+      }));
       handleClose();
     } catch (err) {
       // console.error(err);
