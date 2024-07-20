@@ -11,7 +11,7 @@ import Form from "react-bootstrap/Form";
 import ImageUploader from "../forms/ImageUploader";
 
 /**
- * @returns {React.JSX.Element} a button and modal to edit the game image
+ * @returns {React.Component} a button and modal to edit the game image
  */
 const EditGameImageControl = () => {
   const [errors, setErrors] = useState({});

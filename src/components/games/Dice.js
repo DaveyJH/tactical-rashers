@@ -35,7 +35,7 @@ const numberString = (value) => {
 
 /**
  * @param {Object} `value1` and `value2`: the values of the dice
- * @returns {React.JSX.Element} a dice component with FA icons for values
+ * @returns {React.Component} a dice component with FA icons for values
  */
 const Dice = ({ value1, value2 }) => {
   const { handleNewDiceRoll } = useSetDice();

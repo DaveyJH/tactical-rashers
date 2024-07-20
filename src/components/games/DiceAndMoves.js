@@ -21,7 +21,7 @@ import styles from "../../assets/css/games/DiceAndMoves.module.css";
 
 /**
  * Displays dice and moves components with logic to determine if user can roll/move/delete
- * @returns {React.JSX.Element} a card with dice and moves components
+ * @returns {React.Component} a card with dice and moves components
  */
 const DiceAndMoves = () => {
   const currentUser = useCurrentUser();

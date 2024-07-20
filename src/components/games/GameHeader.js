@@ -13,7 +13,7 @@ import styles from "../../assets/css/games/GameHeader.module.css";
  * @param {Props} player2 the second player data
  * @param {Props} game the game data
  * @param {Props} movesCount the number of moves in the game
- * @returns {React.JSX.Element} a header with player names and number of moves
+ * @returns {React.Component} a header with player names and number of moves
  */
 const GameHeader = ({ player1, player2, game, movesCount }) => {
   return (

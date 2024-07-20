@@ -7,7 +7,7 @@ import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 
 /**
- * @returns {React.JSX.Element} a form to create a new move
+ * @returns {React.Component} a form to create a new move
  */
 const CreateMove = () => {
   const [content, setContent] = useState("");

@@ -3,7 +3,7 @@ import React from "react";
 /**
  * @param {Props} status active || completed
  * @param {Props} count number of games
- * @returns {React.JSX.Element} status and count of games
+ * @returns {React.Component} status and count of games
  */
 const GamesCount = ({ status, count }) => {
   return (

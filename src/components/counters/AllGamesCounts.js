@@ -7,7 +7,7 @@ import { useCurrentProfileData } from "../../contexts/CurrentProfileDataContext"
 import GamesCount from "./GamesCount";
 
 /**
- * @returns {React.JSX.Element} active and completed games counts w/ link to relevant page if owner
+ * @returns {React.Component} active and completed games counts w/ link to relevant page if owner
  */
 const AllGamesCounts = () => {
   const currentProfileData = useCurrentProfileData();

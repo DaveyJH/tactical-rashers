@@ -6,7 +6,7 @@ import Col from "react-bootstrap/Col";
 /**
  * @param {Props} number the sequential number of the move
  * @param {Props} player the owner of the move
- * @returns {React.JSX.Element} a row with the move owner and move number
+ * @returns {React.Component} a row with the move owner and move number
  */
 const MoveCounter = ({ number, player }) => {
   return (
