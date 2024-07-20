@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { useCurrentProfileData } from "../../contexts/CurrentProfileDataContext";
 
 import GamesCount from "./GamesCount";
-import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
+/**
+ * @returns {React.JSX.Element} active and completed games counts w/ link to relevant page if owner
+ */
 const AllGamesCounts = () => {
   const currentProfileData = useCurrentProfileData();
   const currentUser = useCurrentUser();

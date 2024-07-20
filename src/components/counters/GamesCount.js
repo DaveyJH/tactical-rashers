@@ -1,13 +1,14 @@
 import React from "react";
 
-import styles from "../../assets/css/profiles/GamesCount.module.css";
-
-const GamesCount = ({ status, count, underline, notActive }) => {
+/**
+ * @param {Props} status active || completed
+ * @param {Props} count number of games
+ * @returns {React.JSX.Element} status and count of games
+ */
+const GamesCount = ({ status, count }) => {
   return (
     <p className="d-flex justify-content-between px-4">
-      <span className={(underline && styles.UnderlinedCount) || (notActive && styles.NotActiveCount)}>
-        {status} games:
-      </span>
+      <span>{status} games:</span>
       <span> {count}</span>
     </p>
   );
