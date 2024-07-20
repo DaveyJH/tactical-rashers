@@ -7,6 +7,11 @@ import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 
+/**
+ * @param {Props} show state of the modal
+ * @param {Props} handleClose function to close the modal
+ * @returns {React.Component} modal for editing the user's password
+ */
 const EditPasswordControl = ({ show, handleClose }) => {
   const [errors, setErrors] = useState({});
   const [userData, setUserData] = useState({
@@ -76,6 +81,7 @@ const EditPasswordControl = ({ show, handleClose }) => {
         </Button>
         <Button
           variant="primary"
+          // disable save button if either password field is empty
           disabled={!(userData.new_password1 && userData.new_password2)}
           onClick={handleSubmit}>
           Save

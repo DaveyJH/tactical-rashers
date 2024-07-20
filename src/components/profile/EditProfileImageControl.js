@@ -11,6 +11,11 @@ import Form from "react-bootstrap/Form";
 
 import ImageUploader from "../forms/ImageUploader";
 
+/**
+ * @param {Props} show the state of the modal
+ * @param {Props} handleClose function to close the modal
+ * @returns {React.Component} modal for editing the user's profile image
+ */
 const EditProfileImageControl = ({ show, handleClose }) => {
   const [errors, setErrors] = useState({});
   const profile = useCurrentProfileData();
@@ -21,6 +26,9 @@ const EditProfileImageControl = ({ show, handleClose }) => {
 
   const imageInput = useRef(null);
 
+  /**
+   * Resets the form's image to the original and close the modal
+   */
   const resetImageAndClose = () => {
     URL.revokeObjectURL(profileImage);
     setProfileImage(profile.image);
@@ -44,7 +52,9 @@ const EditProfileImageControl = ({ show, handleClose }) => {
     }
     try {
       await axiosReq.put(`/profiles/${profile.id}/`, formData);
+      // update the profile image in the current profile for the profile page
       setCurrentProfileData((prevState) => ({ ...prevState, image: profileImage }));
+      // update the profile image in the all profiles for the games feeds
       setAllProfileData((prevState) => ({
         ...prevState,
         results: prevState.results.map((prof) => (profile.id === prof.id ? { ...prof, image: profileImage } : prof)),

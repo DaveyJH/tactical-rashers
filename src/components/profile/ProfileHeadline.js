@@ -17,15 +17,18 @@ import EditPasswordControl from "./EditPasswordControl";
 
 import styles from "../../assets/css/profiles/ProfileHeadline.module.css";
 
+/**
+ * @returns {React.Component} the headline of the profile page
+ */
 const ProfileHeadline = () => {
   const currentProfileData = useCurrentProfileData();
   const currentUser = useCurrentUser();
   const [profileData, setProfileData] = useState({});
 
+  // modal states and functions
   const [showImageEditor, setShowImageEditor] = useState(false);
   const [showInfoEditor, setShowInfoEditor] = useState(false);
   const [showPasswordEditor, setShowPasswordEditor] = useState(false);
-
   const handleCloseImageEditor = () => setShowImageEditor(false);
   const handleShowImageEditor = () => setShowImageEditor(true);
   const handleCloseInfoEditor = () => setShowInfoEditor(false);
@@ -41,8 +44,7 @@ const ProfileHeadline = () => {
           ...currentProfileData,
         }));
       } catch (err) {
-        // todo clg
-        console.error(err);
+        // console.error(err);
       }
     };
     handleMount();
@@ -64,6 +66,7 @@ const ProfileHeadline = () => {
         <Col lg={{ offset: 2 }} className={`text-left px-4 ${styles.InfoText}`}>
           {profileData.info}
         </Col>
+        {/* show edits if profile is owned by current user */}
         {profileData.is_owner ? (
           <>
             <Col lg={3} className="mt-2 text-right text-lg-left">
@@ -86,6 +89,7 @@ const ProfileHeadline = () => {
             <EditPasswordControl show={showPasswordEditor} handleClose={handleClosePasswordEditor} />
           </>
         ) : (
+          // spacing for info text
           <Col lg={1} />
         )}
       </Row>

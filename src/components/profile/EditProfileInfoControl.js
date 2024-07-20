@@ -8,6 +8,11 @@ import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 
+/**
+ * @param {Props} show the state of the modal
+ * @param {Props} handleClose function to close the modal
+ * @returns {React.Component} modal for editing the user's profile info
+ */
 const EditProfileInfoControl = ({ show, handleClose }) => {
   const [errors, setErrors] = useState({});
   const currentProfileData = useCurrentProfileData();
@@ -20,11 +25,14 @@ const EditProfileInfoControl = ({ show, handleClose }) => {
     setChanged(true);
   };
 
+  /**
+   * Resets the form's info to the original and close the modal
+   */
   const resetAndClose = () => {
     setUserInfo(currentProfileData?.info);
     setChanged(false);
     handleClose();
-  }
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -68,6 +76,7 @@ const EditProfileInfoControl = ({ show, handleClose }) => {
         </Button>
         <Button
           variant="primary"
+          // disable button if no changes are made
           disabled={!changed || userInfo === currentProfileData?.info}
           onClick={handleSubmit}>
           Update
@@ -79,7 +88,7 @@ const EditProfileInfoControl = ({ show, handleClose }) => {
         ))}
       </Modal.Footer>
     </Modal>
-  )
-}
+  );
+};
 
-export default EditProfileInfoControl
+export default EditProfileInfoControl;
