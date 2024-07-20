@@ -8,6 +8,10 @@ import Navbar from "react-bootstrap/Navbar";
 import Logo from "../../assets/images/logo512.png";
 import styles from "../../assets/css/nav/NavBarLogo.module.css";
 
+/**
+ * Logo for the navigation bar with context for expanded state
+ * @returns {React.Component} the logo for the navigation bar
+ */
 const NavBarLogo = () => {
   const { logoRef } = useNavBarCollapse();
 

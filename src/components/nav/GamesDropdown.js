@@ -7,6 +7,9 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 
 import styles from "../../assets/css/nav/NavBarLink.module.css";
 
+/**
+ * @returns {React.Component} a dropdown menu with links to create, active, and completed games
+ */
 const GamesDropdown = () => {
   const currentUser = useCurrentUser();
 

@@ -7,6 +7,15 @@ import { removeTokenTimestamp } from "../../utils/utils";
 
 import styles from "../../assets/css/nav/NavBarLink.module.css";
 
+/**
+ * @param {Props} to *required* the path to navigate to
+ * @param {Props} exact whether the path should be exact
+ * @param {Props} border whether the link should have a border class applied
+ * @param {Props} textContent the text content of the link
+ * @param {Props} active whether the link is active
+ * @param {Props} signOut whether the link is for signing out
+ * @returns {React.Component} a navigation link
+ */
 const NavBarLink = ({ to, exact, border, textContent, active, signOut }) => {
   const setCurrentUser = useSetCurrentUser();
 
@@ -23,7 +32,7 @@ const NavBarLink = ({ to, exact, border, textContent, active, signOut }) => {
 
   return (
     <NavLink
-      exact={exact}
+      exact={!!exact}
       to={to}
       className={`
         ${styles.NavLink}

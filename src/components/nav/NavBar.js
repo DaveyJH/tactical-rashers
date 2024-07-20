@@ -8,6 +8,10 @@ import Navbar from "react-bootstrap/Navbar";
 import NavBarLogo from "./NavBarLogo";
 import NavBarNavigation from "./NavBarNavigation";
 
+/**
+ * NavBar with context for expanded state
+ * @returns {React.Component} the navigation bar
+ */
 const NavBar = () => {
   const { mainRef, expanded } = useNavBarCollapse();
 
