@@ -5,6 +5,9 @@ import { useSetCurrentGameData } from "../../contexts/CurrentGameDataContext";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 
+/**
+ * @returns modal to confirm declaring the opponent as the winner
+ */
 const DeclareWin = ({ winner, player1, player2 }) => {
   const [show, setShow] = useState(false);
   const { handleWinner } = useSetCurrentGameData();

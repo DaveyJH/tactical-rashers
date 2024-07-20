@@ -6,6 +6,9 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 
+/**
+ * @returns {React.JSX.Element} a form to create a new move
+ */
 const CreateMove = () => {
   const [content, setContent] = useState("");
   const { handleNewMove } = useSetMoves();
@@ -20,7 +23,7 @@ const CreateMove = () => {
       handleNewMove(content);
       setContent("");
     } catch (err) {
-      console.error(err);
+      // console.error(err);
     }
   };
 
@@ -31,6 +34,7 @@ const CreateMove = () => {
           <Form.Label className="sr-only">Describe your move</Form.Label>
           <Form.Control placeholder="Your move..." as="textarea" value={content} onChange={handleChange} rows={4} />
         </Form.Group>
+        {/* enable button only if content exists */}
         <Button disabled={!content.trim()} type="submit">
           Send
         </Button>

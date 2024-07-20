@@ -16,8 +16,7 @@ import styles from "../../assets/css/games/GameBrief.module.css";
 import profileStyles from "../../assets/css/profiles/ProfileHeadline.module.css";
 
 /**
- *
- * @param {*} game the game data
+ * @param {Props} game the game data (spread game object `...game`)
  * @returns a card with players, number of moves, and a button to view details
  */
 const GameBrief = ({ id, all_moves, player1, player2, winner }) => {

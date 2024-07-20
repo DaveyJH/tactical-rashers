@@ -5,6 +5,9 @@ import { useSetMoves } from "../../contexts/MovesContext";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 
+/**
+ * @returns modal to confirm deleting a move
+ */
 const DeleteMove = ({ moveId }) => {
   const [show, setShow] = useState(false);
   const { handleDeleteMove } = useSetMoves();

@@ -10,6 +10,9 @@ import Form from "react-bootstrap/Form";
 
 import ImageUploader from "../forms/ImageUploader";
 
+/**
+ * @returns {React.JSX.Element} a button and modal to edit the game image
+ */
 const EditGameImageControl = () => {
   const [errors, setErrors] = useState({});
   const [show, setShow] = useState(false);
@@ -23,6 +26,9 @@ const EditGameImageControl = () => {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
+  /**
+   * Resets the game image in the form and closes the modal
+   */
   const resetImageAndClose = () => {
     URL.revokeObjectURL(gameImage);
     setGameImage(game.image);
@@ -50,7 +56,7 @@ const EditGameImageControl = () => {
     try {
       await axiosReq.put(`/games/${game.id}/`, formData);
       setCurrentGameData((prevState) => ({ ...prevState, image: gameImage }));
-      handleClose();
+      resetImageAndClose();
     } catch (err) {
       // console.error(err);
       if (err.response?.status !== 401) {
@@ -75,6 +81,7 @@ const EditGameImageControl = () => {
           <Button variant="secondary" onClick={resetImageAndClose}>
             Cancel
           </Button>
+          {/* enable button if new image is uploaded */}
           <Button variant="primary" disabled={!imageChanged} onClick={handleSubmitImage}>
             Upload
           </Button>

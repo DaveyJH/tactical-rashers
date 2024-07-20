@@ -19,6 +19,10 @@ import DeclareWin from "./DeclareWin";
 
 import styles from "../../assets/css/games/DiceAndMoves.module.css";
 
+/**
+ * Displays dice and moves components with logic to determine if user can roll/move/delete
+ * @returns {React.JSX.Element} a card with dice and moves components
+ */
 const DiceAndMoves = () => {
   const currentUser = useCurrentUser();
   const game = useCurrentGameData();
@@ -27,17 +31,20 @@ const DiceAndMoves = () => {
   const { moves, error } = useMoves();
   const { setMoves } = useSetMoves();
 
+  // move/dice logic checks
   const isPlayer = () => game?.player1 === currentUser?.profile_id || game?.player2 === currentUser?.profile_id;
   const isPlayerOne = () => isPlayer() && game?.player1 === currentUser?.profile_id;
-  const evenCounts = () => dice?.count === moves?.count;
+  const equalCounts = () => dice?.count === moves?.count;
   const isAllowedToRoll = () =>
-    isPlayer() && evenCounts() && game?.active && dice.results[0]?.owner !== currentUser?.profile_id;
-  const isAllowedToMove = () => isPlayer() && game?.active && dice?.count > moves?.count;
+    isPlayer() && equalCounts() && game?.active && dice.results[0]?.owner !== currentUser?.profile_id;
+  const isAllowedToMove = () =>
+    isPlayer() && game?.active && dice?.count > moves?.count && dice.results[0]?.owner === currentUser?.profile_id;
   const isAllowedToDelete = () =>
-    isPlayer() && evenCounts() && game?.active && moves?.results[0]?.owner === currentUser.username;
+    isPlayer() && equalCounts() && game?.active && moves?.results[0]?.owner === currentUser.username;
 
   return (
     <>
+      {/* new dice/moves */}
       {isAllowedToRoll() ? (
         <Card className="mb-2">
           <Card.Title>
@@ -67,6 +74,7 @@ const DiceAndMoves = () => {
           </Card>
         )
       )}
+      {/* existing dice/moves */}
       {moves.results.length ? (
         <InfiniteScroll
           children={moves?.results?.map((move, i) => (
