@@ -8,7 +8,7 @@ import { removeTokenTimestamp } from "../../utils/utils";
 import styles from "../../assets/css/nav/NavBarLink.module.css";
 
 /**
- * @param {Props} to *required* the path to navigate to
+ * @param {Props} to **required** the path to navigate to
  * @param {Props} exact whether the path should be exact
  * @param {Props} border whether the link should have a border class applied
  * @param {Props} textContent the text content of the link

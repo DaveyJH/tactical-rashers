@@ -47,11 +47,11 @@ const Dice = ({ value1, value2 }) => {
         <Row className={`justify-content-between ${styles.Dice}`}>
           <Col className="px-2">
             <i className={`fas fa-dice-${numberString(value1)}`}></i>
-            <span className="sr-only">numberString(value1)</span>
+            <span className="sr-only">{numberString(value1)}</span>
           </Col>
           <Col className="px-2">
             <i className={`fas fa-dice-${numberString(value2)}`}></i>
-            <span className="sr-only">numberString(value1)</span>
+            <span className="sr-only">{numberString(value1)}</span>
           </Col>
         </Row>
       ) : (

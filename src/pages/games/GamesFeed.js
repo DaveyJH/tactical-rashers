@@ -8,7 +8,7 @@ import Container from "react-bootstrap/Container";
 import InfiniteScroll from "react-infinite-scroll-component";
 
 import GameBrief from "../../components/games/GameBrief";
-import SearchByPlayer from "../../components/SearchByPlayer";
+import SearchByPlayer from "../../components/forms/SearchByPlayer";
 
 import styles from "../../assets/css/games/GamesFeed.module.css";
 
