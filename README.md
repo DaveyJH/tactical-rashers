@@ -466,6 +466,14 @@ but there is a significant indication to users that this is happening.
 been spent to implement the redirection of users away from games that are active
 when they are not players in that game.*
 
+1. Cross-site tracking prevents login status on iOS devices.
+
+*A known limitation of having the back-end DRF and front-end App served from
+separate hosts is that many Apple devices will not allow functionality. As this
+is a known issue with the learning material this has not been resolved for this
+iteration. It can be avoided on those devices by turning off "Prevent cross-site
+tracking" in the device's settings.*
+
 ***
 
 ### Resolved
