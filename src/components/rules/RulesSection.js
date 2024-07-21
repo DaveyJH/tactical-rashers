@@ -39,7 +39,7 @@ const RulesSection = ({ name, title, type, content, image, alt, ordered, even, s
         </Col>
       )}
     </Row>
-    {name === "board" && <Image src={image} alt={alt} fluid className="d-md-none" />}
+    {name === "setup" && <Image src={image} alt={alt} fluid className="d-md-none" />}
   </Container>
 );
 

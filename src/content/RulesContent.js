@@ -5,8 +5,6 @@ const RulesContent = {
     type: "para",
     content:
       "Backgammon is a classic board game for two players that combines strategy and luck. The goal is to move all your checkers around the board and bear them off (remove them from the board) before your opponent does.",
-    image: "https://dummyimage.com/600x400/4a4f4f/efb820.png&text=%20%20%20PLACEHOLDER+IMAGE",
-    alt: "Placeholder",
   },
   requirements: {
     title: "What you need?",
@@ -20,17 +18,18 @@ const RulesContent = {
       "Two dice",
       "Optionally, a doubling block...but we won't be using that here.",
     ],
-    image: "https://dummyimage.com/600x400/4a4f4f/efb820.png&text=%20%20%20PLACEHOLDER+IMAGE",
-    alt: "Placeholder",
+    image: "https://res.cloudinary.com/daveyjh/image/upload/v1721591492/backgammon/default/all-pieces_l22tdu.webp",
+    alt: "backgammon board with 15 checkers of each color, two dice and a doubling block",
   },
   board: {
     title: "The board",
     type: "para",
     content:
-      "The backgammon board consists of 24 triangles called points. The points are grouped into four quadrants of six triangles each. The board is divided in half by the bar. Each player has a home board and an outer board, and the points are numbered from 1 to 24. For this site, white starts at 1 and moves to 24, while black starts at 24 and moves to 1.",
-    image: "https://dummyimage.com/600x400/4a4f4f/efb820.png&text=%20%20%20PLACEHOLDER+IMAGE",
-    alt: "Placeholder",
+    "The backgammon board consists of 24 triangles called points. The points are grouped into four quadrants of six triangles each. The board is divided in half by the bar. Each player has a home board and an outer board, and the points are numbered from 1 to 24. For this site, white starts at 1 and moves to 24, while black starts at 24 and moves to 1.",
+    image: "https://res.cloudinary.com/daveyjh/image/upload/v1721591939/backgammon/default/board_ni2mcz.webp",
+    alt: "a backgammon board",
   },
+  // requires image
   setup: {
     title: "Setting up",
     type: "list",
@@ -47,8 +46,8 @@ const RulesContent = {
       "Three black checkers on the 8-point.",
       "Five black checkers on the 6-point.",
     ],
-    image: "https://dummyimage.com/600x400/4a4f4f/efb820.png&text=%20%20%20PLACEHOLDER+IMAGE",
-    alt: "Placeholder",
+    image: "https://res.cloudinary.com/daveyjh/image/upload/v1721591492/backgammon/default/start-board_u8hbed.webp",
+    alt: "a backgammon board with all checkers in their starting positions",
   },
   rules: {
     title: "Rules",
@@ -66,8 +65,8 @@ const RulesContent = {
       "If you cannot move the full value of each die, you must move the highest value possible.",
       "Remember to describe your moves well in your game chat to avoid confusion.",
     ],
-    image: "https://dummyimage.com/600x400/4a4f4f/efb820.png&text=%20%20%20PLACEHOLDER+IMAGE",
-    alt: "Placeholder",
+    image: "https://res.cloudinary.com/daveyjh/image/upload/v1721591492/backgammon/default/play_ogwlz4.webp",
+    alt: "a backgammon board in the middle of a game",
   },
   winning: {
     title: "Winning",
@@ -79,8 +78,8 @@ const RulesContent = {
       "Remember! You must have all checkers in your home board to bear off any checkers.",
       "The first player to bear off all their checkers wins the game. Simple as that!",
     ],
-    image: "https://dummyimage.com/600x400/4a4f4f/efb820.png&text=%20%20%20PLACEHOLDER+IMAGE",
-    alt: "Placeholder",
+    image: "https://res.cloudinary.com/daveyjh/image/upload/v1721591492/backgammon/default/winner-board_pt27us.webp",
+    alt: "a backgammon board with all white checkers borne off and some black checkers in their home board",
   },
   tips: {
     title: "Tips",
@@ -94,8 +93,6 @@ const RulesContent = {
       "Remember that luck plays a big role in backgammon, so don't get discouraged if you lose a few games.",
       "Enjoy the game and the company of your opponent. Every game is a chance to make new friends and memories.",
     ],
-    image: "https://dummyimage.com/600x400/4a4f4f/efb820.png&text=%20%20%20PLACEHOLDER+IMAGE",
-    alt: "Placeholder",
   },
 };
 
