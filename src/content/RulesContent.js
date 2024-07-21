@@ -17,6 +17,7 @@ const RulesContent = {
       "15 black checkers",
       "Two dice",
       "Optionally, a doubling block...but we won't be using that here.",
+      "Of course, you could track all this using paper and a pencil!",
     ],
     image: "https://res.cloudinary.com/daveyjh/image/upload/v1721591492/backgammon/default/all-pieces_l22tdu.webp",
     alt: "backgammon board with 15 checkers of each color, two dice and a doubling block",
