@@ -25,8 +25,7 @@ const NavBarLink = ({ to, exact, border, textContent, active, signOut }) => {
       setCurrentUser(null);
       removeTokenTimestamp();
     } catch (err) {
-      // todo comment out clg
-      console.error(err);
+      // console.error(err);
     }
   };
 

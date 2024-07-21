@@ -47,8 +47,7 @@ export const CurrentGameDataProvider = ({ children }) => {
           ...data,
         }));
       } catch (err) {
-        // todo clg
-        console.error(err);
+        // console.error(err);
       }
     };
     handleMount();

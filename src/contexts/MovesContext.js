@@ -40,7 +40,7 @@ export const MovesProvider = ({ children }) => {
       }));
       setError(null);
     } catch (err) {
-      console.error(err);
+      // console.error(err);
     }
   };
 
@@ -67,7 +67,7 @@ export const MovesProvider = ({ children }) => {
       setError(null);
     } catch (err) {
       setError(err);
-      console.error(err);
+      // console.error(err);
     }
   };
 
@@ -80,8 +80,7 @@ export const MovesProvider = ({ children }) => {
           ...data,
         }));
       } catch (err) {
-        // todo clg
-        console.error(err);
+        // console.error(err);
       }
     };
     handleMount();
