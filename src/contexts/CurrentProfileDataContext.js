@@ -18,7 +18,8 @@ export const CurrentProfileDataProvider = ({ children }) => {
 
   useEffect(() => {
     const handleMount = async () => {
-      if (!id) return;
+      // handle a strange bug where id is "undefined" instead of undefined
+      if (!id || id === "undefined") return;
       try {
         const { data } = await axiosReq.get(`/profiles/${id}`);
         setCurrentProfileData((prevState) => ({

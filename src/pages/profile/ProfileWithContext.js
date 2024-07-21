@@ -30,7 +30,8 @@ const ProfileWithContext = () => {
 
   useEffect(() => {
     const fetchGames = async () => {
-      if (!id) return;
+      // handle a strange bug where id is "undefined" instead of undefined
+      if (!id || id === "undefined") return;
       try {
         const { data } = await axiosReq.get(`/games/?either_player=${id}${!isOwner ? "&is_active=False" : ""}`);
         setGames(data);
