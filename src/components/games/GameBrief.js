@@ -20,7 +20,7 @@ import profileStyles from "../../assets/css/profiles/ProfileHeadline.module.css"
  * @returns a card with players, number of moves, and a button to view details
  */
 const GameBrief = ({ id, all_moves, player1, player2, winner }) => {
-  const numberOfMoves = all_moves.length;
+  const numberOfMoves = all_moves?.length;
   const allProfileData = useAllProfileData();
 
   const player1Data = allProfileData?.results?.find((profile) => profile.id === player1);

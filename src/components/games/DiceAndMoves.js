@@ -75,7 +75,7 @@ const DiceAndMoves = () => {
         )
       )}
       {/* existing dice/moves */}
-      {moves.results.length ? (
+      {moves?.results?.length ? (
         <InfiniteScroll
           children={moves?.results?.map((move, i) => (
             <Card className="mb-2" key={move.id}>

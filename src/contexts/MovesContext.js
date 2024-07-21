@@ -47,9 +47,9 @@ export const MovesProvider = ({ children }) => {
   const handleDeleteMove = async (moveId) => {
     try {
       if (
-        currentGameData.latest_move_id !== moveId ||
-        currentGameData.dice_rolls.length > moves.length ||
-        !currentGameData.active
+        currentGameData?.latest_move_id !== moveId ||
+        currentGameData?.dice_rolls?.length > moves?.length ||
+        !currentGameData?.active
       ) {
         throw new Error("Cannot delete move, please refresh to see the latest game state.");
       }
