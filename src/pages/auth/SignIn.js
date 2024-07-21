@@ -17,6 +17,9 @@ import BackgammonImage from "../../components/BackgammonImage";
 
 import styles from "../../assets/css/AuthPages.module.css";
 
+/**
+ * A page for signing in
+ */
 const SignIn = () => {
   useRedirect("redirectToProfile");
   const currentUser = useCurrentUser();

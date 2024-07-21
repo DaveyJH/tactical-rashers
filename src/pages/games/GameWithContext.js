@@ -37,6 +37,9 @@ const reducer = (state, action) => {
   }
 };
 
+/**
+ * A page for displaying a game
+ */
 const GameWithContext = () => {
   const allProfileData = useAllProfileData();
   const currentUser = useCurrentUser();

@@ -7,6 +7,9 @@ const SetGameDataContext = createContext();
 export const useAllGameData = () => useContext(GameDataContext);
 export const useSetAllGameData = () => useContext(SetGameDataContext);
 
+/**
+ * Provides all game data
+ */
 export const GameDataProvider = ({ children }) => {
   const [gameData, setGameData] = useState({});
 
@@ -19,8 +22,7 @@ export const GameDataProvider = ({ children }) => {
           ...data,
         }));
       } catch (err) {
-        // todo clg
-        console.error(err);
+        // console.error(err);
       }
     };
     handleMount();

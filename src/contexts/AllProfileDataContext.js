@@ -8,6 +8,9 @@ const SetAllProfileDataContext = createContext();
 export const useAllProfileData = () => useContext(AllProfileDataContext);
 export const useSetAllProfileData = () => useContext(SetAllProfileDataContext);
 
+/**
+ * Provides all profiles with a top three list of profiles with the most wins
+ */
 export const AllProfileDataProvider = ({ children }) => {
   const [allProfileData, setAllProfileData] = useState({});
 
@@ -22,8 +25,7 @@ export const AllProfileDataProvider = ({ children }) => {
           ...data,
         }));
       } catch (err) {
-        // todo clg
-        console.error(err);
+        // console.error(err);
       }
     };
     handleMount();

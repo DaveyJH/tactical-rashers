@@ -9,6 +9,9 @@ const SetCurrentProfileDataContext = createContext();
 export const useCurrentProfileData = () => useContext(CurrentProfileDataContext);
 export const useSetCurrentProfileData = () => useContext(SetCurrentProfileDataContext);
 
+/**
+ * Provides the current profile data
+ */
 export const CurrentProfileDataProvider = ({ children }) => {
   const [currentProfileData, setCurrentProfileData] = useState({});
   const { id } = useParams();
@@ -22,8 +25,7 @@ export const CurrentProfileDataProvider = ({ children }) => {
           ...data,
         }));
       } catch (err) {
-        // todo clg
-        console.error(err);
+        // console.error(err);
       }
     };
     handleMount();

@@ -9,10 +9,19 @@ const SetCurrentGameDataContext = createContext();
 export const useCurrentGameData = () => useContext(CurrentGameDataContext);
 export const useSetCurrentGameData = () => useContext(SetCurrentGameDataContext);
 
+/**
+ * Provides the current game data
+ */
 export const CurrentGameDataProvider = ({ children }) => {
   const { id } = useParams();
   const [currentGameData, setCurrentGameData] = useState({});
 
+  /**
+   * Update the winner of a game so it shows in the UI of a game
+   * @param {Number} winner The winning player's id
+   * @param {Number} player1 Player 1's id
+   * @param {Number} player2 Player 2's id
+   */
   const handleWinner = async (winner, player1, player2) => {
     try {
       const formData = new FormData();
@@ -26,7 +35,7 @@ export const CurrentGameDataProvider = ({ children }) => {
         active: false,
       }));
     } catch (err) {
-      console.error(err);
+      // console.error(err);
     }
   };
 

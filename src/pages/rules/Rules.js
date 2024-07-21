@@ -5,6 +5,9 @@ import RulesSection from "../../components/rules/RulesSection";
 
 import RulesContent from "../../content/RulesContent";
 
+/**
+ * @returns the rules page with all the necessary sections
+ */
 const Rules = () => {
   const sections = Object.entries(RulesContent);
 

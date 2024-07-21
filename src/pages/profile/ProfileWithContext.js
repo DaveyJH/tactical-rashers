@@ -18,6 +18,9 @@ import WinLossCount from "../../components/counters/WinLossCount";
 import styles from "../../assets/css/profiles/Profile.module.css";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
+/**
+ * A page for displaying a user's profile
+ */
 const ProfileWithContext = () => {
   const [games, setGames] = useState();
   const [hasLoaded, setHasLoaded] = useState(false);

@@ -15,6 +15,9 @@ import BackgammonImage from "../../components/BackgammonImage";
 
 import styles from "../../assets/css/AuthPages.module.css";
 
+/**
+ * A page for signing up
+ */
 const SignUp = () => {
   useRedirect("redirectToProfile");
   const [errors, setErrors] = useState({});
@@ -76,9 +79,7 @@ const SignUp = () => {
                 {message}
               </Alert>
             ))}
-            <Button
-              className={styles.Button}
-              type="submit">
+            <Button className={styles.Button} type="submit">
               Sign Up
             </Button>
             {errors.non_field_errors?.map((message, i) => (

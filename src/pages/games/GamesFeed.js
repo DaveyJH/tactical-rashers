@@ -12,6 +12,9 @@ import SearchByPlayer from "../../components/forms/SearchByPlayer";
 
 import styles from "../../assets/css/games/GamesFeed.module.css";
 
+/**
+ * A page for displaying all completed games
+ */
 const GamesFeed = () => {
   const [games, setGames] = useState({ results: [] });
   const [hasLoaded, setHasLoaded] = useState(false);

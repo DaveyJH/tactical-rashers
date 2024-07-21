@@ -4,12 +4,13 @@ import { CurrentProfileDataProvider } from "../../contexts/CurrentProfileDataCon
 
 import ProfileWithContext from "./ProfileWithContext";
 
-const Profile = () => {
-  return (
-    <CurrentProfileDataProvider>
-      <ProfileWithContext />
-    </CurrentProfileDataProvider>
-  );
-};
+/**
+ * @returns the profile page with all the necessary contexts
+ */
+const Profile = () => (
+  <CurrentProfileDataProvider>
+    <ProfileWithContext />
+  </CurrentProfileDataProvider>
+);
 
 export default Profile;

@@ -4,6 +4,9 @@ import axios from "axios";
 
 import { useCurrentUser } from "../contexts/CurrentUserContext";
 
+/**
+ * Redirects the user to the appropriate page based on their authentication status
+ */
 export const useRedirect = (authStatus) => {
   const history = useHistory();
   const currentUser = useCurrentUser();

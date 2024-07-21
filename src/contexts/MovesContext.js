@@ -11,6 +11,9 @@ const SetMovesContext = createContext();
 export const useMoves = () => useContext(MovesContext);
 export const useSetMoves = () => useContext(SetMovesContext);
 
+/**
+ * Provides the moves data
+ */
 export const MovesProvider = ({ children }) => {
   const currentUser = useCurrentUser();
   const [moves, setMoves] = useState({});
@@ -19,6 +22,9 @@ export const MovesProvider = ({ children }) => {
   const currentGameData = useCurrentGameData();
   const { id: gameId } = useParams();
 
+  /**
+   * Create a new move
+   */
   const handleNewMove = async (content) => {
     try {
       const { data } = await axiosRes.post("/moves/", { game: gameId, owner: currentUser?.profile_id, content });

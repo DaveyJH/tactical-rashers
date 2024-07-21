@@ -11,6 +11,9 @@ const SetCurrentUserContext = createContext();
 export const useCurrentUser = () => useContext(CurrentUserContext);
 export const useSetCurrentUser = () => useContext(SetCurrentUserContext);
 
+/**
+ * Provides the current user data 
+ */
 export const CurrentUserProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState(null);
   const history = useHistory();
@@ -20,8 +23,7 @@ export const CurrentUserProvider = ({ children }) => {
       const { data } = await axiosRes.get("/dj-rest-auth/user/");
       setCurrentUser(data);
     } catch (err) {
-      // todo comment out clg
-      console.error(err);
+      // console.error(err);
     }
   };
 

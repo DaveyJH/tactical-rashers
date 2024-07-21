@@ -6,16 +6,17 @@ import { MovesProvider } from "../../contexts/MovesContext";
 
 import GameWithContext from "./GameWithContext";
 
-const Game = () => {
-  return (
-    <CurrentGameDataProvider>
-      <MovesProvider>
-        <DiceProvider>
-          <GameWithContext />
-        </DiceProvider>
-      </MovesProvider>
-    </CurrentGameDataProvider>
-  );
-};
+/**
+ * @returns the game page with all the necessary contexts
+ */
+const Game = () => (
+  <CurrentGameDataProvider>
+    <MovesProvider>
+      <DiceProvider>
+        <GameWithContext />
+      </DiceProvider>
+    </MovesProvider>
+  </CurrentGameDataProvider>
+);
 
 export default Game;

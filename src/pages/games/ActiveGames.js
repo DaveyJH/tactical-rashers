@@ -15,6 +15,9 @@ import SearchByPlayer from "../../components/forms/SearchByPlayer";
 
 import styles from "../../assets/css/games/GamesFeed.module.css";
 
+/**
+ * A page for displaying active games for a user
+ */
 const ActiveGames = () => {
   const [games, setGames] = useState({ results: [] });
   const [hasLoaded, setHasLoaded] = useState(false);

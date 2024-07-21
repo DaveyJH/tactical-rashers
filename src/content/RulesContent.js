@@ -1,3 +1,4 @@
+// a collection of objects that contain the content for the rules page, allowing for non-technical users to easily add new sections to the rules page
 const RulesContent = {
   description: {
     title: "What is Backgammon?",
@@ -63,7 +64,7 @@ const RulesContent = {
       "If you roll doubles, you get to move four times instead of two.",
       "You must move the full value of each die if possible.",
       "If you cannot move the full value of each die, you must move the highest value possible.",
-      "Remember to describe your moves well in your game chat to avoid confusion."
+      "Remember to describe your moves well in your game chat to avoid confusion.",
     ],
     image: "https://dummyimage.com/600x400/4a4f4f/efb820.png&text=%20%20%20PLACEHOLDER+IMAGE",
     alt: "Placeholder",

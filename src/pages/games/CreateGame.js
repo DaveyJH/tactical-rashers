@@ -13,6 +13,9 @@ import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
 
+/**
+ * A page for creating a game
+ */
 const CreateGame = () => {
   useRedirect("loggedOut");
   const currentUser = useCurrentUser();

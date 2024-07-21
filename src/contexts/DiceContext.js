@@ -11,6 +11,9 @@ const SetDiceContext = createContext();
 export const useDice = () => useContext(DiceContext);
 export const useSetDice = () => useContext(SetDiceContext);
 
+/**
+ * Provides the dice data
+ */
 export const DiceProvider = ({ children }) => {
   const currentUser = useCurrentUser();
   const [dice, setDice] = useState({});
@@ -18,6 +21,9 @@ export const DiceProvider = ({ children }) => {
   const currentGameData = useCurrentGameData();
   const { id: gameId } = useParams();
 
+  /**
+   * Create a new dice roll
+   */
   const handleNewDiceRoll = async () => {
     try {
       const { data } = await axiosRes.post("/dice/", { game: gameId, owner: currentUser?.profile_id });

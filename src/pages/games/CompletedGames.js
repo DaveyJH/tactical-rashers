@@ -17,6 +17,9 @@ import WinLossCount from "../../components/counters/WinLossCount";
 
 import styles from "../../assets/css/games/GamesFeed.module.css";
 
+/**
+ * A page for displaying completed games for a user
+ */
 const CompletedGames = () => {
   const [games, setGames] = useState({ results: [] });
   const [hasLoaded, setHasLoaded] = useState(false);

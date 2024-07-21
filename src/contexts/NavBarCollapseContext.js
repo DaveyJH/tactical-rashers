@@ -6,6 +6,9 @@ const SetNavBarCollapseContext = createContext();
 export const useNavBarCollapse = () => useContext(NavBarCollapseContext);
 export const useSetNavBarCollapse = () => useContext(SetNavBarCollapseContext);
 
+/**
+ * Provides the navbar collapse state to allow better UX for the navbar
+ */
 export const NavBarCollapseProvider = ({ children }) => {
   const [expanded, setExpanded] = useState(false);
   const mainRef = useRef(null);
