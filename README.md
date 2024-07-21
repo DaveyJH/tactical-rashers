@@ -515,8 +515,7 @@ tracking" in the device's settings.*
 
 1. When signing in, a 404 or 400 error was being reported for a call to the API with a parameter of `"undefined"`.
 
-    This is likely due to the way the contexts are being implemented but a work
-    around has been to implement a check on not just the falsy value of
+    This is likely due to the way the contexts are being implemented but a workaround has been to implement a check on not just the falsy value of
     `undefined` but also on the string value of `"undefined"`. No further errors
     are being raised.
 
@@ -525,6 +524,15 @@ tracking" in the device's settings.*
     Rather than reconfiguring the back end to show a more appropriate error
     (ideal resolution), I have created a custom error message for these
     situations.
+
+1. If a user deleted their move games could show incorrect ordering of moves.
+
+    An additional check has been implemented via an API call. Unfortunately, due
+    to the lack off webhooks, this appears to be the only way to handle this
+    situation without extensive additional work. The additional network request
+    is unfortunate and seems to be best handled by a redesign of the back-end
+    models. There is not enough time to implement this change at this stage of
+    development, so the work around will have to suffice.
 
 ***
 

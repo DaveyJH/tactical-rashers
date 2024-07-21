@@ -27,6 +27,11 @@ export const DiceProvider = ({ children }) => {
    */
   const handleNewDiceRoll = async () => {
     try {
+      const { count: diceCount } = await axiosReq.get(`/dice/?game=${gameId}`);
+      const { count: movesCount } = await axiosReq.get(`/moves/?game=${gameId}`);
+      if (diceCount !== movesCount) {
+        throw Error ("Cannot roll dice with outstanding move - previous move was deleted.");
+      }
       const { data } = await axiosRes.post("/dice/", { game: gameId, owner: currentUser?.profile_id });
       setDice((prevState) => ({
         ...prevState,
