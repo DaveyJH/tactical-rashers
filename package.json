@@ -1,6 +1,6 @@
 {
   "name": "tactical-rashers",
-  "version": "0.2.0",
+  "version": "1.0.0",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
@@ -47,7 +47,7 @@
     "msw": "^0.35.0"
   },
   "engines": {
-    "node": "16.19.1",
-    "npm": "8.19.3"
+    "node": "16.20.2",
+    "npm": "8.19.4"
   }
 }
