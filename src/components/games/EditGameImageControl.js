@@ -54,8 +54,8 @@ const EditGameImageControl = () => {
       formData.append("image", imageInput.current.files[0]);
     }
     try {
-      await axiosReq.put(`/games/${game.id}/`, formData);
-      setCurrentGameData((prevState) => ({ ...prevState, image: gameImage }));
+      const { data } = await axiosReq.put(`/games/${game.id}/`, formData);
+      setCurrentGameData((prevState) => ({ ...prevState, image: data.image }));
       resetImageAndClose();
     } catch (err) {
       // console.error(err);
