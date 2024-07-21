@@ -52,7 +52,10 @@
     - [Current](#current)
     - [Resolved](#resolved)
   - [Agile](#agile)
+  - [Components](#components)
   - [Development](#development)
+    - [GitHub](#github)
+    - [VSCode](#vscode)
   - [Deployment](#deployment)
   - [Credits](#credits)
     - [Media](#media)
@@ -102,8 +105,6 @@ seamlessly with a DRF back end.
 Some example user stories that will affect the design. Please consult the
 [GitHub project board](https://github.com/users/DaveyJH/projects/8/views/4) for
 a full list of user concerns written in the form of GitHub issues.
-Alternatively, a
-[status graph can be viewed here](https://github.com/users/DaveyJH/projects/8/insights/6).
 
 Below is a non-exhaustive list of some of the user stories. Some of these are
 key user stories that must be achieved for an MVP to be considered complete:
@@ -508,46 +509,131 @@ when they are not players in that game.*
 
 ## Agile
 
-A GitHub project was created for the site's development. The project is shared between the back-end API and the front-end React application. Labels have been used to help organize the tasks involved and can be filtered as needed. There are multiple views already available on the [Project](https://github.com/users/DaveyJH/projects/8/views/1).
+A GitHub project was created for the site's development. The project is shared
+between the back-end API and the front-end React application. Labels have been
+used to help organize the tasks involved and can be filtered as needed. There
+are multiple views already available on the
+[Project](https://github.com/users/DaveyJH/projects/8/views/1).
 
-An Agile approach has been used to ensure an MVP has been created in time for release (project submission). Issues have sprint points assigned for their effort to complete and have been assigned to Milestones to reflect a sprint process. Sprints were started with a total story point availability of 20 and reviewed at the end of the sprint. The sprint point availability for my efforts was adjusted to allow a maximum of 25 within a sprint as the initial value was not reflective of my ability.
+An Agile approach has been used to ensure an MVP has been created in time for
+release (project submission). Issues have sprint points assigned for their
+effort to complete and have been assigned to Milestones to reflect a sprint
+process. Sprints were started with a total story point availability of 20 and
+reviewed at the end of the sprint. The sprint point availability for my efforts
+was adjusted to allow a maximum of 25 within a sprint as the initial value was
+not reflective of my ability.
 
-Separate views have been created for each sprint to allow a clear visual of the progress being made. Separate views for docs and user stories also exist for an overview.
+Separate views have been created for each sprint to allow a clear visual of the
+progress being made. Separate views for docs and user stories also exist for an
+overview.
+
+***
+
+## Components
+
+The React framework allows the reuse of components throughout a project to
+speed up development time. The components in this project have been separated
+into relevant directories and utilized where necessary. Some components are made
+up of smaller components, allowing for more concise files that are easier to
+maintain.
+
+The `GameBrief` component and the `DiceAndMoves` component are the most reused
+in this project and allow for a concise page structure, abstracting a lot of the
+logic to more suitable files. The `RulesSection` also allows for a non-technical
+maintainer to update the `RulesContent` object in a fairly straight forward way
+with little knowledge of how React itself works.
 
 ## Development
 
-<!-- section missed in first project. 
-!describe development process -->
+The site was developed using [git](https://git-scm.com/), [GitHub](#github) and
+[VSCode](#vscode). The repository is available for cloning or forking but no
+additional contributions will be accepted at this time.
+
+To clone the repo please see the steps below.
+
+### [GitHub](https://github.com)
+
+- Sign in to GitHub.
+
+![GitHub dashboard](./docs/assets/images/github-dashboard.png)
+
+- Navigate to the repository at https://github.com/DaveyJH/tactical-rashers,
+  click **&#60;&#62; Code &#9662;** and copy the URL provided.
+
+![GitHub dashboard](./docs/assets/images/clone-repo.png)
+
+- Proceed to your chosen method of cloning a repo and provide the copied URL
+  when needed.
+
+### [VSCode](https://code.visualstudio.com/)
+
+I have a number of extensions installed to aid my development in VSCode. The
+steps below work for me, but alternative methods are available. Please consult
+the relevant docs for various approaches. Node v16.20 was used to develop this
+application and is recommended for compatibility.
+
+- Open a `bash` terminal within VSCode and navigate to a parent directory for
+  your repository.
+
+![bash terminal](./docs/assets/images/bash-terminal.png)
+
+- Enter `git clone https://github.com/DaveyJH/tactical-rashers.git` (the URL
+  copied from GitHub). This will clone the repository into a new
+  directory called `tactical-rashers`.
+
+![clone command](./docs/assets/images/clone-command.png)
+
+- Enter the command `cd tactical-rashers && code . -r` to open the repository in
+  the current VSCode window.
+
+![clone command](./docs/assets/images/cd-tactical-rashers.png)
+
+- Enter the command `npm i` to install node packages.
+
+![clone command](./docs/assets/images/npm-i.png)
+
+- Ensure to update **line 3** of `src/api/axiosDefaults.js` with the URL of your
+  deployed back-end API.
 
 ## Deployment
 
-<!-- !check this section, may need adjusting as using additional languages -->
+The application is deployed on Heroku; the steps below detail the process to achieve this.
 
-<!-- **Github Pages**
-- Navigate to the relevant GitHub Repository [here](github repo URL)
-- Select "Settings" from the options below the name of the repository
+1. Ensure you have a Procfile with the following content:
+   ```
+    web: serve -s build
+   ```
+1. Navigate to your [Heroku dashboard](https://dashboard.heroku.com/apps)
+1. Click "New" and select "Create new app".  
+  ![New button on Heroku](./docs/assets/images/heroku-new.png)
+1. Input a meaningful name for your app and choose the region best suited to
+  your location.  
+  ![Create new app](./docs/assets/images/heroku-create.png)
+1. Select "Deploy" from the tabs.  
+![Settings tab](./docs/assets/images/heroku-deploy-tab.png)
+1. Select "GitHub - Connect to GitHub" from deployment methods.  
+ ![Select GitHub](./docs/assets/images/heroku-select-github.png)
+1. Click "Connect to GitHub" in the created section.  
+ ![Connect to GitHub](./docs/assets/images/heroku-connect-github.png)
+1. Search for the GitHub repository by name.  
+ ![Heroku repo search](./docs/assets/images/heroku-search.png)
+1. Click to connect to the relevant repo.  
+ ![Heroku connect to repo option](./docs/assets/images/heroku-connect-repo.png)
+1. Either click `Enable Automatic Deploys` for automatic deploys, or `Deploy
+ Branch` to deploy manually. Manually deployed branches will need
+ re-deploying each time the repo is updated.  
+ ![Heroku deploy branch](./docs/assets/images/heroku-deploy-branch.png)
+1. Click `View` to view the deployed site.  
+    ![Heroku view](./docs/assets/images/heroku-view.png)
 
-![Settings Snip](./readme-content/images/github-settings.png)
-- Select "Pages" from the left hand menu
+The live site can also be accessed from your repo in GitHub from the
+Deployments section of the repo.
 
-![Pages Snip](./readme-content/images/pages-select.png)
-- Select "Branch: main" as the source and leave the directory as "/(root)"
+- Click the link to view the deployment history.  
+  ![GitHub Deployments](./docs/assets/images/github-deployments.png)
+- Click the provided URL.  
+  ![GitHub view deployment](./docs/assets/images/github-view-deployment.png)
 
-![Source Snip](./readme-content/images/pages-source.png)
-
-- Click the Save button
-
-- Take note of the URL provided
-
-![URL Snip](./readme-content/images/pages-url.png)
-
-- GitHub takes a short while to publish the page. The bar turns green if you refresh the pages tab and the page has been deployed
-
-![Confirmed Deployment Snip](./readme-content/images/pages-deployed.png)
-- Click the link or copy the URL to a browser to reach the deployed page
-https://daveyjh.github.io/ci-portfolio-one-v4/
-
-The site is now live and operational -->
 ***
 
 ## Credits
@@ -557,8 +643,15 @@ The site is now live and operational -->
 - The favicon comes from [flaticon](https://www.flaticon.com/free-icon/backgammon_7399635?related_id=7399513&origin=search).
 
 ### Acknowledgments
-<!-- - acknowledge a, found at [b](bURL), for c -->
-<!-- - acknowledge d, found at [e](eURL), for f -->
+
+Thanks to [@CluelessBiker](https://github.com/CluelessBiker), my mentor for the
+project, as she helped me focus on the MVP and gave great support regarding the
+project planning process.
+
+As always, the wonderful staff at [Code Institute](https://codeinstitute.net/)
+for introducing me to this framework and providing me with the foundations to
+start developing this application.
+
 ***
 
 ### Personal Development

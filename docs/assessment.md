@@ -5,7 +5,7 @@ This assessment guide covers both the DRF back end and the React front end. Item
 ## Learning Outcomes
 
 - [x] LO1 | Design an interactive Front-End web application using HTML, CSS and advanced JavaScript, based on component composition and separation of concerns.
-- [ ] LO2 | Explain the key role that specialist Front-End developers perform in modern software development/delivery teams.
+- [x] LO2 | Explain the key role that specialist Front-End developers perform in modern software development/delivery teams.
 - [ ] ~~LO3 | Create an Application Programming Interface for consumption by 3rd party applications.~~
 - [x] LO4 | Create an Interactive Front-End application that consumes API data.
 
@@ -15,7 +15,7 @@ This assessment guide covers both the DRF back end and the React front end. Item
 - [x] 1.2 | Implement custom JSX (HTML, JavaScript and CSS) code to create a responsive, dynamic Front-End application consisting of one or more pages with relevant responses to user actions and a set of data manipulation functions.
 - [x] 1.3 | Write code that meets minimum standards for readability (comments, indentation, consistent and meaningful naming conventions).
 - [x] 1.4 | Name files consistently and descriptively, without spaces, capitalisation where recommended, to allow for cross-platform compatibility.
-- [ ] 1.5 | Document the deployment process for the Front-End application in the README file for the Front-End application.
+- [x] 1.5 | Document the deployment process for the Front-End application in the README file for the Front-End application.
 - [x] 1.6 | Ensure the security of the deployed version of the Front-End application, making sure to not include any passwords in the git repository, and that all secret keys are hidden in environment variables or in files that are in .gitignore, if applicable.
 - [x] 1.7 | Implement modular use of components and separation of concerns by incorporating component-specific files (i.e. one JavaScript file and, where applicable, one CSS file per component).
 - [x] 1.8 | Include class and/or functional components to build the application.
@@ -28,10 +28,10 @@ This assessment guide covers both the DRF back end and the React front end. Item
 
 ## LO2 Explain the key role that specialist Front-End developers perform in modern software development/delivery teams
 
-- [ ] 2.1 | Demonstrate an understanding of the React architecture by documenting the reuse of components in the README file for the Front-End application.
+- [x] 2.1 | Demonstrate an understanding of the React architecture by documenting the reuse of components in the README file for the Front-End application.
 - [x] 2.2 | Document the UX design work undertaken for the Front-End application, including any wireframes, mockups, diagrams, etc., created as part of the design process and its reasoning. Include diagrams created as part of the design process and demonstrate that these have been followed through to implementation.
 - [x] 2.3 | Describe what you set out to achieve in creating this application (project goals).
-- [ ] 2.4 | Document all User Stories and map them to the project goals in the README file for the Front-End application.
+- [x] 2.4 | Document all User Stories and map them to the project goals in the README file for the Front-End application.
 - [x] 2.5 | Use Github Projects to implement Agile project management methodology with User Stories mapped to relevant sprints.
 - [x] 2.6 | Document Front-End libraries you have used for specific features included in the application and justify your choice in the README file for the Front-End application.
 
