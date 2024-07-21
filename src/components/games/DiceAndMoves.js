@@ -26,9 +26,9 @@ import styles from "../../assets/css/games/DiceAndMoves.module.css";
 const DiceAndMoves = () => {
   const currentUser = useCurrentUser();
   const game = useCurrentGameData();
-  const dice = useDice();
+  const { dice, error: diceError } = useDice();
   const { setDice } = useSetDice();
-  const { moves, error } = useMoves();
+  const { moves, error: moveError } = useMoves();
   const { setMoves } = useSetMoves();
 
   // move/dice logic checks
@@ -59,6 +59,13 @@ const DiceAndMoves = () => {
           </Card.Body>
           <hr />
           <Dice />
+          {diceError && (
+            <div>
+              <Alert className={`${styles.Alert} mt-2`} variant="warning">
+                {diceError.message}
+              </Alert>
+            </div>
+          )}
         </Card>
       ) : (
         isAllowedToMove() && (
@@ -94,10 +101,10 @@ const DiceAndMoves = () => {
                   </Card.Body>
                 </>
               )}
-              {i === 0 && error && (
+              {i === 0 && moveError && (
                 <div>
                   <Alert className={`${styles.Alert} mt-2`} variant="warning" key={i}>
-                    {error.message}
+                    {moveError.message}
                   </Alert>
                 </div>
               )}

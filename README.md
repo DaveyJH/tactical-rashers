@@ -505,6 +505,19 @@ when they are not players in that game.*
 
     ![a win count not showing the correct number](./docs/assets/images/no-wins-count.png)
 
+1. When signing in, a 404 or 400 error was being reported for a call to the API with a parameter of `"undefined"`.
+
+    This is likely due to the way the contexts are being implemented but a work
+    around has been to implement a check on not just the falsy value of
+    `undefined` but also on the string value of `"undefined"`. No further errors
+    are being raised.
+
+1. Move and dice-related error messages were not helpful to users.
+
+    Rather than reconfiguring the back end to show a more appropriate error
+    (ideal resolution), I have created a custom error message for these
+    situations.
+
 ***
 
 ## Agile

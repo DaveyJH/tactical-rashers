@@ -46,13 +46,6 @@ export const MovesProvider = ({ children }) => {
 
   const handleDeleteMove = async (moveId) => {
     try {
-      if (
-        currentGameData?.latest_move_id !== moveId ||
-        currentGameData?.dice_rolls?.length > moves?.length ||
-        !currentGameData?.active
-      ) {
-        throw new Error("Cannot delete move, please refresh to see the latest game state.");
-      }
       await axiosReq.delete(`/moves/${moveId}`);
       setMoves((prevState) => ({
         ...prevState,
@@ -66,7 +59,7 @@ export const MovesProvider = ({ children }) => {
       }));
       setError(null);
     } catch (err) {
-      setError(err);
+      setError({ message: "Cannot delete move, please refresh to see the latest game state." });
       // console.error(err);
     }
   };

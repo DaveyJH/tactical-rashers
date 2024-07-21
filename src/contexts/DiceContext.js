@@ -17,6 +17,7 @@ export const useSetDice = () => useContext(SetDiceContext);
 export const DiceProvider = ({ children }) => {
   const currentUser = useCurrentUser();
   const [dice, setDice] = useState({});
+  const [error, setError] = useState(null);
   const { setCurrentGameData } = useSetCurrentGameData();
   const currentGameData = useCurrentGameData();
   const { id: gameId } = useParams();
@@ -36,7 +37,9 @@ export const DiceProvider = ({ children }) => {
         ...prevState,
         dice_rolls: [data.id, ...currentGameData.dice_rolls],
       }));
+      setError(null);
     } catch (err) {
+      setError({ message: "Cannot roll dice, please refresh to see the latest game state." });
       // console.error(err);
     }
   };
@@ -57,7 +60,7 @@ export const DiceProvider = ({ children }) => {
   }, [gameId]);
 
   return (
-    <DiceContext.Provider value={dice}>
+    <DiceContext.Provider value={{ dice, error }}>
       <SetDiceContext.Provider value={{ setDice, handleNewDiceRoll }}>{children}</SetDiceContext.Provider>
     </DiceContext.Provider>
   );
