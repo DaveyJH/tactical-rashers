@@ -16,6 +16,7 @@ import Game from "./pages/games/Game";
 import GamesFeed from "./pages/games/GamesFeed";
 import ActiveGames from "./pages/games/ActiveGames";
 import CompletedGames from "./pages/games/CompletedGames";
+import ErrorPage404 from "./pages/ErrorPage404";
 
 import styles from "./assets/css/App.module.css";
 
@@ -37,7 +38,7 @@ function App() {
             <Route path="/rules" render={() => <Rules />} />
             <Route path="/sign-in" render={() => <SignIn />} />
             <Route path="/sign-up" render={() => <SignUp />} />
-            <Route render={() => <h1>404: page not found</h1>} />
+            <Route render={() => <ErrorPage404 />} />
           </Switch>
         </Container>
       </main>
