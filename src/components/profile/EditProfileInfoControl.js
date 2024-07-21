@@ -44,7 +44,9 @@ const EditProfileInfoControl = ({ show, handleClose }) => {
       resetAndClose();
     } catch (err) {
       // console.error(err);
-      setErrors(err.response?.data);
+      if (err.response?.status !== 401) {
+        setErrors(err.response?.data);
+      }
     }
   };
   return (
