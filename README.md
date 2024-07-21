@@ -32,16 +32,29 @@
       - [Imagery](#imagery)
   - [Features](#features)
     - [Existing Features](#existing-features)
-    - [Features Left to Implement](#features-left-to-implement)
+    - [Future Features](#future-features)
   - [Technologies Used](#technologies-used)
+    - [Node packages](#node-packages)
+    - [Other Tech](#other-tech)
+      - [*ScreenToGif*](#screentogif)
+      - [*Windows Snipping Tool*](#windows-snipping-tool)
+      - [*Visual Studio Code*](#visual-studio-code)
+      - [*WAVE Evaluation Tool*](#wave-evaluation-tool)
+      - [*IBM Equal Access Accessibility Checker*](#ibm-equal-access-accessibility-checker)
+      - [VSCode Extensions](#vscode-extensions)
   - [Testing](#testing)
+    - [Manual testing](#manual-testing)
+    - [JavaScript testing](#javascript-testing)
+    - [HTML Validation](#html-validation)
+    - [CSS Validation](#css-validation)
+    - [Lighthouse testing](#lighthouse-testing)
   - [Bugs](#bugs)
     - [Current](#current)
     - [Resolved](#resolved)
+  - [Agile](#agile)
   - [Development](#development)
   - [Deployment](#deployment)
   - [Credits](#credits)
-    - [Content](#content)
     - [Media](#media)
     - [Acknowledgments](#acknowledgments)
     - [Personal Development](#personal-development)
@@ -51,7 +64,7 @@
 ## Objective
 
 This site is to represent capabilities with React. It will connect with a DRF
-back end, allowing full CRUD functionality with well handled user interactions.
+back end, allowing full CRUD functionality with well-handled user interactions.
 
 The assessment checklist is available to view in the
 [`docs/` directory](https://github.com/DaveyJH/tactical-rashers/tree/main/docs)
@@ -145,6 +158,15 @@ sizes. The `.bmpr` file is available for editing from within this repository.
 
 ![mobile wireframe example](./docs/assets/images/mobile-example.png)
 
+Working within an agile methodology, the time constraints on the project and the
+focus on "Must have" items have left too little time to add some of the UX
+features shown in the wireframes. The biggest item missing is the "Top three"
+players but the overall functionality of the site is not negatively impacted.
+
+The layout for larger screens is not as pleasing as it could have been but the
+functionality is, again, not impaired. If the site is to be further developed, a
+UX/UI designer would be considered to assist where my skill set is lacking.
+
 ***
 
 #### Color Scheme
@@ -194,99 +216,303 @@ images can be found in the [Media](#media) section at the bottom of this doc.
 
 ### Existing Features
 
-<!-- - Feature 1 - allows users X to achieve Y, by having them fill out Z -->
-<!-- 1. feature1
->*"User... **story quote**"*
-- *explanation*-->
-F1
-***
-<!-- - Feature 2 - allows users X to achieve Y, by having them fill out Z -->
-<!-- 1. feature2
->*"User... **story quote**"*
-- *explanation*
-  ![imgName](imgURL)
--->
-F2
+- Create account
+  > *"As a **potential user**, I would like to be **able to create a profile** so
+  > that I **am able to play**"*
+
+  New users of the site can create a profile that enables the creation of, and
+  participation in, games.
+
+- Log in
+  > *"As a **returning user**, I would like to **log in to my account** so that I
+  > can **interact with the features of the site**"*
+
+  Existing users of the site can log in to their account.
+
+- Log out
+  > *"As a **signed in user**, I would like to **log out of my account** so that I
+  > can **protect my account on shared devices**"*
+
+  Existing users of the site can log out of their accounts.
+
+- Create game
+  > *"As a **returning user**, I would like **to play a game with another
+  > player** so that I can **enjoy the game of backgammon**"*
+
+  Existing users can create games with other players.
+
+- Find relevant games
+  > *"As a **returning user**, I would like **to play a game with another
+  > player** so that I can **enjoy the game of backgammon**"*
+
+  > *"As a **returning user**, I would like to **view my currently active games**
+  > so that I can **track the progress of, and make new moves on, my games in
+  > play**"*
+
+  Games can be filtered and searched via the use of the player search bar. This
+  is possible on the games feed, and also in their active/completed pages.
+
+- Roll dice
+  > *"As a **returning user**, I would like **to play a game with another
+  > player** so that I can **enjoy the game of backgammon**"*
+
+  Dice rolls can be made in games.
+
+- Make a move
+  > *"As a **returning user**, I would like **to play a game with another
+  > player** so that I can **enjoy the game of backgammon**"*
+
+  Moves can be noted in games. The most recent move can also be deleted or
+  edited by the relevant user.
+
+- Winner selection
+  > *"As a **returning user**, I would like **to play a game with another
+  > player** so that I can **enjoy the game of backgammon**"*
+
+  Game winners can be specified.
+
+- Mark completed game
+  > *"As a **returning user**, I would like **to play a game with another
+  > player** so that I can **enjoy the game of backgammon**"*
+
+  Games can be marked as active/complete via the submission of a winner.
+
+- Update game image
+  > *"As a **returning user**, I would like **to play a game with another
+  > player** so that I can **enjoy the game of backgammon**"*
+
+  Game images can be updated by players.
+
+- Profile editing
+  > *"As a **potential user**, I would like to be **able to create a profile** so
+  > that I **am able to play**"*
+
+  Users can update their profile with some information about themself and an
+  avatar.
+
+- Display games records
+  > *"As a **returning user**, I would like to **view my currently active games**
+  > so that I can **track the progress of, and make new moves on, my games in
+  > play**"*
+
+  Games can be filtered and searched and winners and move counts are tracked.
+
 ***
 
-### Features Left to Implement
+### Future Features
 
-<!-- features left to implement -->
-<!-- 1. Explain desired feature 1
-  - *Notes regarding feature*
-  - Explanation of feature need etc. -->
-<!-- 2. Explain desired feature 2
-  - *Notes regarding feature*
-  - Explanation of feature need etc. -->
+- Display game requests
+  > *"As a **returning user**, I would like **to play a game with another
+  > player** so that I can **enjoy the game of backgammon**"*
+
+  Games can be initiated with any other player in the current iteration. It
+  would be nice to implement a "request" feature that allows the requested
+  player to accept/reject the invitation.
+
+- Comment on completed games
+  > *"As a **returning user**, I would like **to comment on completed games** so
+  > that I can **interact with other users of the site**"*
+
+  This has not been worked on for this iteration. Adding this feature would
+  encourage more social interaction with the site. A `Comment` model would be
+  similar to the `Move` model and would only be available on games that are
+  marked as complete (not active).
+
+- Mark game as public
+  > *"As a **returning user**, I would like **to play a game with another
+  > player** so that I can **enjoy the game of backgammon**"*
+
+  > *"As a **returning user**, I would like **to comment on completed games** so
+  > that I can **interact with other users of the site**"*
+
+  This feature would allow all site users to view currently active games and,
+  depending on the features permitted by the players, allow comments from
+  non-players during the game. For this iteration, games will only be available
+  to public and non-player users once they are marked as not active.
+
 ***
 
 ## Technologies Used
 
-<!-- tech used -->
-<!-- - *[techNameOne](techURL)*
-       - Description -->
-<!-- - *[techNameTwo](techURL)*
-       - Description -->
+### Node packages
+
+The site is built using React v17. Additional packages include:
+
+| package name | purpose                                                      |
+| -----------: | ------------------------------------------------------------ |
+| axios        | Enables network requests in a concise manner                 |
+| react-bootstrap | Provides bootstrap via React components for quicker UX implementation |
+| react-infinite-scroll-component | A component that allows data to be loaded in a fairly seamless manner leading to a single page for large sets of data |
+| sass         | Enables customisation of bootstrap default values to reduce CSS file size and complexity |
+| jwt-decode   | Handles JSON web tokens                                      |
+
+*Further package details can be found in the `package.json` file.*
+
+### Other Tech
+
+#### *[ScreenToGif](https://www.screentogif.com/)*
+
+A screen recording tool that provides a quick and easy method to record
+some UI features.
+
+#### *[Windows Snipping Tool](https://support.microsoft.com/en-us/windows/use-snipping-tool-to-capture-screenshots-00246869-1843-655f-f220-97299b865f6b)*
+
+A screenshot tool built into Windows. It allows quick, partial screenshots
+to be taken that can be saved as image files.
+
+#### *[Visual Studio Code](https://code.visualstudio.com/)*
+
+A free, streamlined code editor. The [extensions](#vscode-extensions)
+available have allowed me to customize my workspace and become more
+efficient.
+
+#### *[WAVE Evaluation Tool](https://chromewebstore.google.com/detail/wave-evaluation-tool/jbbplnpkjmmeebjpijfedlgcdilocofh)*
+
+WAVE is a web accessibility evaluation tool developed by WebAIM.org.
+
+#### *[IBM Equal Access Accessibility Checker](https://chromewebstore.google.com/detail/ibm-equal-access-accessib/lkcagbfjnkomcinoddgooolagloogehp)*
+
+The IBM Equal Access Accessibility Checker is an open-source tool for web
+developers and auditors that utilizes IBM's accessibility rule engine, which
+detects accessibility issues for web pages and web applications.
+
+#### VSCode Extensions
+
+Links to the VSCode marketplace for each extension used throughout this project:
+
+- [Better Comments](https://marketplace.visualstudio.com/items?itemName=aaron-bond.better-comments)
+- [GitHub Pull Request and Issue Provider](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github)
+- [Highlight Matching Tag](https://marketplace.visualstudio.com/items?itemName=vincaslt.highlight-matching-tag)
+- [Markdown All in One](https://marketplace.visualstudio.com/items?itemName=yzhang.markdown-all-in-one)
+- [markdownlint](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint)
+- [Reflow Markdown](https://marketplace.visualstudio.com/items?itemName=marvhen.reflow-markdown)
+- [Code Spell Checker](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker)
+- [Prettier - Code formatter](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
+- [ES7 React Snippets](https://marketplace.visualstudio.com/items?itemName=dsznajder.es7-react-js-snippets)
+- [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
+
+***
 
 ## Testing
 
-<!-- explain testing
+### Manual testing
 
- npx eslint src --ext .js --format json --output-file docs/tests/eslint.json
+The features of the site have been extensively tested throughout the development process.
 
-? item tested
-? expected result
-? how test was performed
-? actual result
-? differences
-? action required
-? re-test
-- more detail and better format required compared with project 1
-look at daisy's testing documentation and [webinar](https://us02web.zoom.us/rec/play/9FIKllHX2ZiQNFRhYPn_hBh_ZeA8964ZvIDLnhpKGAf1NLVc3_hBJ6zSL8Hv5Hx7ALnPtDmbg8CmFAs.YVsZ9LR_uI7OjEwH)-->
+- Multiple users created
+- Multiple games created with a variety of different users as players
+- Dice and moves created in the appropriate games
+- Moves updated and deleted where appropriate
+- Profiles updated, including images, info and passwords and confirmed as
+  non-editable by unauthorised users
+- Search features tested with various usernames
+- Active/completed pages viewed by authorized user and confirmed as not-viewable
+  by an unauthorized user
+- Sign-in, -up and -out functionality confirmed as working as intended
+- Games are viewable as expected
+  - A user can view an active game that they are not a part of if they type the
+    game ID into the relevant URL. However, they cannot interact with the game
+    so this is acceptable for this iteration of release.
+- Full CRUD functionality exists depending on user authorization and game status
 
-<!-- validation of html, css and script. -->
-<!-- lighthouse testing -->
+All data generated during development has been removed from the database.
+
+### JavaScript testing
+
+ESLint has been run on the entire `src` directory, using the command below, and
+[saved in JSON format](./docs/tests/eslint.json). The output has been formatted
+for easier readability. No errors have been reported.
+
+`npx eslint src --ext .js --format json --output-file docs/tests/eslint.json`
+
+### HTML Validation
+
+As the majority of content is written in JSX it is impractical to use a standard
+HTML validator such as [W3C](https://validator.w3.org/). All pages have been
+viewed in Google Chrome with the
+[WAVE web accessibility evaluation tool](https://chromewebstore.google.com/detail/wave-evaluation-tool/jbbplnpkjmmeebjpijfedlgcdilocofh)
+and no errors have been reported. Further tests were done using
+[IBM's Equal Access Accessibility Checker](https://chromewebstore.google.com/detail/ibm-equal-access-accessib/lkcagbfjnkomcinoddgooolagloogehp)
+and the only errors raised were from packages utilized and not from code written
+by me.
+
+### CSS Validation
+
+All CSS file contents have been run through the
+[W3C Jigsaw validator](https://jigsaw.w3.org/css-validator/#validate_by_input)
+with no errors reported.
+
+![CSS validation results](./docs/assets/images/css-validation.png)
+
+### Lighthouse testing
+
+Lighthouse testing has been performed. The results are satisfactory with the
+suggested modifications mainly relating to image formats that would need to be
+handled when uploading. There are warnings about load times due to the API calls
+but there is a significant indication to users that this is happening.
+
+![lighthouse results](./docs/assets/images/lighthouse-results.png)
+
+***
 
 ## Bugs
 
 ### Current
 
-<!-- current bugs -->
+1. A user can view an active game if they are not a player of that game.
 
-<!-- - bugOne explanation
+*Due to the rendering cycle and the load times of various data. Time has not
+been spent to implement the redirection of users away from games that are active
+when they are not players in that game.*
 
-updating profile image will not update game profile image
-
-*notes on explanation* -->
-***
-<!-- - bugTwo explanation
-
-*notes on explanation* -->
 ***
 
 ### Resolved
 
-<!-- resolved bugs -->
-<!-- 1. overriding bootstrap styles
+1. Bootstrap styles were overriding the intended site styling.
+  
+    Installed `sass` and created `override.scss` file linked in `index.js` to allow
+    modification of Bootstrap variables
 
-install sass and create override.scss file linked in index.js
+    *https://create-react-app.dev/docs/adding-bootstrap/#using-a-custom-theme*
 
-https://create-react-app.dev/docs/adding-bootstrap/#using-a-custom-theme
+    ![bootstrap styling](./docs/assets/images/bootstrap-style.png)
 
-![bootstrap styling](./docs/assets/images/bootstrap-style.png)
+1. The button for image uploads was not enabled when it should be.
+1. If canceling an image upload, the image shown remained as the newly selected
+   image rather than reverting to the original game image.
+  
+    Modified logic for `enabled` prop on the component and updated close method
+    of modal.
 
-*Commit - **[sha](commit link with highlighted lines)** - explanation of fix* -->
+    ![image upload button bug](./docs/assets/images/image-upload-bugs.gif)
+
+1. Selecting an opponent was not possible.
+
+    The context for all profiles was updated to remove the need to query the
+    `data` property of the object and had not been updated in the dropdown
+    population code. Removal of the `data` property has allowed the list to be
+    populated with all profile names (other than the currently logged in user)/
+
+    ![select opponent dropdown with no options](./docs/assets/images/no-opponents.png)
+
+1. Declaring a win in a game did not always register in the win counter
+   component.
+
+    Winner declaration was changed to update relevant contexts so that updated
+    information is shown to a user.
+
+    ![a win count not showing the correct number](./docs/assets/images/no-wins-count.png)
+
 ***
-<!-- 1. bugTwo
 
-- enable button for image upload
+## Agile
 
-- select opponent
+A GitHub project was created for the site's development. The project is shared between the back-end API and the front-end React application. Labels have been used to help organize the tasks involved and can be filtered as needed. There are multiple views already available on the [Project](https://github.com/users/DaveyJH/projects/8/views/1).
 
-![bugTwoImg](bugTwoImgURL)
+An Agile approach has been used to ensure an MVP has been created in time for release (project submission). Issues have sprint points assigned for their effort to complete and have been assigned to Milestones to reflect a sprint process. Sprints were started with a total story point availability of 20 and reviewed at the end of the sprint. The sprint point availability for my efforts was adjusted to allow a maximum of 25 within a sprint as the initial value was not reflective of my ability.
 
-*Commit - **[sha](commit link with highlighted lines)** - explanation of fix* -->
-***
+Separate views have been created for each sprint to allow a clear visual of the progress being made. Separate views for docs and user stories also exist for an overview.
 
 ## Development
 
@@ -326,12 +552,10 @@ The site is now live and operational -->
 
 ## Credits
 
-### Content
-<!-- - the a comes from b -->
-<!-- - the c comes from d -->
 ### Media
-<!-- - the favicon comes from https://www.flaticon.com/free-icon/backgammon_7399635?related_id=7399513&origin=search -->
-<!-- - the c comes from d -->
+
+- The favicon comes from [flaticon](https://www.flaticon.com/free-icon/backgammon_7399635?related_id=7399513&origin=search).
+
 ### Acknowledgments
 <!-- - acknowledge a, found at [b](bURL), for c -->
 <!-- - acknowledge d, found at [e](eURL), for f -->
@@ -339,4 +563,14 @@ The site is now live and operational -->
 
 ### Personal Development
 
-<!-- notes -->
+Having now built my own React project with very little starter code, I would
+approach various elements differently. I am unhappy with the styling of the
+site, but the assessment criteria do not require a high-quality level of
+front-end design, only that it meets the principles of UX design. I would be
+unlikely to use Bootstrap so broadly as it leads to a particular look that is
+not very tailor-made unless a lot more time is spent overriding it. Now that I
+feel I have a better understanding of how things piece together in React, I
+would prefer to develop the back end at the same time as the front, with each
+user story for the front and back being completed simultaneously. If this is not
+possible on a project, I feel I have more knowledge to provide a better
+foundation in the back end for the front end to integrate with.
