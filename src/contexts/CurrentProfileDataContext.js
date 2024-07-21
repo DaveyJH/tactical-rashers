@@ -18,6 +18,7 @@ export const CurrentProfileDataProvider = ({ children }) => {
 
   useEffect(() => {
     const handleMount = async () => {
+      if (!id) return;
       try {
         const { data } = await axiosReq.get(`/profiles/${id}`);
         setCurrentProfileData((prevState) => ({
