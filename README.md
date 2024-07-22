@@ -1,5 +1,7 @@
-# Name of project
-<!-- ![Multiple Device Demo](./readme-content/images/multi-device.png) -->
+# Tactical Rashers
+
+![website header](./docs/assets/images/header.png)
+
 ## Live Site
 
 [Tactical Rashers](https://tactical-rashers-a603b7e7b041.herokuapp.com/)
@@ -12,13 +14,13 @@
 
 ## Table of Contents
 
-- [Name of project](#name-of-project)
+- [Tactical Rashers](#tactical-rashers)
   - [Live Site](#live-site)
   - [Repository](#repository)
   - [Table of Contents](#table-of-contents)
   - [Objective](#objective)
   - [Brief](#brief)
-    - [Tactical Rashers](#tactical-rashers)
+    - [Tactical Rashers](#tactical-rashers-1)
   - [UX − User Experience Design](#ux--user-experience-design)
     - [User Requirements](#user-requirements)
       - [First Time User](#first-time-user)
